@@ -1,0 +1,10 @@
+{
+  "name": "juliosoto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jsberlanga/portfolio-v2.git",
+  "author": "Julio Soto <jsberlanga@gmail.com>",
+  "license": "MIT",
+  "workspaces":["packages/*"],
+  "private": true
+}

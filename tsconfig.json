@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "packages",
+    "paths": {
+      "@pages/*": ["./portfolio/src/pages/*"],
+      "@components/*": ["./portfolio/src/components/*"],
+      "@lib/*": ["./portfolio/src/lib/*"],
+    }, 
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",],
+  "exclude": ["node_modules", "**/*.spec.*"]
+}
