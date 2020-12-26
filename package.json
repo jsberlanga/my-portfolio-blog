@@ -25,9 +25,10 @@
     "jest": "^26.6.3",
     "jest-emotion": "^11.0.0",
     "jest-fetch-mock": "^3.0.3",
+    "lerna": "^3.22.1",
     "ts-jest": "^26.4.4"
   },
   "scripts": {
-    "test": "jest"
+    "clean": "lerna clean --y"
   }
 }

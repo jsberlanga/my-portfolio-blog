@@ -3,7 +3,4 @@ const baseConfig = require('../jest.config');
 
 module.exports = {
   ...baseConfig,
-  // moduleNameMapper: {
-  //   '@juliosoto/components/(.*)': '<rootDir>/packages/components/$1',
-  // },
 };

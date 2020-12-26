@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "version": "independent",
+  "ignoreChanges": [
+    "**/__snapshots__/**",
+    "**/__mocks__/**",
+    "**/__fixtures__/**",
+    "**/*.spec.ts*",
+    "**/*.md"
+  ]
+}
