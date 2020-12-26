@@ -23,7 +23,7 @@ export const typeScale = `
     outline: none;
     background: none;
     border: none;
-    font-size: initial;
+    font-size: inherit;
     font-family: var(--ff-body);
   }
 

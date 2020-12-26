@@ -7,10 +7,10 @@ const BlogNavbar = () => {
       links={
         <React.Fragment>
           <li>
-            <a href="https://portfolio.juliosoto.dev/">posts</a>
+            <a href="https://portfolio.juliosoto.dev/">/posts</a>
           </li>
           <li>
-            <a href="https://portfolio.juliosoto.dev/">portfolio</a>
+            <a href="https://portfolio.juliosoto.dev/">/portfolio</a>
           </li>
         </React.Fragment>
       }
