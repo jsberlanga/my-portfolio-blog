@@ -23,7 +23,8 @@ export const typeScale = `
     outline: none;
     background: none;
     border: none;
-    font-size: 1rem;
+    font-size: initial;
+    font-family: var(--ff-body);
   }
 
 
@@ -60,20 +61,20 @@ export const typeScale = `
     font-size: 1.25rem;
   }
 
-  .small,
-  .text_small {
-    font-size: 0.9rem;
-  }
-
   .highlighted-text {
     position: relative;
     color: var(--c-special);
     font-weight: 600;
   }
-  
+
+  .small,
+  .text_small {
+    font-size: 0.9rem !important;
+  }
+
   .xsmall,
   .text_xsmall {
-    font-size: 0.8rem;
+    font-size: 0.8rem !important;
   }
 
   ${getMQ('tablet-up')} {        

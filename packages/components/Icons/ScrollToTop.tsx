@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { getMQ } from "@juliosoto/utils/styles";
+import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = css`
   cursor: pointer;
   width: 3rem;
   float: right;
 
-  ${getMQ("desktop")} {
+  ${getMQ('desktop')} {
     position: absolute;
     width: 3rem;
     bottom: 0;
@@ -18,7 +18,7 @@ const styles = css`
 const handleScrollToTop = () =>
   scrollTo({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 
 const ScrollToTop: React.FC = () => {

@@ -1,6 +1,6 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/utils/styles';
-import * as React from 'react';
 
 const styles = css`
   ${getMQ('mobile')} {

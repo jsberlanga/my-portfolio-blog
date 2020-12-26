@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { css } from '@emotion/react';
 
 const ExternalLink: React.FC = () => (
   <svg viewBox="4 3 16 19" version="1.1" x="0px" y="0px">

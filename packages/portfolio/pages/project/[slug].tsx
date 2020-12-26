@@ -78,8 +78,6 @@ export default function Project({ project, adjacentProjects }) {
     return <NotFound />;
   }
 
-  console.log({ adjacentProjects });
-
   return (
     <React.Fragment>
       <Head>

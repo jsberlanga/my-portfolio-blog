@@ -9,7 +9,4 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageReporters: ['text', 'html'],
   snapshotSerializers: ['@emotion/jest/serializer'],
-  // moduleNameMapper: {
-  //   '@juliosoto/components/(.*)': '<rootDir>/packages/components/$1',
-  // },
 };

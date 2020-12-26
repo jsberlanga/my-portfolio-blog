@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "prettier --write .",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
+    "typecheck": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.1.2",

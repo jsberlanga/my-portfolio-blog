@@ -3,8 +3,8 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Github } from '../Icons';
-import { getMQ } from '@juliosoto/utils/styles';
 import ThemeSwitch from '../ThemeSwitch';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {
   root: css`
@@ -32,6 +32,7 @@ const styles = {
       ${getMQ('desktop')} {
         display: grid;
         grid-auto-flow: column;
+        place-items: start;
         column-gap: 1.5rem;
       }
     }
@@ -59,12 +60,18 @@ const Navbar: React.FC = () => {
         <a className="name small">julio soto</a>
       </Link>
       <div className="links">
-        <Link href="https://blog.juliosoto.dev">
+        <Link href="https://blog.juliosoto.dev/?theme=dark">
           <a>blog</a>
         </Link>
-        <button onClick={() => handleClick('#work')}>work</button>
-        <button onClick={() => handleClick('#about')}>about</button>
-        <button onClick={() => handleClick('#contact')}>contact</button>
+        <a href="#" onClick={() => handleClick('#work')}>
+          work
+        </a>
+        <a href="#" onClick={() => handleClick('#about')}>
+          about
+        </a>
+        <a href="#" onClick={() => handleClick('#contact')}>
+          contact
+        </a>
         <a
           href="https://github.com/jsberlanga"
           target="_blank"
@@ -72,7 +79,9 @@ const Navbar: React.FC = () => {
         >
           <Github />
         </a>
-        <ThemeSwitch />
+        <a href="#">
+          <ThemeSwitch />
+        </a>
       </div>
     </nav>
   );

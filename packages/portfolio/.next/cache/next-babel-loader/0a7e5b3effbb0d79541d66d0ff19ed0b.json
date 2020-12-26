@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from './Document';","map":{"version":3,"sources":["/Users/juliosoto/Documents/dev/portfolio-v3/node_modules/@juliosoto/components/Document/index.ts"],"names":["default"],"mappings":"AAAA,SAASA,OAAT,QAAwB,YAAxB","sourcesContent":["export { default } from './Document';\n"]},"metadata":{},"sourceType":"module"}
