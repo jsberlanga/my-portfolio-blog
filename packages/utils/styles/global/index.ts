@@ -11,7 +11,6 @@ export const globalStyles = `
     color: var(--c-text);
     background-color: var(--c-background);
     font-family: Inter, 'sans-serif';
-    transition: background-color 400ms, color 400ms;
   
     &::after {
       position: fixed;

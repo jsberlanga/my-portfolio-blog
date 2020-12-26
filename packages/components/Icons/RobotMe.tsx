@@ -1,14 +1,14 @@
-import { css } from "@emotion/react";
-import { getMQ } from "@juliosoto/utils/styles";
-import * as React from "react";
+import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
+import * as React from 'react';
 
 const styles = css`
-  ${getMQ("mobile")} {
+  ${getMQ('mobile')} {
     display: none;
   }
 `;
 
-const RobotMe: React.FC<any> = ({ fill = "var(--c-text)" }) => (
+const RobotMe: React.FC<any> = ({ fill = 'var(--c-text)' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 150 145"
@@ -25,4 +25,4 @@ const RobotMe: React.FC<any> = ({ fill = "var(--c-text)" }) => (
   </svg>
 );
 
-export { RobotMe };
+export default RobotMe;

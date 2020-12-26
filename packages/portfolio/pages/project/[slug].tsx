@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
-import NotFound from '../../pages/404';
+import NotFound from '../404';
 import { css } from '@emotion/react';
 import ProjectHeader from '../../components/ProjectHeader';
 import ProjectInfo from '../../components/ProjectInfo';

@@ -1,5 +1,5 @@
 export * from './RobotHi';
-export * from './RobotMe';
+export { default as RobotMe } from './RobotMe';
 export * from './RobotLost';
 export * from './GoBack';
 export * from './GoNext';

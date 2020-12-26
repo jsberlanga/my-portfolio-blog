@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/utils/styles';
 import * as React from 'react';
+import { Interface } from 'readline';
 
 const styles = {
   root: css`
@@ -30,7 +31,12 @@ const styles = {
   `,
 };
 
-const SectionHeader: React.FC<any> = ({ label, subtitle }) => {
+interface SectionHeaderProps {
+  label: JSX.Element;
+  subtitle: JSX.Element | string;
+}
+
+const SectionHeader: React.FC<SectionHeaderProps> = ({ label, subtitle }) => {
   return (
     <div css={styles.root}>
       <h2 className="section-label">{label}</h2>

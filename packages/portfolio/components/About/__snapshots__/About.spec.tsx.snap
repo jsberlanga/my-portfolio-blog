@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About renders correctly 1`] = `
+.emotion-0 {
+  margin-bottom: var(--gap-bottom);
+}
+
+.emotion-0 .section-content {
+  max-width: 50rem;
+  line-height: 1.8em;
+  margin-bottom: var(--gap-bottom);
+}
+
+.emotion-1 {
+  margin-bottom: var(--gap-unit);
+}
+
+.emotion-1 .section-label {
+  font-weight: 800;
+  position: relative;
+}
+
+.emotion-1 .section-label svg {
+  height: 4rem;
+}
+
+.emotion-1 .section-label svg 500 {
+  height: 6rem;
+}
+
+.emotion-1 .section-subtitle {
+  font-size: 0.8rem;
+  margin-bottom: var(--gap-unit-s);
+}
+
+.emotion-1 .section-subtitle 500 {
+  font-size: 1rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.emotion-2>div {
+  margin-bottom: var(--gap-bottom);
+}
+
+.emotion-2 500 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 .info-skills {
+  background-color: var(--c-background-02);
+  color: var(--c-light-02);
+  padding: var(--gap);
+  width: 100vw;
+  margin-left: calc(var(--gap) * -1);
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}
+
+.emotion-2 .info-skills 500 {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 30%;
+  margin-left: 2rem;
+  padding: 2rem 3rem;
+  border-radius: 4px;
+}
+
+.emotion-2 .info-experiences {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.emotion-2 .info-experiences 500 {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  margin-right: 2rem;
+  width: 70%;
+}
+
+<div>
+  <div
+    class="emotion-0"
+    id="about"
+  >
+    <div
+      class="emotion-1"
+    >
+      <h2
+        class="section-label"
+      >
+        a bit about me 
+        <svg>
+          RobotMe
+        </svg>
+      </h2>
+      <p
+        class="section-subtitle"
+      >
+        and how I ended up being a Software Engineer
+      </p>
+    </div>
+    <p
+      class="section-content"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quibusdam corporis id quisquam libero ad quo eos beatae nisi rem deserunt, placeat expedita distinctio, molestiae in debitis. Rerum possimus architecto provident, consequuntur dolore labore debitis
+       
+      ratione repudiandae, accusamus, sequi dolores itaque vitae aut beatae dolorum aliquam. Soluta excepturi necessitatibus corporis.
+    </p>
+    <div
+      class="emotion-2"
+    >
+      <div
+        class="info-skills"
+      >
+        <h3>
+          skills
+        </h3>
+        <ul
+          class="skills"
+        >
+          <li>
+            HTML / CSS / JavaScript
+          </li>
+          <li>
+            TypeScript
+          </li>
+          <li>
+            React
+          </li>
+          <li>
+            Node
+          </li>
+          <li>
+            Mongodb
+          </li>
+          <li>
+            Amazon Web Services (AWS)
+          </li>
+          <li>
+            Heroku
+          </li>
+          <li>
+            Varnish Cache
+          </li>
+          <li>
+            Datadog
+          </li>
+        </ul>
+      </div>
+      <div
+        class="info-experiences"
+      >
+        <h3>
+          most relevant experience
+        </h3>
+        <ul
+          class="experiences"
+        >
+          <li>
+            <p>
+              <strong>
+                Softwate Engineer
+              </strong>
+               at Schibsted Tech Polska
+            </p>
+            <p>
+              - Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi accusantium, reprehenderit sint molestias rerum praesentium quos tenetur nesciunt exercitationem nam.
+              <br />
+              - Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi accusantium, reprehenderit sint molestias rerum praesentium quos tenetur nesciunt exercitationem nam.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>
+                Cloud Engineer
+              </strong>
+               at Capgemini
+            </p>
+            <p>
+              - As part of the Office 365 FastTrack Team I was responsible for the preparation and migration of clients’ data to the Microsoft cloud. From the onboarding process to the actual data migration and postmigration reporting.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
