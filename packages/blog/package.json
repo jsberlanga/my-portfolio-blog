@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest",
     "prettier": "prettier --write .",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
     "typecheck": "tsc --project tsconfig.json --pretty --noEmit"

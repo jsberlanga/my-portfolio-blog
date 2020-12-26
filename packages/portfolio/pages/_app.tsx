@@ -6,11 +6,14 @@ import { globalStyles } from '@juliosoto/utils/styles';
 import Layout from '@juliosoto/components/Layout';
 import Footer from '@juliosoto/components/Footer';
 import Contact from '../components/Contact';
+import Navbar from '../components/Navbar';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
   pageProps: AppProps;
 }
+
+const PortfolioFooter = () => <Footer col2={<Contact />} />;
 
 const PortfolioApp: React.FC<PortfolioAppProps> = ({
   Component,
@@ -22,7 +25,7 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
         <title>Julio Soto - Portfolio</title>
       </Head>
       <Global styles={globalStyles} />
-      <Layout components={{ Footer: () => <Footer col2={<Contact />} /> }}>
+      <Layout components={{ Footer: PortfolioFooter, Navbar: Navbar }}>
         <Component {...pageProps} />
       </Layout>
     </React.Fragment>

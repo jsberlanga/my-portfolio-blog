@@ -6,6 +6,7 @@ import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import Layout from '@juliosoto/components/Layout';
 import Footer from '@juliosoto/components/Footer';
+import BlogNavbar from '../components/Navbar';
 
 interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
@@ -27,7 +28,7 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
         <title>Julio Soto - Blog</title>
       </Head>
       <Global styles={globalStyles} />
-      <Layout components={{ Footer: BlogFooter }}>
+      <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
         <Component {...pageProps} />
       </Layout>
     </React.Fragment>

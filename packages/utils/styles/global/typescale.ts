@@ -28,7 +28,7 @@ export const typeScale = `
   }
 
 
-  ul {
+  ul, li {
     list-style-type: none;
   }
 
