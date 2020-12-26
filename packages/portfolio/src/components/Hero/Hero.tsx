@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { Line } from '@components/Icons/Line';
-import { getMQ } from '@lib/styles';
+import { Line } from '@juliosoto/components/Icons/Line';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {
   root: css`

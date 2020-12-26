@@ -1,7 +1,7 @@
-import { ExternalLink, Github } from '@components/Icons';
-import Tags from '@components/Tags';
+import { ExternalLink, Github } from '@juliosoto/components/Icons';
+import Tags from '@juliosoto/components/Tags';
 import { css } from '@emotion/react';
-import { getMQ } from '@lib/styles';
+import { getMQ } from '@juliosoto/utils/styles';
 import * as React from 'react';
 
 const styles = {

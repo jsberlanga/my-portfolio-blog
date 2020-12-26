@@ -2,13 +2,13 @@ import * as React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { getAllSlugs, getProjectBySlug } from '@lib/contentful';
-import NotFound from '@pages/404';
+import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
+import NotFound from '../../pages/404';
 import { css } from '@emotion/react';
-import ProjectHeader from '@components/ProjectHeader';
-import ProjectInfo from '@components/ProjectInfo';
-import { getMQ } from '@lib/styles';
-import { GoBack, GoNext } from '@components/Icons';
+import ProjectHeader from '../../components/ProjectHeader';
+import ProjectInfo from '../../components/ProjectInfo';
+import { getMQ } from '@juliosoto/utils/styles';
+import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

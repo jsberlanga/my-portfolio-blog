@@ -2,7 +2,7 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getMQ } from '@lib/styles';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {
   root: css`

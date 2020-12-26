@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { RobotHi } from '@components/Icons';
-import SectionHeader from '@components/SectionHeader';
-import { getMQ } from '@lib/styles';
+import { RobotHi } from '@juliosoto/components/Icons';
+import SectionHeader from '../SectionHeader';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {
   root: css`

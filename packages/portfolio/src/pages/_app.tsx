@@ -2,8 +2,9 @@ import * as React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
-import { globalStyles } from '@lib/styles';
-import Layout from '@components/Layout';
+import { globalStyles } from '@juliosoto/utils/styles';
+import Layout from '@juliosoto/components/Layout';
+import Footer from '../components/Footer';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
@@ -20,7 +21,7 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
         <title>Julio Soto - Portfolio</title>
       </Head>
       <Global styles={globalStyles} />
-      <Layout>
+      <Layout components={{ Footer }}>
         <Component {...pageProps} />
       </Layout>
     </React.Fragment>

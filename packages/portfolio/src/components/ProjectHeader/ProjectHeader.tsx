@@ -1,4 +1,4 @@
-import Tags from '@components/Tags';
+import Tags from '@juliosoto/components/Tags';
 import { css } from '@emotion/react';
 import * as React from 'react';
 

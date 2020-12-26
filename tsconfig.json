@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "baseUrl": "packages",
-    "paths": {
-      "@pages/*": ["./portfolio/src/pages/*"],
-      "@components/*": ["./portfolio/src/components/*"],
-      "@lib/*": ["./portfolio/src/lib/*"],
-    }, 
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "types": ["@emotion/react/types/css-prop"],
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",],
-  "exclude": ["node_modules", "**/*.spec.*"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "**/*.spec.tsx", "**/setupTests.ts"]
 }

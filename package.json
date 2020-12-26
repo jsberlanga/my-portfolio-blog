@@ -5,6 +5,29 @@
   "repository": "https://github.com/jsberlanga/portfolio-v2.git",
   "author": "Julio Soto <jsberlanga@gmail.com>",
   "license": "MIT",
-  "workspaces":["packages/*"],
-  "private": true
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@emotion/jest": "^11.1.0",
+    "@testing-library/dom": "^7.29.0",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.19",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.16.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "jest": "^26.6.3",
+    "jest-emotion": "^11.0.0",
+    "jest-fetch-mock": "^3.0.3",
+    "ts-jest": "^26.4.4"
+  },
+  "scripts": {
+    "test": "jest"
+  }
 }

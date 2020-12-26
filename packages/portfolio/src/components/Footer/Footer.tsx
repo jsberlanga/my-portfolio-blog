@@ -1,9 +1,7 @@
-import Contact from '@components/Contact';
-import { Download } from '@components/Icons/Download';
-import { Github } from '@components/Icons/Github';
-import { ScrollToTop } from '@components/Icons/ScrollToTop';
+import Contact from '../Contact';
+import { Github, ScrollToTop, Download } from '@juliosoto/components/Icons';
 import { css } from '@emotion/react';
-import { getMQ } from '@lib/styles';
+import { getMQ } from '@juliosoto/utils/styles';
 import Link from 'next/link';
 import * as React from 'react';
 
