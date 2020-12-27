@@ -16,10 +16,10 @@ const styles = {
       [content-end] 1fr;
     grid-column-gap: 1rem;
   `,
-  main: css`
-    grid-column: content-start/content-end;
-  `,
   header: css`
+    grid-column: 1/4;
+  `,
+  main: css`
     grid-column: content-start/content-end;
   `,
   footer: css`

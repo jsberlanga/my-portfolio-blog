@@ -12,6 +12,7 @@ const styles = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 var(--gap);
 
     .name {
       display: flex;

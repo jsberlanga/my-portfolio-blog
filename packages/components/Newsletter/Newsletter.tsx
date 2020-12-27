@@ -1,30 +1,43 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
 import * as React from 'react';
 
 const styles = {
   root: css`
-    display: grid;
-    justify-content: stretch;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 3rem;
-    grid-column-gap: 2rem;
     margin: 0 auto;
+
+    ${getMQ('desktop')} {
+      display: grid;
+      justify-content: stretch;
+      grid-template-columns: 1fr;
+      grid-row-gap: 3rem;
+      grid-column-gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+    }
   `,
 
   header: css`
-    grid-column: 1/3;
+    ${getMQ('desktop')} {
+      grid-column: 1/3;
+    }
   `,
 
   form: css`
-    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+
+    ${getMQ('desktop')} {
+      width: 100%;
+      grid-gap: 1rem;
+      grid-template-columns: 1fr 2fr;
+    }
 
     label {
       font-size: 12px;
-      margin-bottom: -12px;
+      ${getMQ('desktop')} {
+        margin-bottom: -12px;
+      }
     }
 
     input {
@@ -32,9 +45,18 @@ const styles = {
       background-color: var(--c-background);
       color: var(--c-text);
       padding: 10px;
-      border: 2px solid var(--c-text);
+      border: 2px solid var(--c-neutral);
       border-radius: 5px;
       grid-column: 1 / span 2;
+      &::placeholder {
+        color: var(--c-neutral);
+      }
+
+      margin-bottom: 1rem;
+
+      ${getMQ('desktop')} {
+        margin-bottom: 0;
+      }
     }
 
     input[type='submit'] {
@@ -53,8 +75,8 @@ const styles = {
       align-self: baseline;
 
       &:disabled {
-        background: silver;
-        border: 2px solid silver;
+        background: var(--c-neutral);
+        border: 2px solid var(--c-neutral);
         cursor: not-allowed;
       }
     }
@@ -66,6 +88,16 @@ const styles = {
     font-size: 14px;
     display: grid;
     align-content: center;
+    ${getMQ('mobile')} {
+      grid-column: 1 / span 2;
+    }
+  `,
+  teaser: css`
+    margin-bottom: 2rem;
+
+    ${getMQ('desktop')} {
+      margin-bottom: 0;
+    }
   `,
 };
 
@@ -120,10 +152,10 @@ const Newsletter = () => {
   return (
     <section css={styles.root}>
       <h4 css={styles.header}>Sign up for my newsletter</h4>
-      <div className="small">
+      <div css={styles.teaser} className="small">
         I send a montly newsletter
         <br />
-        with posts on React and TypeScript.
+        with my posts on React and TypeScript.
         <br />
         <br />
         No spam, unsubscribe anytime.

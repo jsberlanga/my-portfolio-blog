@@ -26,9 +26,6 @@ const PortfolioNavbar = () => {
       links={
         <React.Fragment>
           <li>
-            <a href="https://blog.juliosoto.dev/?theme=dark">/blog</a>
-          </li>
-          <li>
             <a href="#" onClick={(e) => handleClick(e, '#work')}>
               /work
             </a>
@@ -42,6 +39,9 @@ const PortfolioNavbar = () => {
             <a href="#" onClick={(e) => handleClick(e, '#contact')}>
               /contact
             </a>
+          </li>
+          <li>
+            <a href="https://blog.juliosoto.dev/?theme=dark">/blog</a>
           </li>
         </React.Fragment>
       }
