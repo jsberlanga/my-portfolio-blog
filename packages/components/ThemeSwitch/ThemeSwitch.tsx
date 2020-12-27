@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Sun, Moon } from '../Icons';
-import { useThemePreference } from '@juliosoto/utils/hooks';
+import { useThemePreference } from './useThemePreference';
 
 const ThemeSwitch = () => {
   const { theme, toggleTheme } = useThemePreference();

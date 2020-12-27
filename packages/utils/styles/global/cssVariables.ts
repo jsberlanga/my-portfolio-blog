@@ -55,20 +55,19 @@ export const cssVariables = `
     
     --c-text: var(--c-dark);
     --c-text-02: var(--c-light);
-
     --c-background: var(--c-light);
     --c-background-02: var(--c-dark);
   }
   
   [data-theme="dark"] {
+    --c-light: var(--c-light-01);
+    --c-dark: var(--c-dark-01);
+    --c-special: var(--c-special-02);
+    --c-neutral: var(--c-neutral-02);
+
     --c-text: var(--c-light);
     --c-text-02: var(--c-light-02);
-
     --c-background: var(--c-dark);
     --c-background-02: var(--c-dark-02);
-    
-    --c-special: var(--c-special-02);
-
-    --c-neutral: var(--c-neutral-02);
   }
 `;

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { getMQ } from "@juliosoto/utils/styles";
+import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = css`
   position: absolute;
@@ -8,12 +8,12 @@ const styles = css`
   width: 99%;
   bottom: -1.5rem;
 
-  ${getMQ("desktop")} {
+  ${getMQ('desktop')} {
     bottom: -2.25rem;
   }
 `;
 
-const Line: React.FC<any> = ({ color = "var(--c-special)" }) => (
+const Line: React.FC<any> = ({ color = 'var(--c-special)' }) => (
   <svg
     css={styles}
     viewBox="0 0 461 45"
