@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import DefaultNavbar from '../Navbar';
+import { ComponentType } from 'react';
+import DefaultFooter, { FooterProps } from '../Footer';
+import DefaultNavbar, { NavbarProps } from '../Navbar';
 
 const styles = {
   root: css`
@@ -27,9 +29,16 @@ const styles = {
   `,
 };
 
-const Layout: React.FC<any> = ({
+interface LayoutProps {
+  components?: {
+    Navbar?: ComponentType<NavbarProps>;
+    Footer?: ComponentType<FooterProps>;
+  };
+}
+
+const Layout: React.FC<LayoutProps> = ({
   children,
-  components: { Navbar = DefaultNavbar, Footer = () => <div>footer</div> } = {},
+  components: { Navbar = DefaultNavbar, Footer = DefaultFooter } = {},
 }) => (
   <div css={styles.root}>
     <header css={styles.header}>

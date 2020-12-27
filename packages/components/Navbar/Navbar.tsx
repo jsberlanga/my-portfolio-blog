@@ -41,8 +41,8 @@ const styles = {
   `,
 };
 
-interface NavbarProps {
-  links: JSX.Element;
+export interface NavbarProps {
+  links?: JSX.Element;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ links }) => {

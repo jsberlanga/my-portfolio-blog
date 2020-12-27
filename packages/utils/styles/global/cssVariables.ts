@@ -19,9 +19,9 @@ export const cssVariables = `
     // UNITS
     --gap-unit-xs: 1rem;
     --gap-unit-s: 2rem;
-    --gap-unit: 6rem;
-    --gap-unit-l: 10rem;
-    --gap-unit-xl: 14rem;
+    --gap-unit: 4rem;
+    --gap-unit-l: 8rem;
+    --gap-unit-xl: 10rem;
 
     
     ${getMQ('small')} {

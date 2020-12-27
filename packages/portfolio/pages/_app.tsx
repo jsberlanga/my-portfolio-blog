@@ -13,7 +13,9 @@ interface PortfolioAppProps {
   pageProps: AppProps;
 }
 
-const PortfolioFooter = () => <Footer col2={<Contact />} />;
+const PortfolioFooter = () => (
+  <Footer columns={{ MiddleColumn: <Contact /> }} />
+);
 
 const PortfolioApp: React.FC<PortfolioAppProps> = ({
   Component,

@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import * as React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import { Github, ScrollToTop, Download } from '@juliosoto/components/Icons';
@@ -38,7 +39,7 @@ const styles = {
       }
       ${getMQ('desktop')} {
         order: 1;
-        width: 25%;
+        width: 40%;
         margin-bottom: 0;
       }
 
@@ -64,7 +65,7 @@ const styles = {
 
       ${getMQ('desktop')} {
         margin-bottom: 0;
-        width: 50%;
+        width: 40%;
         text-align: right;
       }
     }
@@ -75,7 +76,7 @@ const styles = {
 
       ${getMQ('desktop')} {
         order: 3;
-        width: 25%;
+        width: 20%;
         margin-bottom: 0;
       }
     }
@@ -84,58 +85,58 @@ const styles = {
 
 const currentYear = new Date().getFullYear();
 
-interface FooterProps {
-  resume?: boolean;
-  col2?: JSX.Element;
+export interface FooterProps {
+  columns?: {
+    LeftColumn?: JSX.Element;
+    MiddleColumn?: JSX.Element;
+  };
 }
 
-const Footer: React.FC<FooterProps> = ({ resume = true, col2 }) => {
-  return (
-    <footer css={styles.root}>
-      <div className="col-1">
-        {resume ? (
-          <div className="resume">
-            <a href="/assets/resume.pdf" target="_blank">
-              <h5>
-                my resume <Download />
-              </h5>
-              <span className="small">
-                checkout my resume if you wanna take a closer look at my
-                experience over the years
-              </span>
-            </a>
-          </div>
-        ) : null}
-        <div className="github">
-          <a
-            href="https://github.com/jsberlanga"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <h5>
-              my github
-              <Github fill="var(--c-light)" size="2.5rem" />
-            </h5>
-            <span className="small">
-              checkout my github account where I commit the code for my personal
-              projects
-            </span>
-          </a>
-        </div>
-        <div className="copyright xsmall">
-          © {currentYear},{' '}
-          <Link href="/">
-            <a style={{ color: 'var(--c-light)' }}>juliosoto.dev</a>
-          </Link>{' '}
-          All rights reserved
-        </div>
-      </div>
-      <div className="col-2">{col2 ? col2 : null}</div>
-      <div className="col-3">
-        <ScrollToTop />
-      </div>
-    </footer>
-  );
-};
+const DefaultLeftColumn = () => (
+  <React.Fragment>
+    <div className="resume">
+      <a href="/assets/resume.pdf" target="_blank">
+        <h5>
+          my resume <Download />
+        </h5>
+        <span className="small">
+          checkout my resume if you wanna take a closer look at my experience
+          over the years
+        </span>
+      </a>
+    </div>
+    <div className="github">
+      <a href="https://github.com/jsberlanga" target="_blank" rel="noreferrer">
+        <h5>
+          my github
+          <Github fill="var(--c-light)" size="2.5rem" />
+        </h5>
+        <span className="small">
+          checkout my github account where I commit the code for my personal
+          projects
+        </span>
+      </a>
+    </div>
+    <div className="copyright xsmall">
+      © {currentYear},{' '}
+      <Link href="/">
+        <a style={{ color: 'var(--c-light)' }}>juliosoto.dev</a>
+      </Link>{' '}
+      All rights reserved
+    </div>
+  </React.Fragment>
+);
+
+const Footer: React.FC<FooterProps> = ({
+  columns: { LeftColumn = DefaultLeftColumn, MiddleColumn = null } = {},
+}) => (
+  <footer css={styles.root}>
+    <div className="col-1">{LeftColumn}</div>
+    <div className="col-2">{MiddleColumn}</div>
+    <div className="col-3">
+      <ScrollToTop />
+    </div>
+  </footer>
+);
 
 export default Footer;
