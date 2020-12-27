@@ -27,7 +27,7 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
       <Head>
         <title>Julio Soto - Blog</title>
       </Head>
-      <Global styles={globalStyles} />
+      <Global styles={`${globalStyles} :root { --content-width: 50rem; }`} />
       <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
         <Component {...pageProps} />
       </Layout>

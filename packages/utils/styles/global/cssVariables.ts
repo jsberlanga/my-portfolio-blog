@@ -48,7 +48,6 @@ export const cssVariables = `
     --header-height: 6rem;
     --footer-height: 6rem;
 
-
     --c-light: var(--c-light-01);
     --c-dark: var(--c-dark-01);
     --c-special: var(--c-special-01);

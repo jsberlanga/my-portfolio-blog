@@ -24,7 +24,9 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       <Head>
         <title>Julio Soto - Portfolio</title>
       </Head>
-      <Global styles={globalStyles} />
+      <Global
+        styles={`${globalStyles} :root { --content-width: calc(100% - var(--gap) * 2 - 2rem); }`}
+      />
       <Layout components={{ Footer: PortfolioFooter, Navbar: Navbar }}>
         <Component {...pageProps} />
       </Layout>

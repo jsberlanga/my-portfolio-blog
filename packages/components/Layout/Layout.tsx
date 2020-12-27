@@ -11,16 +11,19 @@ const styles = {
         1fr
       )
       auto;
-    grid-template-columns: var(--gap) [col-1] 1fr [col-2] 1fr [col-3] var(--gap);
+    grid-template-columns:
+      1fr [content-start] min(var(--content-width), calc(100% - var(--gap)))
+      [content-end] 1fr;
+    grid-column-gap: 1rem;
   `,
   main: css`
-    grid-column: col-1/col-3;
+    grid-column: content-start/content-end;
   `,
   header: css`
-    grid-column: col-1/col-3;
+    grid-column: content-start/content-end;
   `,
   footer: css`
-    grid-column: 1/5;
+    grid-column: 1/4;
   `,
 };
 

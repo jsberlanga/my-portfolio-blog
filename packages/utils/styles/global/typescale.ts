@@ -34,8 +34,15 @@ export const typeScale = `
 
   h1, h2, h3, h4, h5 {
     font-family: var(--ff-title);
-    font-weight: 800;
     line-height: 1.3em;
+  }
+
+  h1, h2 {
+    font-weight: 800;
+  }
+
+  h3, h4, h5 {
+    font-weight: 600;
   }
 
   h1 {
