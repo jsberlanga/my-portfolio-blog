@@ -13,12 +13,12 @@ const BlogFooter = () => (
             rel="noreferrer"
           >
             <h5>
-              my github
+              github
               <Github fill="var(--c-light)" size="2.5rem" />
             </h5>
             <span className="small">
               feel free to checkout the source code in github and if you want to
-              improve something just go ahead and make a pull request
+              improve something just go ahead and make a pull request.
             </span>
           </a>
         </div>
@@ -29,8 +29,9 @@ const BlogFooter = () => (
           <br />
           thank you for checking out my blog.
           <br />
+          <br />
           <span className="xsmall">
-            If you would like to get in contact with me feel free to shoot me an{' '}
+            If you would like to get in contact with me shoot me an{' '}
             <a
               href="mailto:hi@juliosoto.dev"
               style={{
@@ -39,7 +40,8 @@ const BlogFooter = () => (
               }}
             >
               email
-            </a>
+            </a>{' '}
+            and I will do my best to come back to you asap.
           </span>
         </div>
       ),
