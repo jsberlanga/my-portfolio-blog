@@ -154,7 +154,7 @@ const styles = {
             content: '';
             background-image: url(images/common/noise.gif);
             opacity: 0.2;
-            z-index: 999;
+            z-index: 8;
             pointer-events: none;
           }
         }

@@ -36,10 +36,15 @@ const styles = {
 
       ${getMQ('desktop')} {
         order: 1;
-        width: 30%;
+        width: 35%;
         margin-left: 2rem;
         padding: 2rem 3rem;
         border-radius: 4px;
+
+        li {
+          margin-left: 2rem;
+          list-style: disc;
+        }
       }
     }
 
@@ -49,7 +54,8 @@ const styles = {
       ${getMQ('desktop')} {
         order: 0;
         margin-right: 2rem;
-        width: 70%;
+        width: 65%;
+        padding: 2rem 0;
       }
     }
   `,
@@ -82,6 +88,8 @@ const About: React.FC = () => {
             <li>TypeScript</li>
             <li>React</li>
             <li>Node</li>
+            <li>GraphQL</li>
+            <li>Jest</li>
             <li>Mongodb</li>
             <li>Amazon Web Services (AWS)</li>
             <li>Heroku</li>
@@ -90,7 +98,7 @@ const About: React.FC = () => {
           </ul>
         </div>
         <div className="info-experiences">
-          <h3>most relevant experience</h3>
+          <h3>relevant experience</h3>
           <ul className="experiences">
             <li>
               <p>

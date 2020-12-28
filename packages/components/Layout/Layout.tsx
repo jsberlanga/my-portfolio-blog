@@ -23,7 +23,7 @@ const styles = {
       grid-template-columns:
         var(--gap) [content-start] minmax(
           var(--content-width),
-          calc(100% - var(--gap) * 2 - var(--grid-gap * 2))
+          calc(100% - (var(--gap) * 2) - (var(--grid-gap) * 2))
         )
         [content-end] var(--gap);
       grid-gap: var(--grid-gap);

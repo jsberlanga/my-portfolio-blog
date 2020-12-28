@@ -1,8 +1,12 @@
 import * as React from 'react';
 
-const Sun: React.FC = () => (
+interface SunProps {
+  fill?: string;
+}
+
+const Sun: React.FC<SunProps> = ({ fill = 'var(--c-text)' }) => (
   <svg
-    stroke="var(--c-text)"
+    stroke={fill}
     fill="none"
     strokeWidth="2"
     viewBox="0 0 24 24"

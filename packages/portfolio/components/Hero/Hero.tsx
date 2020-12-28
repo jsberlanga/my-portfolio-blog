@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <div css={styles.root}>
       <div css={styles.intro}>
-        <h1 className="greeting">/hello</h1>
+        <h1 className="greeting">hello</h1>
         <p className="greeting--full">
           I&apos;m Julio, a{' '}
           <span className="highlighted-text">

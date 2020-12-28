@@ -5,8 +5,8 @@ const Moon: React.FC = () => (
     fill="#ad99ee"
     viewBox="0 0 512 512"
     aria-label="Switch to Light Mode"
-    height="1.5rem"
-    width="1.5rem"
+    height="1.8rem"
+    width="1.8rem"
     xmlns="http://www.w3.org/2000/svg"
   >
     <title>Switch to Light Mode</title>

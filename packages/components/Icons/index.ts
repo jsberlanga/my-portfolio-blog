@@ -10,3 +10,5 @@ export * from './Github';
 export * from './Line';
 export * from './ExternalLink';
 export * from './ScrollToTop';
+export { default as Hamburger } from './Hamburger';
+export { default as CloseMenu } from './CloseMenu';
