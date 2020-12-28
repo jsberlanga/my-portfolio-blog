@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Navbar from '@juliosoto/components/Navbar';
+import Link from 'next/link';
 
 const BlogNavbar = () => {
   return (
@@ -7,7 +8,9 @@ const BlogNavbar = () => {
       links={
         <React.Fragment>
           <li>
-            <a href="https://portfolio.juliosoto.dev/">/posts</a>
+            <Link href="/posts">
+              <a>/posts</a>
+            </Link>
           </li>
           <li>
             <a href="https://portfolio.juliosoto.dev/">/portfolio</a>

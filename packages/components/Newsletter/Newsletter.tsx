@@ -5,7 +5,8 @@ import * as React from 'react';
 
 const styles = {
   root: css`
-    margin: 0 auto;
+    margin: 0 auto var(--gap-bottom);
+    max-width: var(--content-width);
 
     ${getMQ('desktop')} {
       display: grid;

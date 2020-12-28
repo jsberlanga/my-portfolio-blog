@@ -22,7 +22,7 @@ const styles = {
 
 interface PageHeaderProps {
   title: JSX.Element;
-  description: string;
+  description?: string;
   tags?: string[];
 }
 
@@ -33,8 +33,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 }) => (
   <div css={styles.root}>
     <div className="title">{title}</div>
-    <p className="description">{description}</p>
-    <Tags tags={tags} isCentered />
+    {description ? <p className="description">{description}</p> : null}
+    {tags.length ? <Tags tags={tags} isCentered /> : null}
   </div>
 );
 
