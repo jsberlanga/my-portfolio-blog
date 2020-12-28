@@ -31,7 +31,5 @@ export const getBlogPostsData = () => {
       );
     });
 
-  console.log({ postsData });
-
   return postsData;
 };
