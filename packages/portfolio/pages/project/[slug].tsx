@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
 import NotFound from '../404';
 import { css } from '@emotion/react';
-import ProjectHeader from '../../components/ProjectHeader';
 import ProjectInfo from '../../components/ProjectInfo';
 import { getMQ } from '@juliosoto/utils/styles';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
+import { PageHeader } from '@juliosoto/components';
 import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -50,7 +50,6 @@ const styles = {
 
     .imageWrapper {
       ${getMQ('desktop')} {
-        padding: 0 var(--gap);
         margin-bottom: var(--gap-bottom);
       }
     }
@@ -85,8 +84,8 @@ export default function Project({ project, adjacentProjects }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div css={styles.root}>
-        <ProjectHeader
-          title={`/${project.title}`}
+        <PageHeader
+          title={<h2>/{project.title}</h2>}
           description={project.description}
           tags={project.tags}
         />

@@ -9,7 +9,7 @@ const styles = {
     margin-bottom: var(--gap-bottom);
 
     .section-content {
-      max-width: 50rem;
+      max-width: var(--content-width);
       line-height: 1.8em;
       margin-bottom: var(--gap-bottom);
     }

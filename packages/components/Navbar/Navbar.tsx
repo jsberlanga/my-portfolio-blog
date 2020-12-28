@@ -12,7 +12,8 @@ const styles = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 var(--gap);
+    max-width: var(--content-width);
+    margin: 0 auto;
 
     .name {
       display: flex;
@@ -31,7 +32,9 @@ const styles = {
 
       ${getMQ('desktop')} {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        font-size: 18px;
+        line-height: 1.05em;
 
         > * {
           margin-left: 1rem;

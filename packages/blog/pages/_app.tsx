@@ -1,3 +1,4 @@
+import { MDXProvider } from '@mdx-js/react';
 import * as React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
@@ -13,6 +14,14 @@ interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
   pageProps: AppProps;
 }
+
+const Heading = ({ children }) => (
+  <h1 style={{ fontWeight: 800 }}>{children}</h1>
+);
+
+const MDXComponents = {
+  h1: Heading,
+};
 
 const BlogFooter = () => (
   <Footer
@@ -39,7 +48,7 @@ const BlogFooter = () => (
 const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 
-  if (router.query?.theme) {
+  if (router?.query?.theme) {
     router.push('/');
   }
 
@@ -48,10 +57,12 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
       <Head>
         <title>Julio Soto - Blog</title>
       </Head>
-      <Global styles={`${globalStyles} :root { --content-width: 50rem; }`} />
-      <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
-        <Component {...pageProps} />
-      </Layout>
+      <Global styles={`${globalStyles}`} />
+      <MDXProvider components={MDXComponents}>
+        <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
+          <Component {...pageProps} />
+        </Layout>
+      </MDXProvider>
     </React.Fragment>
   );
 };

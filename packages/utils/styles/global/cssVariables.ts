@@ -20,7 +20,7 @@ export const cssVariables = `
     --gap-unit-xs: 1rem;
     --gap-unit-s: 2rem;
     --gap-unit: 4rem;
-    --gap-unit-l: 8rem;
+    --gap-unit-l: 6rem;
     --gap-unit-xl: 10rem;
 
     
@@ -38,7 +38,7 @@ export const cssVariables = `
     }
     ${getMQ('desktop')} {
       --gap: var(--gap-unit-l);
-      --gap-bottom: var(--gap-unit-xl);
+      --gap-bottom: var(--gap-unit-l);
     }
     ${getMQ('panorama')} {
       --gap: var(--gap-unit-xl);
@@ -47,6 +47,8 @@ export const cssVariables = `
     
     --header-height: 6rem;
     --footer-height: 6rem;
+    --content-width: 55rem;
+    --grid-gap: 1rem;
 
     --c-light: var(--c-light-01);
     --c-dark: var(--c-dark-01);

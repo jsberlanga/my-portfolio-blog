@@ -14,7 +14,9 @@ interface PortfolioAppProps {
 }
 
 const PortfolioFooter = () => (
-  <Footer columns={{ MiddleColumn: <Contact /> }} />
+  <Footer
+    columns={{ LeftColumn: <Footer.LeftColumn />, MiddleColumn: <Contact /> }}
+  />
 );
 
 const PortfolioApp: React.FC<PortfolioAppProps> = ({
@@ -26,9 +28,7 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       <Head>
         <title>Julio Soto - Portfolio</title>
       </Head>
-      <Global
-        styles={`${globalStyles} :root { --content-width: calc(100% - var(--gap) * 2 - 2rem); }`}
-      />
+      <Global styles={globalStyles} />
       <Layout components={{ Footer: PortfolioFooter, Navbar: Navbar }}>
         <Component {...pageProps} />
       </Layout>

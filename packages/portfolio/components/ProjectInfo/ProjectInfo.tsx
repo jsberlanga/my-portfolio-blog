@@ -20,18 +20,18 @@ const styles = {
     }
 
     > div {
-      padding: 1rem 1.5rem;
+      padding: 1rem 0;
       border-radius: 4px;
 
       ${getMQ('desktop')} {
-        padding: 2rem 3rem;
+        padding: 2rem 0;
       }
     }
 
     .projectInfo {
       position: relative;
       ${getMQ('desktop')} {
-        width: 55%;
+        width: 60%;
         margin-right: 1rem;
       }
 
@@ -53,9 +53,14 @@ const styles = {
       background: var(--c-dark-02);
       color: var(--c-light-02);
 
+      padding-left: 1rem;
+      padding-right: 1rem;
+
       ${getMQ('desktop')} {
-        width: 45%;
+        width: 40%;
         margin-left: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
     }
   `,

@@ -10,7 +10,7 @@ const styles = {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--gap-unit) var(--gap);
+    padding: var(--gap-unit) calc(var(--gap) + var(--grid-gap));
     background: var(--c-background-02);
     color: var(--c-text-02);
 
@@ -127,9 +127,9 @@ const DefaultLeftColumn = () => (
   </React.Fragment>
 );
 
-const Footer: React.FC<FooterProps> = ({
-  columns: { LeftColumn = DefaultLeftColumn, MiddleColumn = null } = {},
-}) => (
+const Footer = ({
+  columns: { LeftColumn = <DefaultLeftColumn />, MiddleColumn = null } = {},
+}: FooterProps): JSX.Element => (
   <footer css={styles.root}>
     <div className="col-1">{LeftColumn}</div>
     <div className="col-2">{MiddleColumn}</div>
@@ -138,5 +138,7 @@ const Footer: React.FC<FooterProps> = ({
     </div>
   </footer>
 );
+
+Footer.LeftColumn = DefaultLeftColumn;
 
 export default Footer;

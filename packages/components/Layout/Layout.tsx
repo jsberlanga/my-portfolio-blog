@@ -14,9 +14,12 @@ const styles = {
       )
       auto;
     grid-template-columns:
-      1fr [content-start] min(var(--content-width), calc(100% - var(--gap)))
-      [content-end] 1fr;
-    grid-column-gap: 1rem;
+      var(--gap) [content-start] minmax(
+        var(--content-width),
+        calc(100% - var(--gap) * 2)
+      )
+      [content-end] var(--gap);
+    grid-gap: var(--grid-gap);
   `,
   header: css`
     grid-column: 1/4;

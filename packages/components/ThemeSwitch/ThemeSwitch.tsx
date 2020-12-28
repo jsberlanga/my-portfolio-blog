@@ -6,9 +6,9 @@ const ThemeSwitch = () => {
   const { theme, toggleTheme } = useThemePreference();
 
   return (
-    <button onClick={toggleTheme}>
+    <a href="#" onClick={toggleTheme}>
       {theme === 'light' ? <Sun /> : <Moon />}
-    </button>
+    </a>
   );
 };
 

@@ -1,6 +1,6 @@
-import Tags from '@juliosoto/components/Tags';
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import * as React from 'react';
+import Tags from '@juliosoto/components/Tags';
 
 const styles = {
   root: css`
@@ -20,22 +20,22 @@ const styles = {
   `,
 };
 
-interface ProjectHeaderProps {
-  title: string;
+interface PageHeaderProps {
+  title: JSX.Element;
   description: string;
   tags?: string[];
 }
 
-const ProjectHeader: React.FC<ProjectHeaderProps> = ({
+const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   description,
   tags = [],
 }) => (
   <div css={styles.root}>
-    <h2 className="title">{title}</h2>
+    <div className="title">{title}</div>
     <p className="description">{description}</p>
     <Tags tags={tags} isCentered />
   </div>
 );
 
-export default ProjectHeader;
+export default PageHeader;
