@@ -1,16 +1,18 @@
 import * as React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import darkTheme from 'prism-react-renderer/themes/nightOwl';
+import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
 import { css } from '@emotion/react';
 import Head from 'next/head';
+import { useThemeState } from '@juliosoto/utils/context';
 
 const styles = css`
   padding: 15px;
   border-radius: 4px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto Mono', monospace;
   margin: var(--gap-unit) 0;
 
   .highlight-line {
@@ -30,19 +32,20 @@ const CodeBlock = ({
   },
 }) => {
   const language = className.replace(/language-/, '');
+  const theme = useThemeState();
 
   return (
     <React.Fragment>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&&display=swap"
           rel="stylesheet"
         />
       </Head>
       <Highlight
         {...defaultProps}
-        theme={theme}
+        theme={theme === 'dark' ? darkTheme : lightTheme}
         code={children}
         language={language}
       >

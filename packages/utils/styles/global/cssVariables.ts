@@ -3,8 +3,8 @@ import { getMQ } from '../utils';
 export const cssVariables = `
   :root {
     // COLORS
-    --c-dark-01: #303742;
-    --c-dark-02: #515d6f;
+    --c-dark-01: #1b2833;
+    --c-dark-02: #30495D;
 
     --c-light-01: #e7e9ec;
     --c-light-02: #f2f3f5;
@@ -22,6 +22,7 @@ export const cssVariables = `
     --gap-unit: 4rem;
     --gap-unit-l: 6rem;
     --gap-unit-xl: 10rem;
+    --grid-gap: 0rem;
 
     
     ${getMQ('small')} {
@@ -37,6 +38,7 @@ export const cssVariables = `
       --gap-bottom: var(--gap-unit);
     }
     ${getMQ('desktop')} {
+      --grid-gap: 1rem;
       --gap: var(--gap-unit-l);
       --gap-bottom: var(--gap-unit-l);
     }
@@ -48,7 +50,6 @@ export const cssVariables = `
     --header-height: 6rem;
     --footer-height: 6rem;
     --content-width: 55rem;
-    --grid-gap: 1rem;
 
     --c-light: var(--c-light-01);
     --c-dark: var(--c-dark-01);

@@ -30,9 +30,11 @@ const styles = {
 
     .projectInfo {
       position: relative;
+      margin-bottom: var(--gap-bottom);
       ${getMQ('desktop')} {
         width: 60%;
         margin-right: 1rem;
+        margin-bottom: 0;
       }
 
       .externalLinks {

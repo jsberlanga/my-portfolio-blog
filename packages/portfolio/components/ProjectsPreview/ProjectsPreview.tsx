@@ -11,21 +11,30 @@ const styles = {
   `,
   projectsWrapper: css`
     .heading {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
       margin-bottom: var(--gap-unit-s);
+
+      ${getMQ('desktop')} {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
 
       .title,
       .subtitle {
-        width: 60%;
         margin: 0 0.5rem;
         line-height: 1.4em;
+
+        ${getMQ('desktop')} {
+          width: 60%;
+        }
       }
 
       .title {
         font-weight: 600;
-        text-align: right;
+
+        ${getMQ('desktop')} {
+          text-align: right;
+        }
       }
 
       .subtitle {

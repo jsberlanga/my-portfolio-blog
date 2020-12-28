@@ -1,7 +1,4 @@
-import { Github } from '@juliosoto/components/Icons';
 import Navbar from '@juliosoto/components/Navbar';
-import ThemeSwitch from '@juliosoto/components/ThemeSwitch';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 

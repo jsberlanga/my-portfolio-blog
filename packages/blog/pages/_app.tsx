@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
+import { ThemeContextProvider } from '@juliosoto/utils/context';
 import Layout from '@juliosoto/components/Layout';
 import BlogNavbar from '../components/Navbar';
 import CodeBlock from '../components/CodeBlock';
@@ -30,11 +31,13 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
         <title>Julio Soto - Blog</title>
       </Head>
       <Global styles={`${globalStyles}`} />
-      <MDXProvider components={MDXComponents}>
-        <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
-          <Component {...pageProps} />
-        </Layout>
-      </MDXProvider>
+      <ThemeContextProvider>
+        <MDXProvider components={MDXComponents}>
+          <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
+            <Component {...pageProps} />
+          </Layout>
+        </MDXProvider>
+      </ThemeContextProvider>
     </React.Fragment>
   );
 };

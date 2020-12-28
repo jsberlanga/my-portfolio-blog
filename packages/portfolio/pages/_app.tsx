@@ -4,20 +4,14 @@ import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import Layout from '@juliosoto/components/Layout';
-import Footer from '@juliosoto/components/Footer';
-import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { ThemeContextProvider } from '@juliosoto/utils/context';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
   pageProps: AppProps;
 }
-
-const PortfolioFooter = () => (
-  <Footer
-    columns={{ LeftColumn: <Footer.LeftColumn />, MiddleColumn: <Contact /> }}
-  />
-);
 
 const PortfolioApp: React.FC<PortfolioAppProps> = ({
   Component,
@@ -29,9 +23,11 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
         <title>Julio Soto - Portfolio</title>
       </Head>
       <Global styles={globalStyles} />
-      <Layout components={{ Footer: PortfolioFooter, Navbar: Navbar }}>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeContextProvider>
+        <Layout components={{ Footer, Navbar }}>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeContextProvider>
     </React.Fragment>
   );
 };

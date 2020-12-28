@@ -49,9 +49,7 @@ const styles = {
     margin-bottom: var(--gap-bottom);
 
     .imageWrapper {
-      ${getMQ('desktop')} {
-        margin-bottom: var(--gap-bottom);
-      }
+      margin-bottom: var(--gap-bottom);
     }
 
     .adjacentProjects {

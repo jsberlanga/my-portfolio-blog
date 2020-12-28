@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
 import { ComponentType } from 'react';
 import DefaultFooter, { FooterProps } from '../Footer';
 import DefaultNavbar, { NavbarProps } from '../Navbar';
@@ -14,15 +15,26 @@ const styles = {
       )
       auto;
     grid-template-columns:
-      var(--gap) [content-start] minmax(
-        var(--content-width),
-        calc(100% - var(--gap) * 2)
-      )
+      var(--gap) [content-start]
+      calc(100% - (var(--gap) * 2))
       [content-end] var(--gap);
-    grid-gap: var(--grid-gap);
+
+    ${getMQ('desktop')} {
+      grid-template-columns:
+        var(--gap) [content-start] minmax(
+          var(--content-width),
+          calc(100% - var(--gap) * 2 - var(--grid-gap * 2))
+        )
+        [content-end] var(--gap);
+      grid-gap: var(--grid-gap);
+    }
   `,
   header: css`
-    grid-column: 1/4;
+    grid-column: content-start/content-end;
+
+    ${getMQ('desktop')} {
+      grid-column: 1/4;
+    }
   `,
   main: css`
     grid-column: content-start/content-end;
