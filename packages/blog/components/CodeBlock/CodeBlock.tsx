@@ -5,15 +5,20 @@ import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import { useThemeState } from '@juliosoto/utils/context';
+import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = css`
   padding: 15px;
   border-radius: 4px;
   font-size: 1rem;
-  white-space: pre-wrap;
-  word-wrap: break-word;
   font-family: 'Roboto Mono', monospace;
   margin: var(--gap-unit) 0;
+  overflow-x: scroll;
+
+  ${getMQ('desktop')} {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 
   .highlight-line {
     background-color: rgb(255, 255, 255, 0.07);

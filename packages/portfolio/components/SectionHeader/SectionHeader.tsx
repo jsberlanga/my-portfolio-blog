@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/utils/styles';
 import * as React from 'react';
-import { Interface } from 'readline';
 
 const styles = {
   root: css`
@@ -10,14 +9,6 @@ const styles = {
     .section-label {
       font-weight: 800;
       position: relative;
-
-      svg {
-        height: 4rem;
-
-        ${getMQ('desktop')} {
-          height: 6rem;
-        }
-      }
     }
 
     .section-subtitle {

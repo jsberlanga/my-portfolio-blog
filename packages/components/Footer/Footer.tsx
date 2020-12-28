@@ -40,7 +40,7 @@ const styles = {
       ${getMQ('desktop')} {
         order: 1;
         width: 40%;
-        margin-bottom: 0;
+        margin: 0 1rem 0 0;
       }
 
       h5 {
@@ -64,9 +64,9 @@ const styles = {
       order: 2;
 
       ${getMQ('desktop')} {
-        margin-bottom: 0;
         width: 40%;
         text-align: right;
+        margin: 0 1rem 0;
       }
     }
 
@@ -77,7 +77,7 @@ const styles = {
       ${getMQ('desktop')} {
         order: 3;
         width: 20%;
-        margin-bottom: 0;
+        margin: 0 0 0 1rem;
       }
     }
   `,

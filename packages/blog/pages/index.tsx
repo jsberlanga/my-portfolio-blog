@@ -21,7 +21,7 @@ export default function Index({ recentPosts }) {
       <PageHeader
         title={<h1>/blog</h1>}
         description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias corrupti cum velit obcaecati dolor impedit consectetur quas itaque saepe illo tempore totam id rem maiores nostrum assumenda"
-        tags={['React', 'TypeScript', 'GraphQL', '...much more']}
+        tags={['React', 'TypeScript', 'GraphQL', '...and so much more']}
       />
       <br />
       <div css={styles.postsPreview}>

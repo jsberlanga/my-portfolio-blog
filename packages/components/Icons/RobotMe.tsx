@@ -8,7 +8,7 @@ const styles = css`
   }
 `;
 
-const RobotMe: React.FC<any> = ({ fill = 'var(--c-text)' }) => (
+const RobotMe: React.FC<any> = ({ fill = 'var(--c-text)', size = '4rem' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 150 145"
@@ -16,6 +16,8 @@ const RobotMe: React.FC<any> = ({ fill = 'var(--c-text)' }) => (
     y="0px"
     fill={fill}
     css={styles}
+    width={size}
+    height={size}
   >
     <path d="M72.88,40.62a1.59,1.59,0,0,0-1.58.64,2.41,2.41,0,0,0-.18,2.35,1.23,1.23,0,0,0,1.12.72h0a1.69,1.69,0,0,0,1.65-1.75C74,41.71,73.61,40.74,72.88,40.62Z" />
     <path d="M86.22,41.23a1.56,1.56,0,0,0-1.58.63,2.4,2.4,0,0,0-.19,2.36,1.23,1.23,0,0,0,1.12.71h0a1.7,1.7,0,0,0,1.66-1.75C87.31,42.31,86.94,41.34,86.22,41.23Z" />
