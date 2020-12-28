@@ -9,6 +9,7 @@ import Layout from '@juliosoto/components/Layout';
 import Footer from '@juliosoto/components/Footer';
 import BlogNavbar from '../components/Navbar';
 import { Github } from '@juliosoto/components/Icons';
+import CodeBlock from '../components/CodeBlock';
 
 interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
@@ -21,6 +22,7 @@ const Heading = ({ children }) => (
 
 const MDXComponents = {
   h1: Heading,
+  pre: CodeBlock,
 };
 
 const BlogFooter = () => (
