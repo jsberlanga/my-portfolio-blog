@@ -73,12 +73,29 @@ const About: React.FC = () => {
         subtitle="and how I ended up being a Software Engineer"
       />
       <p className="section-content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-        quibusdam corporis id quisquam libero ad quo eos beatae nisi rem
-        deserunt, placeat expedita distinctio, molestiae in debitis. Rerum
-        possimus architecto provident, consequuntur dolore labore debitis{' '}
-        ratione repudiandae, accusamus, sequi dolores itaque vitae aut beatae
-        dolorum aliquam. Soluta excepturi necessitatibus corporis.
+        Hi there! First of all, thank you for being here! My name is Julio and
+        originally I am from Granada, Spain. I came to Kraków some years ago,
+        where I have lived and worked happily since.
+        <br />A couple of words about my professional life: I started my way
+        into IT as an IT Operations Analyst working for HCL Poland and Stanley
+        Black and Decker Polska. For personal reasons I moved back to Kraków
+        where I got a job as a Cloud Engineer for Capgemini Polska on the
+        Microsoft Team.
+        <br />
+        In late 2018 I grew a love for web development. It started all of a
+        sudden and since then, I knew that there was no turning back. I felt
+        addicted to coding. I love it, every part of it, because it is amazingly
+        challenging and fun.
+        <br />
+        In September 2019, Schibsted Tech Polska gave me the opportunity to work
+        a full time job as a{' '}
+        <span className="special">FullStack Javascript Developer</span>{' '}
+        <span role="img" aria-label="tada">
+          🎉
+        </span>{' '}
+        It really has been a dream come true. And now I am lucky enough to
+        everyday being able to work around TypeScript, React and Nodejs among
+        other things.
       </p>
       <div css={styles.info}>
         <div className="info-skills">
@@ -95,6 +112,7 @@ const About: React.FC = () => {
             <li>Heroku</li>
             <li>Varnish Cache</li>
             <li>Datadog</li>
+            <li>Terraform</li>
           </ul>
         </div>
         <div className="info-experiences">
@@ -105,12 +123,14 @@ const About: React.FC = () => {
                 <strong>Softwate Engineer</strong> at Schibsted Tech Polska
               </p>
               <p>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Maxime commodi accusantium, reprehenderit sint molestias rerum
-                praesentium quos tenetur nesciunt exercitationem nam.
-                <br />- Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Maxime commodi accusantium, reprehenderit sint molestias rerum
-                praesentium quos tenetur nesciunt exercitationem nam.
+                - As part of the Premium Shared Team we are responsible for
+                delivering a platform that powers up the frontpages and articles
+                of some of the biggest Scandinavia newspapers.
+                <br />- We are responsible for creating tools and platforms that
+                are easy for brand developers to create performant code. In our
+                project we use TypeScript, React, Webpack, Node, Jest and
+                Varnish cache. I also have the opportunity to build services
+                using Amazon Web Services
               </p>
             </li>
             <li>

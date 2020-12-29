@@ -66,6 +66,10 @@ const styles = {
         background: #9ca0bd;
       }
 
+      .project-my-portfolio {
+        background: #3b5153;
+      }
+
       .project-dark {
         .project {
           &--type {
@@ -98,7 +102,7 @@ const styles = {
 
         ${getMQ('desktop')} {
           min-height: 80vh;
-          height: 40rem;
+          height: 42rem;
           padding: 0;
         }
 

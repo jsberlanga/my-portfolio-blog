@@ -84,6 +84,12 @@ export const typeScale = `
     font-size: 0.8rem !important;
   }
 
+  .special {
+    color: var(--c-special);
+    font-weight: 600;
+    border-bottom: 2px solid;
+  }
+
   ${getMQ('tablet-up')} {        
     h1 {
       font-size: 6rem;
