@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { PageHeader } from '@juliosoto/components';
-import { PostsPreview } from '@juliosoto/blog/components';
+import { PostsPreview } from '../components';
 
 import { getBlogPostsData } from '@juliosoto/utils/mdx';
 

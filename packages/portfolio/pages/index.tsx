@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { getAllProjects } from '@juliosoto/utils/contentful';
-import { Hero, ProjectsPreview, About } from '@juliosoto/portfolio/components';
+import { Hero, ProjectsPreview, About } from '../components';
 
 export async function getStaticProps() {
   const projects = (await getAllProjects()) ?? [];

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Footer } from '@juliosoto/components';
-import { Contact } from '@juliosoto/portfolio/components';
+import { Contact } from '../../components';
 
 const PortfolioFooter = () => (
   <Footer

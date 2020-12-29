@@ -4,10 +4,7 @@ import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import { Layout } from '@juliosoto/components';
-import {
-  PortfolioFooter,
-  PortfolioNavbar,
-} from '@juliosoto/portfolio/components';
+import { PortfolioFooter, PortfolioNavbar } from '../components';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
 
 interface PortfolioAppProps {

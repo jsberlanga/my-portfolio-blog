@@ -1,19 +1,22 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import React from 'react';
+import * as React from 'react';
 import { Github } from '../Icons';
 import ThemeSwitch from '../ThemeSwitch';
+import { useOutsideRef } from '@juliosoto/utils/hooks';
 
 const styles = css`
   background: var(--c-background-02);
   height: 100vh;
   width: 50%;
   position: fixed;
-  z-index: 9;
+  z-index: 10;
   right: 0;
   top: 0;
-  padding: var(--header-height) var(--gap);
+  padding: var(--gap);
   text-align: right;
+  animation: slideIn 400ms forwards cubic-bezier(0.4, 1, 0.65, 0.3);
+  transform: translateX(300px);
 
   > li {
     height: 2.4rem;
@@ -24,11 +27,29 @@ const styles = css`
       color: var(--c-text-02);
     }
   }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(500px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 `;
 
-const Menu = ({ children }) => {
+interface MenuProps {
+  handleClick?: () => void;
+}
+
+const Menu: React.FC<MenuProps> = ({ children, handleClick }) => {
+  const menuRef = React.useRef();
+  useOutsideRef(menuRef, handleClick);
+
   return (
-    <div css={styles}>
+    <div ref={menuRef} css={styles}>
       {children}
       <li>
         <a

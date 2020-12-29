@@ -17,7 +17,7 @@ const styles = {
     align-items: center;
     max-width: var(--content-width);
     margin: 0 auto;
-    z-index: 10;
+    z-index: 9;
 
     .name {
       display: flex;
@@ -90,14 +90,15 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
           </li>
         </ul>
         <a href="#" css={styles.menu}>
-          {menuOpen ? (
-            <CloseMenu handleClick={toggleMenu} />
-          ) : (
-            <Hamburger handleClick={toggleMenu} />
-          )}
+          {!menuOpen && <Hamburger handleClick={toggleMenu} />}
         </a>
       </nav>
-      {menuOpen && <Menu>{links}</Menu>}
+      {menuOpen && (
+        <Menu handleClick={toggleMenu}>
+          <CloseMenu handleClick={toggleMenu} />
+          {links}
+        </Menu>
+      )}
     </React.Fragment>
   );
 };

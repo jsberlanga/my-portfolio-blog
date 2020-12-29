@@ -6,7 +6,7 @@ import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
 import { Layout } from '@juliosoto/components';
-import { BlogNavbar, CodeBlock, BlogFooter } from '@juliosoto/blog/components';
+import { BlogNavbar, CodeBlock, BlogFooter } from '../components';
 
 interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
