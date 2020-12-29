@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { getBlogPostsData } from '@juliosoto/utils/mdx';
 import { css } from '@emotion/react';
