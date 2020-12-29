@@ -22,4 +22,4 @@ const Github: React.FC<GithubProps> = ({
   </svg>
 );
 
-export { Github };
+export default Github;

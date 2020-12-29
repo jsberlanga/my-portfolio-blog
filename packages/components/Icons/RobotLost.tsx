@@ -17,4 +17,4 @@ const RobotLost: React.FC = () => (
   </svg>
 );
 
-export { RobotLost };
+export default RobotLost;

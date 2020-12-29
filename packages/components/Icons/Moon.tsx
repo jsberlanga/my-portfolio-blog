@@ -14,4 +14,4 @@ const Moon: React.FC = () => (
   </svg>
 );
 
-export { Moon };
+export default Moon;

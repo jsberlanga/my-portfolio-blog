@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import RobotMe from '@juliosoto/components/Icons/RobotMe';
+import { RobotMe } from '@juliosoto/components/Icons';
 import SectionHeader from '../SectionHeader';
 import { getMQ } from '@juliosoto/utils/styles';
 

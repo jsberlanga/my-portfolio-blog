@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { RobotLost } from '@juliosoto/components/Icons/RobotLost';
+import { RobotLost, GoBack } from '@juliosoto/components/Icons/';
 import { useRouter } from 'next/router';
-import { GoBack } from '@juliosoto/components/Icons/GoBack';
 
 const styles = css`
   position: relative;

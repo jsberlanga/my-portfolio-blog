@@ -30,4 +30,4 @@ const Sun: React.FC<SunProps> = ({ fill = 'var(--c-text)' }) => (
   </svg>
 );
 
-export { Sun };
+export default Sun;

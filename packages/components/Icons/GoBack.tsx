@@ -33,4 +33,4 @@ const GoBack: React.FC = () => (
   </svg>
 );
 
-export { GoBack };
+export default GoBack;

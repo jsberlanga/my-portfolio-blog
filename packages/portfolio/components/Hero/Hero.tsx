@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { Line } from '@juliosoto/components/Icons/Line';
+import { Line } from '@juliosoto/components/Icons';
 import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {

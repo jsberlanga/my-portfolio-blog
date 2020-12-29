@@ -32,4 +32,4 @@ const GoNext: React.FC = () => (
   </svg>
 );
 
-export { GoNext };
+export default GoNext;

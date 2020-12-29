@@ -40,4 +40,4 @@ const ScrollToTop: React.FC = () => {
   );
 };
 
-export { ScrollToTop };
+export default ScrollToTop;

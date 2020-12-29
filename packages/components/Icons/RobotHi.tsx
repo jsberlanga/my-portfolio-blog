@@ -1,6 +1,14 @@
 import * as React from 'react';
 
-const RobotHi: React.FC<any> = ({ fill = 'var(--c-text)', size = '4rem' }) => (
+interface RobotHiProps {
+  fill?: string;
+  size?: string;
+}
+
+const RobotHi: React.FC<RobotHiProps> = ({
+  fill = 'var(--c-text)',
+  size = '4rem',
+}) => (
   <svg
     fill={fill}
     viewBox="0 0 150 150"
@@ -17,4 +25,4 @@ const RobotHi: React.FC<any> = ({ fill = 'var(--c-text)', size = '4rem' }) => (
   </svg>
 );
 
-export { RobotHi };
+export default RobotHi;

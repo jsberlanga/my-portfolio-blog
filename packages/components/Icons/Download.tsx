@@ -16,4 +16,4 @@ const Download: React.FC = () => (
   </svg>
 );
 
-export { Download };
+export default Download;

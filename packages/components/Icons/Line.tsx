@@ -13,7 +13,11 @@ const styles = css`
   }
 `;
 
-const Line: React.FC<any> = ({ color = 'var(--c-special)' }) => (
+interface LineProps {
+  fill?: string;
+}
+
+const Line: React.FC<LineProps> = ({ fill = 'var(--c-special)' }) => (
   <svg
     css={styles}
     viewBox="0 0 461 45"
@@ -22,11 +26,11 @@ const Line: React.FC<any> = ({ color = 'var(--c-special)' }) => (
   >
     <path
       d="M3.01924 9.5006C231 -12 233 25 463 9.50058"
-      stroke={color}
+      stroke={fill}
       strokeWidth="4"
       strokeLinecap="round"
     />
   </svg>
 );
 
-export { Line };
+export default Line;
