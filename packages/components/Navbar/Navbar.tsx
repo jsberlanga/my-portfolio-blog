@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
           {!menuOpen && <Hamburger handleClick={toggleMenu} />}
         </a>
       </nav>
-      {menuOpen && (
+      {!menuOpen && (
         <Menu handleClick={toggleMenu}>
           <CloseMenu handleClick={toggleMenu} />
           {links}

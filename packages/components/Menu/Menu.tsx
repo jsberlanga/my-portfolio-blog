@@ -8,14 +8,14 @@ import { useOutsideRef } from '@juliosoto/utils/hooks';
 const styles = css`
   background: var(--c-background-02);
   height: 100vh;
-  width: 50%;
+  width: 160px;
   position: fixed;
   z-index: 10;
   right: 0;
   top: 0;
   padding: var(--gap);
   text-align: right;
-  animation: slideIn 400ms forwards cubic-bezier(0.4, 1, 0.65, 0.3);
+  animation: slideIn 400ms forwards ease-in-out;
   transform: translateX(300px);
 
   > li {

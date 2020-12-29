@@ -11,9 +11,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ fill }) => {
   const toggleTheme = useThemeDispatch();
 
   return (
-    <a href="#" onClick={toggleTheme}>
+    <button onClick={toggleTheme}>
       {theme === 'light' ? <Sun fill={fill} /> : <Moon />}
-    </a>
+    </button>
   );
 };
 
