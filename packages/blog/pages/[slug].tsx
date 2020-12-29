@@ -16,6 +16,8 @@ export default function Post({ postMeta }) {
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
 
+  const handleClick = (e) => console.log({ e });
+
   return (
     <React.Fragment>
       <Head>
@@ -32,6 +34,7 @@ export default function Post({ postMeta }) {
           description={postMeta.summary}
           tags={postMeta.tags}
         />
+        <button onClick={handleClick}>CLICK ME</button>
         <MDXPost />
       </div>
     </React.Fragment>
