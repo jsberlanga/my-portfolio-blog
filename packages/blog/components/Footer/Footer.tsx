@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Footer } from '@juliosoto/components';
-import { Github, RobotHi, RobotMe } from '@juliosoto/components/Icons';
+import { Github, RobotHi } from '@juliosoto/components/Icons';
 
 const BlogFooter = () => (
   <Footer

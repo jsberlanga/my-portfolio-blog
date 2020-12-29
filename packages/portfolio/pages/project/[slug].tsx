@@ -6,7 +6,6 @@ import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
 import NotFound from '../404';
 import { css } from '@emotion/react';
 import ProjectInfo from '../../components/ProjectInfo';
-import { getMQ } from '@juliosoto/utils/styles';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import { PageHeader } from '@juliosoto/components';
 import Link from 'next/link';

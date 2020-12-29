@@ -21,11 +21,16 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1"
   },
   "scripts": {
     "clean": "lerna clean --y",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "lint": "eslint '**/*.{ts,tsx}'",
+    "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
+    "lerna": "lerna"
   }
 }

@@ -1,6 +1,14 @@
 import * as React from 'react';
 
-const Github: React.FC<any> = ({ fill = 'var(--c-text)', size = '1.8rem' }) => (
+interface GithubProps {
+  fill?: string;
+  size?: string;
+}
+
+const Github: React.FC<GithubProps> = ({
+  fill = 'var(--c-text)',
+  size = '1.8rem',
+}) => (
   <svg
     fill={fill}
     viewBox="0 0 496 512"

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Newsletter, PageHeader } from '@juliosoto/components/';
+import { PageHeader } from '@juliosoto/components/';
 import PostsPreview from '../components/PostsPreview';
 import Head from 'next/head';
 
