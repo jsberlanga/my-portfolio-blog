@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import Tags from '@juliosoto/components/Tags';
+import { Tags } from '@juliosoto/components';
 
 const styles = {
   root: css`

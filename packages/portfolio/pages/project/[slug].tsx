@@ -3,11 +3,10 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
-import NotFound from '../404';
 import { css } from '@emotion/react';
 import ProjectInfo from '../../components/ProjectInfo';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
-import { PageHeader } from '@juliosoto/components';
+import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

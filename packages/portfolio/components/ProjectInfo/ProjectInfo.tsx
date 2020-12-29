@@ -1,5 +1,5 @@
 import { ExternalLink, Github } from '@juliosoto/components/Icons';
-import Tags from '@juliosoto/components/Tags';
+import { Tags } from '@juliosoto/components';
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/utils/styles';
 import * as React from 'react';

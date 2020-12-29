@@ -5,7 +5,7 @@ import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
-import Layout from '@juliosoto/components/Layout';
+import { Layout } from '@juliosoto/components';
 import BlogNavbar from '../components/Navbar';
 import CodeBlock from '../components/CodeBlock';
 import BlogFooter from '../components/Footer';

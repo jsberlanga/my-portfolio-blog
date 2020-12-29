@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Navbar from '@juliosoto/components/Navbar';
+import { Navbar } from '@juliosoto/components';
 import Link from 'next/link';
 
 const BlogNavbar = () => {

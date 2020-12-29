@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
-import Layout from '@juliosoto/components/Layout';
+import { Layout } from '@juliosoto/components';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
