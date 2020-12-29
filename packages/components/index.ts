@@ -6,5 +6,6 @@ export { default as Layout } from './Layout';
 export { default as Navbar } from './Navbar';
 export { default as NotFound } from './NotFound';
 export { default as SectionHeader } from './SectionHeader';
+export { default as ScrollProgress } from './ScrollProgress';
 export { default as Tags } from './Tags';
 export { default as ThemeSwitch } from './ThemeSwitch';

@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { RobotMe } from '@juliosoto/components/Icons';
 import { SectionHeader } from '@juliosoto/components';
 import { getMQ } from '@juliosoto/utils/styles';
+import { motion } from 'framer-motion';
 
 const styles = {
   root: css`
@@ -61,7 +62,18 @@ const styles = {
   `,
 };
 
+const variants = {
+  beforeHover: {
+    opacity: 0,
+  },
+  onHover: {
+    opacity: 1,
+  },
+};
+
 const About: React.FC = () => {
+  const [state, setState] = React.useState('');
+
   return (
     <div css={styles.root} id="about">
       <SectionHeader
@@ -77,18 +89,70 @@ const About: React.FC = () => {
         originally I am from Granada, Spain. I came to Kraków some years ago,
         where I have lived and worked happily since.
         <br />A couple of words about my professional life: I started my way
-        into IT as an IT Operations Analyst working for HCL Poland and Stanley
-        Black and Decker Polska. For personal reasons I moved back to Kraków
-        where I got a job as a Cloud Engineer for Capgemini Polska on the
-        Microsoft Team.
+        into IT as an IT Operations Analyst working for{' '}
+        <a
+          href="https://www.hcltech.com/geo-presence/poland"
+          target="_blank"
+          rel="noreferrer"
+          className="special"
+        >
+          HCL Poland
+        </a>{' '}
+        and{' '}
+        <a
+          href="http://kariera.sbdinc.pl/"
+          target="_blank"
+          rel="noreferrer"
+          className="special"
+        >
+          Stanley Black and Decker Polska
+        </a>
+        . For personal reasons I moved back to Kraków where I got a job as a
+        Cloud Engineer for{' '}
+        <motion.a
+          href="https://www.capgemini.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="special"
+          onHoverStart={() => setState('hovered')}
+          onHoverEnd={() => setTimeout(() => setState(''), 300)}
+          style={{ position: 'relative' }}
+        >
+          Capgemini Polska{' '}
+          {/* {state === 'hovered' && (
+            <motion.img
+              src="/test-hover.png"
+              width="400"
+              variants={variants}
+              initial="beforeHover"
+              animate="onHover"
+              style={{
+                position: 'absolute',
+                top: -200,
+                right: -200,
+                zIndex: -1,
+                opacity: 0.2,
+              }}
+            />
+          )} */}
+        </motion.a>{' '}
+        on the Microsoft Team.
         <br />
         In late 2018 I grew a love for web development. It started all of a
         sudden and since then, I knew that there was no turning back. I felt
         addicted to coding. I love it, every part of it, because it is amazingly
         challenging and fun.
         <br />
-        In September 2019, Schibsted Tech Polska gave me the opportunity to work
-        a full time job as a{' '}
+        In September 2019,{' '}
+        <a
+          href="https://www.schibsted.pl/"
+          target="_blank"
+          rel="noreferrer"
+          className="special"
+        >
+          Schibsted Tech Polska
+        </a>{' '}
+        gave me the opportunity to work a full time job as a{' '}
         <span className="special">FullStack Javascript Developer</span>{' '}
         <span role="img" aria-label="tada">
           🎉

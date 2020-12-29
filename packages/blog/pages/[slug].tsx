@@ -2,21 +2,25 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { getBlogPostsData } from '@juliosoto/utils/mdx';
 import { css } from '@emotion/react';
-import { PageHeader } from '@juliosoto/components';
+import { PageHeader, ScrollProgress } from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
 
-const styles = css`
-  margin: 0 auto;
-  max-width: var(--content-width);
-`;
+const styles = {
+  root: css`
+    margin: 0 auto;
+    max-width: var(--content-width);
+  `,
+  post: css`
+    margin: 0 auto;
+    max-width: var(--post-width);
+  `,
+};
 
 export default function Post({ postMeta }) {
   const MDXPost = dynamic(
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
-
-  const handleClick = (e) => console.log({ e });
 
   return (
     <React.Fragment>
@@ -29,13 +33,15 @@ export default function Post({ postMeta }) {
         <meta property="og:type" content="website" />
       </Head>
       <div css={styles}>
+        <ScrollProgress />
         <PageHeader
           title={<h2>{postMeta.title}</h2>}
           description={postMeta.summary}
           tags={postMeta.tags}
         />
-        <button onClick={handleClick}>CLICK ME</button>
-        <MDXPost />
+        <div css={styles.post}>
+          <MDXPost />
+        </div>
       </div>
     </React.Fragment>
   );
