@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
 import { RobotMe } from '@juliosoto/components/Icons';
-import SectionHeader from '../SectionHeader';
+import { SectionHeader } from '@juliosoto/components';
 import { getMQ } from '@juliosoto/utils/styles';
 
 const styles = {

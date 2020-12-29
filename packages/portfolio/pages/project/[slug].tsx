@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
 import { css } from '@emotion/react';
-import ProjectInfo from '../../components/ProjectInfo';
+import { ProjectInfo } from '@juliosoto/portfolio/components';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';

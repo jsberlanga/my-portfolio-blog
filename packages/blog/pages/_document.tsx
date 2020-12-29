@@ -1,3 +1,1 @@
-import Document from '@juliosoto/components/Document';
-
-export { Document as default };
+export { Document as default } from '@juliosoto/components';

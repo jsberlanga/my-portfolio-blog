@@ -1,6 +1,6 @@
-import { Footer } from '@juliosoto/components';
 import * as React from 'react';
-import Contact from '../Contact';
+import { Footer } from '@juliosoto/components';
+import { Contact } from '@juliosoto/portfolio/components';
 
 const PortfolioFooter = () => (
   <Footer

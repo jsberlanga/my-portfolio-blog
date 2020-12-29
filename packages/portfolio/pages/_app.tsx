@@ -4,8 +4,10 @@ import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/utils/styles';
 import { Layout } from '@juliosoto/components';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import {
+  PortfolioFooter,
+  PortfolioNavbar,
+} from '@juliosoto/portfolio/components';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
 
 interface PortfolioAppProps {
@@ -24,7 +26,9 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       </Head>
       <Global styles={globalStyles} />
       <ThemeContextProvider>
-        <Layout components={{ Footer, Navbar }}>
+        <Layout
+          components={{ Footer: PortfolioFooter, Navbar: PortfolioNavbar }}
+        >
           <Component {...pageProps} />
         </Layout>
       </ThemeContextProvider>

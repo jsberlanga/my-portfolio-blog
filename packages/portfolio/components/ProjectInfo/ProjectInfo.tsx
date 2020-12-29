@@ -1,8 +1,8 @@
+import * as React from 'react';
+import { css } from '@emotion/react';
 import { ExternalLink, Github } from '@juliosoto/components/Icons';
 import { Tags } from '@juliosoto/components';
-import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/utils/styles';
-import * as React from 'react';
 
 const styles = {
   root: css`

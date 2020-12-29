@@ -1,6 +1,6 @@
+import * as React from 'react';
 import { Navbar } from '@juliosoto/components';
 import { useRouter } from 'next/router';
-import * as React from 'react';
 
 const PortfolioNavbar = () => {
   const router = useRouter();
