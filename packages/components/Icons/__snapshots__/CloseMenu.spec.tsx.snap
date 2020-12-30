@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CloseMenu renders correctly 1`] = `
+<div>
+  <svg
+    fill="var(--c-text-02)"
+    height="2.4rem"
+    style="cursor: pointer;"
+    version="1.1"
+    viewBox="2 2 20 20"
+    width="2.4rem"
+    x="0px"
+    xml:space="preserve"
+    y="0px"
+  >
+    <g>
+      <polygon
+        points="18.010437,6.6966553 17.3032837,5.989563 12,11.2928467 6.6967163,5.989563 5.989563,6.6966553    11.2929077,11.999939 5.989563,17.3032837 6.6967163,18.010376 12,12.7070923 17.3032837,18.010376 18.010437,17.3032837    12.7071533,11.999939  "
+      />
+    </g>
+  </svg>
+</div>
+`;
