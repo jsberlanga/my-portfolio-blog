@@ -30,7 +30,8 @@ jobs:
         run: yarn install
 
       # Runs a set of commands using the runners shell
-      - name: Run ESLint and Typecheck
+      - name: Run ESLintm Prettier and Typecheck
         run: |
-          eslint . --ext .js,.jsx,.ts,.tsx,
-          tsc --project tsconfig.json --pretty --noEmit
+          yarn run lint,
+          yarn run prettier,
+          lerna run typecheck
