@@ -4,5 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "ts-jest": "^26.4.4"
   }
 }

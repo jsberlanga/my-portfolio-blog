@@ -2,110 +2,36 @@
 
 exports[`About renders correctly 1`] = `
 .emotion-0 {
-  margin-bottom: var(--gap-bottom);
-}
-
-.emotion-0 .section-content {
-  max-width: var(--content-width);
-  line-height: 1.8em;
-  margin-bottom: var(--gap-bottom);
-}
-
-.emotion-1 {
   margin-bottom: var(--gap-unit);
 }
 
-.emotion-1 .section-label {
+.emotion-0 .section-label {
   font-weight: 800;
   position: relative;
 }
 
-.emotion-1 .section-subtitle {
+.emotion-0 .section-subtitle {
   font-size: 0.8rem;
   margin-bottom: var(--gap-unit-s);
 }
 
-.emotion-1 .section-subtitle 500 {
+.emotion-0 .section-subtitle 500 {
   font-size: 1rem;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: space-around;
-  -ms-flex-pack: space-around;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
-}
-
-.emotion-2>div {
-  margin-bottom: var(--gap-bottom);
-}
-
-.emotion-2 500 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.emotion-2 .info-skills {
-  background-color: var(--c-background-02);
-  color: var(--c-light-02);
-  padding: var(--gap);
-  width: 100vw;
-  margin-left: calc(var(--gap) * -1);
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-}
-
-.emotion-2 .info-skills 500 {
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
-  width: 35%;
-  margin-left: 2rem;
-  padding: 2rem 3rem;
-  border-radius: 4px;
-}
-
-.emotion-2 .info-skills 500 li {
-  margin-left: 2rem;
-  list-style: disc;
-}
-
-.emotion-2 .info-experiences {
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
-}
-
-.emotion-2 .info-experiences 500 {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  margin-right: 2rem;
-  width: 65%;
-  padding: 2rem 0;
 }
 
 <div>
   <div
-    class="emotion-0"
+    css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
     id="about"
   >
     <div
-      class="emotion-1"
+      class="emotion-0"
     >
       <h2
         class="section-label"
       >
         a bit about me 
+        RobotMe
       </h2>
       <p
         class="section-subtitle"
@@ -116,12 +42,75 @@ exports[`About renders correctly 1`] = `
     <p
       class="section-content"
     >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quibusdam corporis id quisquam libero ad quo eos beatae nisi rem deserunt, placeat expedita distinctio, molestiae in debitis. Rerum possimus architecto provident, consequuntur dolore labore debitis
+      Hi there! First of all, thank you for being here! My name is Julio and originally I am from Granada, Spain. I came to Kraków some years ago, where I have lived and worked happily since.
+      <br />
+      <br />
+      A couple of words about my professional life: I started my way into IT as an IT Operations Analyst working for
        
-      ratione repudiandae, accusamus, sequi dolores itaque vitae aut beatae dolorum aliquam. Soluta excepturi necessitatibus corporis.
+      <a
+        class="link"
+        href="https://www.hcltech.com/geo-presence/poland"
+        rel="noreferrer"
+        style="position: relative;"
+        target="_blank"
+      >
+        HCL Poland
+      </a>
+       
+      and
+       
+      <a
+        class="link"
+        href="http://kariera.sbdinc.pl/"
+        rel="noreferrer"
+        style="position: relative;"
+        target="_blank"
+      >
+        Stanley Black and Decker Polska
+      </a>
+      . For personal reasons I moved back to Kraków where I got a job as a Cloud Engineer for
+       
+      <a
+        class="link"
+        href="https://capgemini.com"
+        rel="noreferrer"
+        style="position: relative;"
+        target="_blank"
+      >
+        Capgemini Polska
+      </a>
+       
+      on the Microsoft Team.
+      <br />
+      <br />
+      In late 2018 I grew a love for web development. It started all of a sudden and since then, I knew that there was no turning back. I felt addicted to coding. I love it, every part of it, because it is amazingly challenging and fun.
+      <br />
+      <br />
+      In September 2019,
+       
+      <a
+        class="link"
+        href="https://www.schibsted.pl/"
+        rel="noreferrer"
+        style="position: relative;"
+        target="_blank"
+      >
+        Schibsted Tech Polska
+      </a>
+       
+      gave me the opportunity to work a full time job as a FullStack Javascript Developer
+       
+      <span
+        aria-label="tada"
+        role="img"
+      >
+        🎉
+      </span>
+       
+      It really has been a dream come true. And now I am lucky enough to everyday being able to work around TypeScript, React and Nodejs among other things.
     </p>
     <div
-      class="emotion-2"
+      css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
     >
       <div
         class="info-skills"
@@ -165,6 +154,9 @@ exports[`About renders correctly 1`] = `
           <li>
             Datadog
           </li>
+          <li>
+            Terraform
+          </li>
         </ul>
       </div>
       <div
@@ -184,9 +176,9 @@ exports[`About renders correctly 1`] = `
                at Schibsted Tech Polska
             </p>
             <p>
-              - Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi accusantium, reprehenderit sint molestias rerum praesentium quos tenetur nesciunt exercitationem nam.
+              - As part of the Premium Shared Team we are responsible for delivering a platform that powers up the frontpages and articles of some of the biggest Scandinavia newspapers.
               <br />
-              - Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi accusantium, reprehenderit sint molestias rerum praesentium quos tenetur nesciunt exercitationem nam.
+              - We are responsible for creating tools and platforms that are easy for brand developers to create performant code. In our project we use TypeScript, React, Webpack, Node, Jest and Varnish cache. I also have the opportunity to build services using Amazon Web Services
             </p>
           </li>
           <li>
