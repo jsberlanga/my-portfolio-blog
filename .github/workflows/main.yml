@@ -34,5 +34,5 @@ jobs:
         run: |
           yarn run lint
           yarn run prettier
-          lerna run typecheck
-          lerna run test
+          yarn run lerna run typecheck
+          yarn run lerna run test
