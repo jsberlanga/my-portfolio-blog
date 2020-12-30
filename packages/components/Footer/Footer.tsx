@@ -18,6 +18,10 @@ const styles = {
       flex-direction: row;
     }
 
+    .col {
+      position: relative;
+    }
+
     .col-1 {
       display: flex;
       flex-direction: column;
@@ -131,9 +135,9 @@ const Footer = ({
   columns: { LeftColumn = <DefaultLeftColumn />, MiddleColumn = null } = {},
 }: FooterProps): JSX.Element => (
   <footer css={styles.root}>
-    <div className="col-1">{LeftColumn}</div>
-    <div className="col-2">{MiddleColumn}</div>
-    <div className="col-3">
+    <div className="col col-1">{LeftColumn}</div>
+    <div className="col col-2">{MiddleColumn}</div>
+    <div className="col col-3">
       <ScrollToTop />
     </div>
   </footer>

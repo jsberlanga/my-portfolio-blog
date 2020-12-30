@@ -1,27 +1,40 @@
 import * as React from 'react';
 import { Footer } from '@juliosoto/components';
 import { Github, RobotHi } from '@juliosoto/components/Icons';
+import Link from 'next/link';
 
 const BlogFooter = () => (
   <Footer
     columns={{
       LeftColumn: (
-        <div className="github">
-          <a
-            href="https://github.com/jsberlanga/portfolio-v3/tree/main/packages/blog"
-            target="_blank"
-            rel="noreferrer"
+        <React.Fragment>
+          <div className="github">
+            <a
+              href="https://github.com/jsberlanga/portfolio-v3/tree/main/packages/blog"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <h5>
+                github
+                <Github fill="var(--c-light)" size="2.5rem" />
+              </h5>
+              <span className="small">
+                feel free to checkout the source code in github and if you want
+                to improve something just go ahead and make a pull request.
+              </span>
+            </a>
+          </div>
+          <div
+            className="copyright xsmall"
+            style={{ position: 'absolute', bottom: 0 }}
           >
-            <h5>
-              github
-              <Github fill="var(--c-light)" size="2.5rem" />
-            </h5>
-            <span className="small">
-              feel free to checkout the source code in github and if you want to
-              improve something just go ahead and make a pull request.
-            </span>
-          </a>
-        </div>
+            © 2021,{' '}
+            <Link href="/">
+              <a style={{ color: 'var(--c-light)' }}>juliosoto.dev</a>
+            </Link>{' '}
+            All rights reserved
+          </div>
+        </React.Fragment>
       ),
       MiddleColumn: (
         <div>
