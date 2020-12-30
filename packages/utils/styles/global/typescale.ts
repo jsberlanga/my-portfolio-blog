@@ -84,7 +84,8 @@ export const typeScale = `
     font-size: 0.8rem !important;
   }
 
-  .special {
+  .special,
+  .link {
     color: var(--c-special);
     font-weight: 600;
     border-bottom: 2px solid;

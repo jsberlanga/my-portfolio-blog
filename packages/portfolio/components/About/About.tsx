@@ -3,16 +3,20 @@ import { css } from '@emotion/react';
 import { RobotMe } from '@juliosoto/components/Icons';
 import { SectionHeader } from '@juliosoto/components';
 import { getMQ } from '@juliosoto/utils/styles';
-import { motion } from 'framer-motion';
+import HoverLinkImage from '../HoverLinkImage';
 
 const styles = {
   root: css`
     margin-bottom: var(--gap-bottom);
 
     .section-content {
-      max-width: var(--content-width);
+      width: 100%;
       line-height: 1.8em;
       margin-bottom: var(--gap-bottom);
+
+      ${getMQ('desktop')} {
+        width: calc(65% - 4rem);
+      }
     }
   `,
   info: css`
@@ -62,18 +66,7 @@ const styles = {
   `,
 };
 
-const variants = {
-  beforeHover: {
-    opacity: 0,
-  },
-  onHover: {
-    opacity: 1,
-  },
-};
-
 const About: React.FC = () => {
-  const [state, setState] = React.useState('');
-
   return (
     <div css={styles.root} id="about">
       <SectionHeader
@@ -88,72 +81,52 @@ const About: React.FC = () => {
         Hi there! First of all, thank you for being here! My name is Julio and
         originally I am from Granada, Spain. I came to Kraków some years ago,
         where I have lived and worked happily since.
+        <br />
         <br />A couple of words about my professional life: I started my way
         into IT as an IT Operations Analyst working for{' '}
-        <a
-          href="https://www.hcltech.com/geo-presence/poland"
-          target="_blank"
-          rel="noreferrer"
-          className="special"
+        <HoverLinkImage
+          to="https://www.hcltech.com/geo-presence/poland"
+          imageSrc="/images/about/hcl.png"
+          reference="hcl"
         >
           HCL Poland
-        </a>{' '}
+        </HoverLinkImage>{' '}
         and{' '}
-        <a
-          href="http://kariera.sbdinc.pl/"
-          target="_blank"
-          rel="noreferrer"
-          className="special"
+        <HoverLinkImage
+          to="http://kariera.sbdinc.pl/"
+          imageSrc="/images/about/sbd.png"
+          reference="sbd"
         >
           Stanley Black and Decker Polska
-        </a>
+        </HoverLinkImage>
         . For personal reasons I moved back to Kraków where I got a job as a
         Cloud Engineer for{' '}
-        <motion.a
-          href="https://www.capgemini.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="special"
-          onHoverStart={() => setState('hovered')}
-          onHoverEnd={() => setTimeout(() => setState(''), 300)}
-          style={{ position: 'relative' }}
+        <HoverLinkImage
+          to="https://capgemini.com"
+          imageSrc="/images/about/capgemini.png"
+          reference="capgemini"
         >
-          Capgemini Polska{' '}
-          {/* {state === 'hovered' && (
-            <motion.img
-              src="/test-hover.png"
-              width="400"
-              variants={variants}
-              initial="beforeHover"
-              animate="onHover"
-              style={{
-                position: 'absolute',
-                top: -200,
-                right: -200,
-                zIndex: -1,
-                opacity: 0.2,
-              }}
-            />
-          )} */}
-        </motion.a>{' '}
+          Capgemini Polska
+        </HoverLinkImage>{' '}
         on the Microsoft Team.
+        <br />
         <br />
         In late 2018 I grew a love for web development. It started all of a
         sudden and since then, I knew that there was no turning back. I felt
         addicted to coding. I love it, every part of it, because it is amazingly
         challenging and fun.
         <br />
+        <br />
         In September 2019,{' '}
-        <a
-          href="https://www.schibsted.pl/"
-          target="_blank"
-          rel="noreferrer"
-          className="special"
+        <HoverLinkImage
+          to="https://www.schibsted.pl/"
+          imageSrc="/images/about/schibsted.png"
+          reference="schibsted"
         >
           Schibsted Tech Polska
-        </a>{' '}
-        gave me the opportunity to work a full time job as a{' '}
-        <span className="special">FullStack Javascript Developer</span>{' '}
+        </HoverLinkImage>{' '}
+        gave me the opportunity to work a full time job as a FullStack
+        Javascript Developer{' '}
         <span role="img" aria-label="tada">
           🎉
         </span>{' '}

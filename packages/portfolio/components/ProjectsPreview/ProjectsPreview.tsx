@@ -59,7 +59,7 @@ const styles = {
       }
 
       .project-zaprojektujemy-studio {
-        background: var(--c-special-02);
+        background: #ab9eaf;
       }
 
       .project-byas-no {

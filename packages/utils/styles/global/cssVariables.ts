@@ -12,8 +12,8 @@ export const cssVariables = `
     --c-neutral-01: #636c7a;
     --c-neutral-02: #a0a7b2;
 
-    --c-special-01: #75908b;
-    --c-special-02: #adbdbb;
+    --c-special-01: #8975C9;
+    --c-special-02: #BCACF2;
 
 
     // UNITS
