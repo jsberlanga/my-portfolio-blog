@@ -55,19 +55,19 @@ const styles = {
       }
 
       .project-duda-transport {
-        background: #3b4a5a;
+        background: #425e7e;
       }
 
       .project-zaprojektujemy-studio {
-        background: #ab9eaf;
+        background: #c5a3a5;
       }
 
       .project-byas-no {
-        background: #9ca0bd;
+        background: #776f99;
       }
 
       .project-my-portfolio {
-        background: #3b5153;
+        background: #577679;
       }
 
       .project-dark {

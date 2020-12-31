@@ -10,5 +10,6 @@ export { default as Moon } from './Moon';
 export { default as RobotHi } from './RobotHi';
 export { default as RobotMe } from './RobotMe';
 export { default as RobotLost } from './RobotLost';
+export { default as Star } from './Star';
 export { default as Sun } from './Sun';
 export { default as ScrollToTop } from './ScrollToTop';
