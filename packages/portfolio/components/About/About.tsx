@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import * as React from 'react';
 import { css } from '@emotion/react';
 import { RobotMe } from '@juliosoto/components/Icons';
