@@ -8,7 +8,15 @@ const styles = css`
   }
 `;
 
-const RobotMe: React.FC<any> = ({ fill = 'var(--c-text)', size = '4rem' }) => (
+interface RobotMeProps {
+  fill?: string;
+  size?: string;
+}
+
+const RobotMe: React.FC<RobotMeProps> = ({
+  fill = 'var(--c-text)',
+  size = '4rem',
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 150 145"

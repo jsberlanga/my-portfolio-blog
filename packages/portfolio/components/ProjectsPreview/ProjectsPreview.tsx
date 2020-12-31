@@ -177,7 +177,21 @@ const styles = {
   `,
 };
 
-const ProjectsPreview: React.FC<any> = ({ projects }) => {
+interface ProjectsPreviewProps {
+  projects: {
+    title: string;
+    slug: string;
+    isPreviewDark: boolean;
+    imagePreview: {
+      url: string;
+      width: number;
+      height: number;
+    };
+    tags: string[];
+  }[];
+}
+
+const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
   return (
     <div css={styles.root} id="work">
       <div css={styles.projectsWrapper}>

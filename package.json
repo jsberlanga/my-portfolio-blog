@@ -29,7 +29,7 @@
   "scripts": {
     "clean": "lerna clean --y",
     "prettier": "prettier --write .",
-    "lint": "eslint '**/*.{ts,tsx}'",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
     "lerna": "lerna"
   }
