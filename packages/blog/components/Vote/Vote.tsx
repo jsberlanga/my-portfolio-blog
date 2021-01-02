@@ -4,38 +4,59 @@ import { useUserScroll } from '@juliosoto/utils/hooks';
 import { Star } from '@juliosoto/components/Icons';
 import { useUserDispatch, useUserState } from '../../context';
 import { getMQ } from '@juliosoto/utils/styles';
+import { motion } from 'framer-motion';
 
 const styles = {
   root: css`
+    cursor: pointer;
     position: fixed;
     right: var(--gap);
     top: var(--gap);
+    top: 33%;
 
-    ${getMQ('desktop')} {
-      top: 33%;
-    }
-
-    #canvas {
-      position: absolute;
-      bottom: 0;
+    ${getMQ('mobile')} {
       left: 0;
-      width: 100%;
+      right: 0;
+      top: 0;
+      height: 2rem;
+      background: var(--c-text);
+
+      svg {
+        position: absolute;
+        right: calc(var(--gap) * 2);
+        padding: 0.2rem;
+        height: 100%;
+      }
     }
   `,
   count: css`
     position: absolute;
     top: -20px;
     right: -20px;
+
+    ${getMQ('mobile')} {
+      position: absolute;
+      top: 0;
+      right: var(--gap);
+      color: var(--c-background);
+    }
   `,
 };
 
 export const MAX_VOTES = 10;
 
+const variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeIn' } },
+};
+
 const Vote = ({ dbPost, slug }) => {
   const { user } = useUserState();
   const { dispatch } = useUserDispatch();
-  const scrolled = useUserScroll({ show: 100, hide: 100 });
+  const scrolled = useUserScroll({ show: 100, hide: 0 });
   const [postState, setPostState] = React.useState(dbPost);
+
+  const [confetti, setConfetti] = React.useState(false);
 
   React.useEffect(() => {
     if (!user) return;
@@ -47,7 +68,11 @@ const Vote = ({ dbPost, slug }) => {
 
   const handleVote = async () => {
     if (postState.votesFromUser >= MAX_VOTES) {
-      return;
+      setConfetti(true);
+
+      setTimeout(() => {
+        setConfetti(false);
+      }, 3000);
     }
 
     let userId = user?._id;
@@ -92,13 +117,12 @@ const Vote = ({ dbPost, slug }) => {
   if (!scrolled) return null;
 
   return (
-    <div
+    <motion.div
+      variants={variants}
+      initial="initial"
+      animate="animate"
       css={styles.root}
       onClick={handleVote}
-      style={{
-        cursor:
-          postState.votesFromUser >= MAX_VOTES ? 'not-allowed' : 'pointer',
-      }}
     >
       <Star votes={postState.votesFromUser} />
       <div css={styles.count}>
@@ -107,20 +131,20 @@ const Vote = ({ dbPost, slug }) => {
           {postState.votesFromUser >= MAX_VOTES && ' MAX'}
         </span>
       </div>
-      {postState.votesFromUser >= MAX_VOTES && (
-        <div
+      {confetti ? (
+        <motion.div
+          variants={variants}
           style={{
-            backgroundImage: 'url("/confetti2.gif")',
-            width: '7.5rem',
-            height: '7.5rem',
-            position: 'absolute',
-            top: '-2.5rem',
-            left: '-2.5rem',
-            opacity: 0.5,
+            backgroundImage: 'url("/images/common/confetti.gif")',
+            width: '100%',
+            height: '100%',
+            position: 'fixed',
+            top: 0,
+            left: 0,
           }}
         />
-      )}
-    </div>
+      ) : null}
+    </motion.div>
   );
 };
 

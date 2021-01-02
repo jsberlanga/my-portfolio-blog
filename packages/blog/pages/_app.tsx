@@ -8,6 +8,7 @@ import { ThemeContextProvider } from '@juliosoto/utils/context';
 import { Layout } from '@juliosoto/components';
 import { BlogNavbar, CodeBlock, BlogFooter } from '../components';
 import { UserContextProvider } from '../context';
+import { AnimatePresence } from 'framer-motion';
 
 interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
@@ -33,9 +34,14 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
       <ThemeContextProvider>
         <UserContextProvider>
           <MDXProvider components={MDXComponents}>
-            <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
-              <Component {...pageProps} />
-            </Layout>
+            <AnimatePresence exitBeforeEnter>
+              <Layout
+                key="layout"
+                components={{ Footer: BlogFooter, Navbar: BlogNavbar }}
+              >
+                <Component {...pageProps} />
+              </Layout>
+            </AnimatePresence>
           </MDXProvider>
         </UserContextProvider>
       </ThemeContextProvider>

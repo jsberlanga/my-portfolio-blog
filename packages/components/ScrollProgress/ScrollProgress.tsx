@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { getMQ } from '@juliosoto/utils/styles';
 import {
   motion,
   useMotionTemplate,
@@ -14,6 +15,10 @@ const styles = css`
   left: 0;
   height: 10px;
   background: linear-gradient(to left, var(--c-special-02), var(--c-special));
+
+  ${getMQ('mobile')} {
+    display: none;
+  }
 `;
 
 export const ScrollProgress = () => {
