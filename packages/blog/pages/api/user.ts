@@ -1,6 +1,8 @@
 import nc from 'next-connect';
 import middleware from '@juliosoto/utils/middleware';
 import { NextApiResponse } from 'next';
+import { Request } from '../../types';
+import { nanoid } from 'nanoid';
 
 const handler = nc<Request, NextApiResponse>({});
 
@@ -31,10 +33,24 @@ handler.get(async (req, res) => {
 
   const publicUserData = {
     _id: user._id,
-    votes: user.votes,
   };
 
   res.send({ user: publicUserData });
+});
+
+handler.post(async (req, res) => {
+  const db = req.db;
+
+  const ipAddress = req.user.ipAddress;
+
+  const _id = nanoid(5);
+
+  const { result } = await db.collection('users').insertOne({
+    _id,
+    ipAddress,
+  });
+
+  res.json({ result: { ok: !!result.ok }, _id });
 });
 
 export default handler;

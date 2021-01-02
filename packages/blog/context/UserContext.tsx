@@ -3,25 +3,19 @@ import * as React from 'react';
 interface UserState {
   user?: {
     _id?: string;
-    votes?: string[];
   };
 }
 
-type UserDispatchAction =
-  | {
-      type: 'VOTE';
-      payload: { postId: string };
-    }
-  | { type: 'SET_USER'; payload: { user: UserState } };
+type UserDispatchAction = { type: 'SET_USER'; payload: UserState };
 
 const initialState: UserState = { user: null };
 
 const UserStateContext = React.createContext<UserState>(initialState);
 
 const UserDispatchContext = React.createContext<{
-  handleVote: React.Dispatch<UserDispatchAction>;
+  dispatch: React.Dispatch<UserDispatchAction>;
 }>({
-  handleVote: () => null,
+  dispatch: () => null,
 });
 
 const userReducer: React.Reducer<UserState, UserDispatchAction> = (
@@ -29,25 +23,15 @@ const userReducer: React.Reducer<UserState, UserDispatchAction> = (
   action,
 ) => {
   switch (action.type) {
-    case 'VOTE':
-      return {
-        ...state,
-        votes: [...state.user.votes, action.payload.postId],
-      };
     case 'SET_USER':
       return {
         ...state,
-        ...action.payload.user,
+        user: action.payload.user,
       };
     default:
       return state;
   }
 };
-
-const userVoteAction = async (
-  dispatch: React.Dispatch<UserDispatchAction>,
-  postId: string,
-) => dispatch({ type: 'VOTE', payload: { postId } });
 
 const UserContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(userReducer, initialState);
@@ -57,9 +41,9 @@ const UserContextProvider = ({ children }) => {
       const response = await fetch('/api/user', { method: 'GET' });
 
       if (response.ok && response.status === 200) {
-        const data = await response.json();
+        const { user } = await response.json();
 
-        dispatch({ type: 'SET_USER', payload: { user: data } });
+        dispatch({ type: 'SET_USER', payload: { user } });
       }
     };
     fetchUser();
@@ -69,7 +53,7 @@ const UserContextProvider = ({ children }) => {
 
   return (
     <UserStateContext.Provider value={{ ...memoizedState }}>
-      <UserDispatchContext.Provider value={{ handleVote: dispatch }}>
+      <UserDispatchContext.Provider value={{ dispatch }}>
         {children}
       </UserDispatchContext.Provider>
     </UserStateContext.Provider>
@@ -93,4 +77,4 @@ const useUserDispatch = () => {
   return context;
 };
 
-export { UserContextProvider, useUserState, useUserDispatch, userVoteAction };
+export { UserContextProvider, useUserState, useUserDispatch };
