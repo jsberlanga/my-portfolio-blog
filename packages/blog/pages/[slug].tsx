@@ -25,6 +25,8 @@ export default function Post({ postMeta, dbPost }) {
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
 
+  console.log({ postMeta, dbPost });
+
   return (
     <React.Fragment>
       <Head>
@@ -59,6 +61,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [dbPostData] = await getPostBySlug({ slug: params.slug });
 
+  console.log('dbPostData', dbPostData);
+
   if (postMeta.slug !== dbPostData.slug) {
     return { props: { postMeta, dbPost: null } };
   }
@@ -69,6 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     totalVotes: dbPostData.votes.length,
     votesFromUser: 0,
   };
+  console.log('dbPost', dbPost);
 
   return { props: { postMeta, dbPost } };
 };

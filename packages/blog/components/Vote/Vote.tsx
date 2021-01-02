@@ -116,6 +116,8 @@ const Vote = ({ dbPost, slug }) => {
 
   if (!scrolled) return null;
 
+  console.log({ postState });
+
   return (
     <motion.div
       variants={variants}
