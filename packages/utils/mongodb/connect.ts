@@ -1,4 +1,13 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import { MongoClient, Db } from 'mongodb';
+
+declare global {
+  namespace NodeJS {
+    interface Global {
+      mongo: any;
+    }
+  }
+}
 
 const { MONGODB_URI, MONGODB_DB } = process.env;
 
