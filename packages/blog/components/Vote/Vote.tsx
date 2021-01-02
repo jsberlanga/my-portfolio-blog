@@ -91,6 +91,15 @@ const Vote = ({ slug }) => {
         setConfetti(false);
       }, 3000);
     }
+    if (postState.votesFromUser >= MAX_VOTES) {
+      return;
+    }
+
+    setPostState({
+      ...postState,
+      votesFromUser: postState.votesFromUser + 1,
+      totalVotes: postState.totalVotes + 1,
+    });
 
     let userId = user?._id;
 
@@ -119,13 +128,6 @@ const Vote = ({ slug }) => {
     });
 
     const data = await res.json();
-
-    setPostState({
-      ...postState,
-      votes: [...postState.votes, userId],
-      votesFromUser: postState.votesFromUser + 1,
-      totalVotes: postState.totalVotes + 1,
-    });
 
     return data;
   };

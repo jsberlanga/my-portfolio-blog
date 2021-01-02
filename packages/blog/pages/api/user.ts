@@ -43,6 +43,12 @@ handler.post(async (req, res) => {
 
   const ipAddress = req.user.ipAddress;
 
+  const user = await db.collection('users').findOne({
+    ipAddress,
+  });
+
+  if (user) return;
+
   const _id = nanoid(5);
 
   const { result } = await db.collection('users').insertOne({
