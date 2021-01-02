@@ -5,7 +5,9 @@ import { css } from '@emotion/react';
 import { PageHeader, ScrollProgress } from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
-import { Star } from '@juliosoto/components/Icons';
+import { getPostBySlug } from '@juliosoto/utils/mongodb';
+
+const DynamicVote = dynamic(() => import('../components/Vote'));
 
 const styles = {
   root: css`
@@ -16,25 +18,12 @@ const styles = {
     margin: 0 auto;
     max-width: var(--post-width);
   `,
-  star: css`
-    cursor: pointer;
-    position: fixed;
-    right: var(--gap);
-    top: 25%;
-  `,
 };
 
-export default function Post({ postMeta }) {
+export default function Post({ postMeta, dbPost }) {
   const MDXPost = dynamic(
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
-
-  const handleStarButton = async () => {
-    const res = await fetch('/api/like');
-    const data = await res.json();
-
-    console.log({ data });
-  };
 
   return (
     <React.Fragment>
@@ -56,9 +45,7 @@ export default function Post({ postMeta }) {
         <div css={styles.post}>
           <MDXPost />
         </div>
-        <div css={styles.star} onClick={handleStarButton}>
-          <Star />
-        </div>
+        <DynamicVote dbPost={dbPost} slug={postMeta.slug} />
       </div>
     </React.Fragment>
   );
@@ -66,11 +53,24 @@ export default function Post({ postMeta }) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return { props: {} };
-  const postsData = getBlogPostsData();
 
+  const postsData = getBlogPostsData();
   const postMeta = postsData.find((postData) => postData.slug === params.slug);
 
-  return { props: { postMeta } };
+  const [dbPostData] = await getPostBySlug({ slug: params.slug });
+
+  if (postMeta.slug !== dbPostData.slug) {
+    return { props: { postMeta, dbPost: null } };
+  }
+
+  const dbPost = {
+    slug: dbPostData.slug,
+    votes: dbPostData.votes,
+    totalVotes: dbPostData.votes.length,
+    votesFromUser: 0,
+  };
+
+  return { props: { postMeta, dbPost } };
 };
 
 export async function getStaticPaths() {

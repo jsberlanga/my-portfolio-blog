@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "next-connect": "^0.9.1",
     "react": "^17.0.1"
   },
   "devDependencies": {

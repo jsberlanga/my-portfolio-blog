@@ -14,8 +14,8 @@ const withMDX = require('@next/mdx')({
 module.exports = withPlugins([withMDX, withTM], {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   env: {
-    CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-    CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
+    MONGODB_DB: process.env.MONGODB_DB,
+    MONGODB_URI: process.env.MONGODB_URI,
     BUTTONDOWN_AUTH_TOKEN: process.env.BUTTONDOWN_AUTH_TOKEN,
   },
   images: {

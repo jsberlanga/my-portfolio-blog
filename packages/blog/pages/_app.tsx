@@ -7,6 +7,7 @@ import { globalStyles } from '@juliosoto/utils/styles';
 import { ThemeContextProvider } from '@juliosoto/utils/context';
 import { Layout } from '@juliosoto/components';
 import { BlogNavbar, CodeBlock, BlogFooter } from '../components';
+import { UserContextProvider } from '../context';
 
 interface BlogAppProps {
   Component: React.ComponentType<AppProps>;
@@ -30,11 +31,13 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
       </Head>
       <Global styles={`${globalStyles} :root{ --post-width: 650px; }`} />
       <ThemeContextProvider>
-        <MDXProvider components={MDXComponents}>
-          <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
-            <Component {...pageProps} />
-          </Layout>
-        </MDXProvider>
+        <UserContextProvider>
+          <MDXProvider components={MDXComponents}>
+            <Layout components={{ Footer: BlogFooter, Navbar: BlogNavbar }}>
+              <Component {...pageProps} />
+            </Layout>
+          </MDXProvider>
+        </UserContextProvider>
       </ThemeContextProvider>
     </React.Fragment>
   );
