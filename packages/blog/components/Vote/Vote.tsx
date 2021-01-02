@@ -50,24 +50,41 @@ const variants = {
   animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeIn' } },
 };
 
-const Vote = ({ dbPost, slug }) => {
+const Vote = ({ slug }) => {
   const { user } = useUserState();
   const { dispatch } = useUserDispatch();
   const scrolled = useUserScroll({ show: 100, hide: 0 });
-  const [postState, setPostState] = React.useState(dbPost);
-
+  const [postState, setPostState] = React.useState({
+    slug,
+    totalVotes: 0,
+    votes: [],
+    votesFromUser: 0,
+  });
   const [confetti, setConfetti] = React.useState(false);
 
   React.useEffect(() => {
-    if (!user) return;
+    const getPostData = async () => {
+      const res = await fetch(`/api/post/${slug}`);
+      const { post } = await res.json();
 
-    const votesFromUser = dbPost.votes.filter((id) => id === user._id);
+      const totalVotes = post.votes.length;
+      let votesFromUser;
 
-    setPostState({ ...postState, votesFromUser: votesFromUser.length });
+      if (!user) {
+        votesFromUser = 0;
+      } else {
+        const userVotes = post.votes.filter((id) => id === user._id);
+        votesFromUser = userVotes.length;
+      }
+
+      setPostState({ ...post, totalVotes, votesFromUser });
+    };
+
+    getPostData();
   }, [user]);
 
   const handleVote = async () => {
-    if (postState.votesFromUser >= MAX_VOTES) {
+    if (postState.votesFromUser >= MAX_VOTES - 1) {
       setConfetti(true);
 
       setTimeout(() => {
@@ -106,17 +123,16 @@ const Vote = ({ dbPost, slug }) => {
     if (data.result.ok) {
       setPostState({
         ...postState,
-        totalVotes: postState.totalVotes + 1,
+        votes: [...postState.votes, userId],
         votesFromUser: postState.votesFromUser + 1,
+        totalVotes: postState.totalVotes + 1,
       });
     }
 
     return data;
   };
 
-  if (!scrolled) return null;
-
-  console.log({ postState });
+  if (!scrolled || !postState) return null;
 
   return (
     <motion.div
@@ -150,4 +166,4 @@ const Vote = ({ dbPost, slug }) => {
   );
 };
 
-export default Vote;
+export default React.memo(Vote);
