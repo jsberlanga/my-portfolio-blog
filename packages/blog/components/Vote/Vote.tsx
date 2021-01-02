@@ -120,14 +120,12 @@ const Vote = ({ slug }) => {
 
     const data = await res.json();
 
-    if (data.result.ok) {
-      setPostState({
-        ...postState,
-        votes: [...postState.votes, userId],
-        votesFromUser: postState.votesFromUser + 1,
-        totalVotes: postState.totalVotes + 1,
-      });
-    }
+    setPostState({
+      ...postState,
+      votes: [...postState.votes, userId],
+      votesFromUser: postState.votesFromUser + 1,
+      totalVotes: postState.totalVotes + 1,
+    });
 
     return data;
   };
