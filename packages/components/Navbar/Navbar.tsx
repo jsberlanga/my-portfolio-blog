@@ -2,7 +2,7 @@
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import { getMQ } from '@juliosoto/lib/styles';
-import { Github, Hamburger, CloseMenu } from '../Icons';
+import { Github, Hamburger, CloseMenu, Logo } from '../Icons';
 import ThemeSwitch from '../ThemeSwitch';
 import Menu from '../Menu';
 import { useCallback, useState } from 'react';
@@ -72,7 +72,9 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
     <React.Fragment>
       <nav css={styles.root}>
         <Link href="/">
-          <a className="name small">julio soto</a>
+          <a>
+            <Logo />
+          </a>
         </Link>
         <ul className="links">
           {links}

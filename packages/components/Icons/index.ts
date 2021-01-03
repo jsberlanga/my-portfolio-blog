@@ -6,6 +6,7 @@ export { default as GoBack } from './GoBack';
 export { default as GoNext } from './GoNext';
 export { default as Hamburger } from './Hamburger';
 export { default as Line } from './Line';
+export { default as Logo } from './Logo';
 export { default as Moon } from './Moon';
 export { default as RobotHi } from './RobotHi';
 export { default as RobotMe } from './RobotMe';

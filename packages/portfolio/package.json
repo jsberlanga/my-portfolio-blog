@@ -11,6 +11,9 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
     "typecheck": "tsc --project tsconfig.json --pretty --noEmit"
   },
+  "alias": {
+    "#components": "./components"
+  },
   "dependencies": {
     "@emotion/react": "^11.1.2",
     "@juliosoto/components": "1.0.0",
