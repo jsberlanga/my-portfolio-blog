@@ -20,8 +20,18 @@ const styles = {
   `,
 };
 
-export default function Post({ postMeta, dbPost }) {
-  if (!dbPost) return <NotFound />;
+interface PostProps {
+  postMeta: {
+    title: string;
+    slug: string;
+    summary: string;
+    tags: string[];
+  } | null;
+  dbPost: boolean;
+}
+
+export default function Post({ postMeta, dbPost }: PostProps) {
+  if (!dbPost || !postMeta) return <NotFound />;
 
   const MDXPost = dynamic(
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
@@ -54,13 +64,13 @@ export default function Post({ postMeta, dbPost }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params) return { props: {} };
+  if (!params?.slug) return { props: {} };
 
   const postsData = getBlogPostsData();
 
   const postMeta = postsData?.find((postData) => postData.slug === params.slug);
 
-  const [dbPostData] = await getPostBySlug({ slug: params.slug });
+  const [dbPostData] = await getPostBySlug({ slug: params.slug?.toString() });
 
   if (postMeta && dbPostData && postMeta.slug === dbPostData.slug) {
     return { props: { postMeta, dbPost: true } };

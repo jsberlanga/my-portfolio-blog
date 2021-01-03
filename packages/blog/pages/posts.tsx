@@ -1,11 +1,15 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { PageHeader } from '@juliosoto/components';
-import { PostsPreview } from '../components';
-
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
+import { PostsPreview } from '../components';
+import { PostPreviewData } from '../types';
 
-export default function Index({ postsData }) {
+interface PostsProps {
+  postsPreviewData: PostPreviewData[];
+}
+
+export default function Posts({ postsPreviewData }: PostsProps) {
   return (
     <React.Fragment>
       <Head>
@@ -13,16 +17,16 @@ export default function Index({ postsData }) {
       </Head>
       <PageHeader title={<h2>/posts</h2>} />
       <br />
-      <PostsPreview postsData={postsData} />
+      <PostsPreview postsPreviewData={postsPreviewData} />
       <br />
     </React.Fragment>
   );
 }
 
 export const getStaticProps = async () => {
-  const postsData = getBlogPostsData();
+  const postsPreviewData = getBlogPostsData();
 
   return {
-    props: { postsData },
+    props: { postsPreviewData },
   };
 };

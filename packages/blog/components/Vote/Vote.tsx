@@ -37,7 +37,7 @@ const variants = {
   animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeIn' } },
 };
 
-const Vote = ({ slug }) => {
+const Vote = ({ slug }: { slug: string }) => {
   const { user } = useUserState();
   const { dispatch } = useUserDispatch();
   const scrolled = useUserScroll({ show: 100, hide: 0 });
@@ -60,7 +60,7 @@ const Vote = ({ slug }) => {
       if (!user) {
         votesFromUser = 0;
       } else {
-        const userVotes = post.votes.filter((id) => id === user._id);
+        const userVotes = post.votes.filter((id: string) => id === user._id);
         votesFromUser = userVotes.length;
       }
 

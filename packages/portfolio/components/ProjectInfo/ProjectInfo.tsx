@@ -92,7 +92,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
     technologyDescription,
     technologyUsed,
     links,
-  } = {},
+  },
 }) => {
   return (
     <div css={styles.root}>

@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getMQ } from '@juliosoto/lib/styles';
+import { ProjectPreviewType } from '@juliosoto/lib/types';
 
 const styles = {
   root: css`
@@ -178,17 +179,7 @@ const styles = {
 };
 
 interface ProjectsPreviewProps {
-  projects: {
-    title: string;
-    slug: string;
-    isPreviewDark: boolean;
-    imagePreview: {
-      url: string;
-      width: number;
-      height: number;
-    };
-    tags: string[];
-  }[];
+  projects: ProjectPreviewType[];
 }
 
 const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {

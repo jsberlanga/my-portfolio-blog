@@ -8,7 +8,7 @@ interface UserState {
 
 type UserDispatchAction = { type: 'SET_USER'; payload: UserState };
 
-const initialState: UserState = { user: null };
+const initialState: UserState = { user: undefined };
 
 const UserStateContext = React.createContext<UserState>(initialState);
 
@@ -33,7 +33,7 @@ const userReducer: React.Reducer<UserState, UserDispatchAction> = (
   }
 };
 
-const UserContextProvider = ({ children }) => {
+const UserContextProvider: React.FC = ({ children }) => {
   const [state, dispatch] = React.useReducer(userReducer, initialState);
 
   React.useEffect(() => {

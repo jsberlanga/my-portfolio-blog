@@ -15,11 +15,11 @@ const HoverLinkImage: React.FC<HoverLinkImageProps> = ({
   imageSrc,
   size = 500,
 }) => {
-  const [mouse, setMouse] = React.useState({
-    mx: null,
-    my: null,
-    isActive: null,
-  });
+  const [mouse, setMouse] = React.useState<{
+    mx: number;
+    my: number;
+    isActive: string | null;
+  }>({ mx: 0, my: 0, isActive: null });
 
   return (
     <motion.a

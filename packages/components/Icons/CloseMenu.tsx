@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-const CloseMenu = ({ handleClick }) => (
+interface CloseMenuProps {
+  handleClick: () => void;
+}
+
+const CloseMenu: React.FC<CloseMenuProps> = ({ handleClick }) => (
   <svg
     onClick={handleClick}
     version="1.1"

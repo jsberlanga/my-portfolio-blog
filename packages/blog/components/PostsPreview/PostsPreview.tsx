@@ -2,6 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { GoNext } from '@juliosoto/components/Icons';
+import { PostPreviewData } from '../../types';
 
 const styles = css`
   max-width: var(--content-width);
@@ -18,10 +19,14 @@ const styles = css`
   }
 `;
 
-const PostsPreview = ({ postsData }) => {
+interface PostPreviewProps {
+  postsPreviewData: PostPreviewData[];
+}
+
+const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
   return (
     <section css={styles}>
-      {postsData.map((post, idx) => (
+      {postsPreviewData.map((post, idx) => (
         <Link href={`/${post.slug}`} key={idx}>
           <a>
             <h5>{post.title}</h5>

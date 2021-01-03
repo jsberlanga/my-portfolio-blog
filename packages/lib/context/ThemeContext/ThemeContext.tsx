@@ -1,10 +1,18 @@
 import * as React from 'react';
+import { ThemeContext } from '../../types';
 import { useThemePreference } from './useThemePreference';
 
-const ThemeStateContext = React.createContext({ theme: null });
-const ThemeDispatchContext = React.createContext({ dispatch: null });
+const ThemeStateContext = React.createContext<ThemeContext>({
+  theme: undefined,
+});
 
-const ThemeContextProvider = ({ children }) => {
+const ThemeDispatchContext = React.createContext<{
+  dispatch: () => void;
+}>({
+  dispatch: () => null,
+});
+
+const ThemeContextProvider: React.FC = ({ children }) => {
   const { theme, toggleTheme } = useThemePreference();
 
   const memoizedTheme = React.useMemo(() => theme, [theme]);

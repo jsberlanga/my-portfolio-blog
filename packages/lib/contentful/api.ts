@@ -1,4 +1,11 @@
-async function fetchGraphQL(query, preview = false) {
+import {
+  ContentfulProjects,
+  ProjectPreviewType,
+  ProjectSlugType,
+  ProjectType,
+} from '../types';
+
+async function fetchGraphQL<T>(query: string, preview = false): Promise<T> {
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
@@ -16,16 +23,18 @@ async function fetchGraphQL(query, preview = false) {
   ).then((response) => response.json());
 }
 
-function extractProject(project) {
+function extractProject<T>(project: ContentfulProjects<T>): T | undefined {
   return project?.data?.projectCollection?.items?.[0];
 }
 
-function extractProjectEntries(projects) {
+function extractProjectEntries<T>(
+  projects: ContentfulProjects<T>,
+): T[] | undefined {
   return projects?.data?.projectCollection?.items;
 }
 
-export async function getProjectBySlug({ slug }) {
-  const entries = await fetchGraphQL(
+export async function getProjectBySlug({ slug }: { slug: string }) {
+  const entries = await fetchGraphQL<ContentfulProjects<ProjectType>>(
     `query {
       projectCollection(where: { slug: "${slug}" }) {
         items {
@@ -49,11 +58,11 @@ export async function getProjectBySlug({ slug }) {
     }`,
   );
 
-  return extractProject(entries);
+  return extractProject<ProjectType>(entries);
 }
 
 export async function getAllSlugs() {
-  const entries = await fetchGraphQL(
+  const entries = await fetchGraphQL<ContentfulProjects<ProjectSlugType>>(
     `query {
       projectCollection {
         items {
@@ -63,11 +72,11 @@ export async function getAllSlugs() {
     }`,
   );
 
-  return extractProjectEntries(entries);
+  return extractProjectEntries<ProjectSlugType>(entries);
 }
 
 export async function getAllProjects() {
-  const entries = await fetchGraphQL(
+  const entries = await fetchGraphQL<ContentfulProjects<ProjectPreviewType>>(
     `query {
       projectCollection {
         items {
@@ -85,5 +94,5 @@ export async function getAllProjects() {
       }
     }`,
   );
-  return extractProjectEntries(entries);
+  return extractProjectEntries<ProjectPreviewType>(entries);
 }

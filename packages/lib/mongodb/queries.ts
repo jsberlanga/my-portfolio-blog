@@ -7,7 +7,11 @@ export const getUsers = async () => {
   return users;
 };
 
-export const getPostBySlug = async ({ slug }) => {
+interface GetPostBySlugParams {
+  slug: string;
+}
+
+export const getPostBySlug = async ({ slug }: GetPostBySlugParams) => {
   const { db } = await connectToDatabase();
 
   const post = await db.collection('posts').find({ slug }).toArray();

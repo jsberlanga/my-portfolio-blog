@@ -9,7 +9,7 @@ const handler = nc<Request, NextApiResponse>({});
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-  const getUserByIpAddress = async (req) => {
+  const getUserByIpAddress = async (req: Request) => {
     const db = req.db;
     const user = req.user;
 
@@ -29,7 +29,7 @@ handler.get(async (req, res) => {
     return userCollection;
   };
 
-  const [user] = await getUserByIpAddress(req);
+  const [user] = (await getUserByIpAddress(req)) || [];
 
   const publicUserData = {
     _id: user._id,
@@ -41,7 +41,7 @@ handler.get(async (req, res) => {
 handler.post(async (req, res) => {
   const db = req.db;
 
-  const ipAddress = req.user.ipAddress;
+  const ipAddress = req?.user?.ipAddress;
 
   const user = await db.collection('users').findOne({
     ipAddress,

@@ -102,23 +102,29 @@ const styles = {
   `,
 };
 
+interface FormState {
+  email: string;
+  inprogress: boolean;
+  error: string | null;
+  success: boolean | null;
+}
+
 const Newsletter = () => {
-  const [formState, setFormState] = React.useState({
+  const [formState, setFormState] = React.useState<FormState>({
     email: '',
     inprogress: false,
     error: null,
     success: null,
   });
 
-  const handleChange = (e) =>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormState({
-      inprogress: null,
-      error: null,
-      success: null,
+      ...formState,
+      inprogress: true,
       email: e.target.value,
     });
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState({ ...formState, inprogress: true });
 
@@ -128,7 +134,7 @@ const Newsletter = () => {
         method: 'POST',
         body: JSON.stringify({ email: formState.email }),
         headers: new Headers({
-          Authorization: process.env.BUTTONDOWN_AUTH_TOKEN,
+          Authorization: process.env.BUTTONDOWN_AUTH_TOKEN || 'invalid_token',
           'Content-Type': 'application/json',
         }),
       },

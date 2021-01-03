@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-const Hamburger = ({ handleClick }) => (
+interface HamburgerProps {
+  handleClick: () => void;
+}
+
+const Hamburger: React.FC<HamburgerProps> = ({ handleClick }) => (
   <svg
     onClick={handleClick}
     version="1.1"

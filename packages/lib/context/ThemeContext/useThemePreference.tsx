@@ -9,16 +9,23 @@ const useThemePreference = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
-  const storeUserSetPreference = (pref) => localStorage.setItem('theme', pref);
-
-  const root = typeof document !== 'undefined' && document.documentElement;
+  const storeUserSetPreference = (pref: Theme) =>
+    localStorage.setItem('theme', pref);
 
   React.useEffect(() => {
+    const root = typeof document !== 'undefined' && document.documentElement;
+
+    if (!root) return;
+
     const initialTheme = root.style.getPropertyValue('--initial-color-mode');
     setTheme(initialTheme === 'dark' ? 'dark' : 'light');
-  }, [root.style]);
+  }, []);
 
   React.useEffect(() => {
+    const root = typeof document !== 'undefined' && document.documentElement;
+
+    if (!root) return;
+
     if (theme === 'dark') {
       root.setAttribute('data-theme', 'dark');
       storeUserSetPreference('dark');
@@ -27,7 +34,7 @@ const useThemePreference = () => {
       root.removeAttribute('data-theme');
       storeUserSetPreference('light');
     }
-  }, [theme, root]);
+  }, [theme]);
 
   return { theme, toggleTheme };
 };

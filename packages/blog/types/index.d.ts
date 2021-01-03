@@ -7,3 +7,10 @@ export interface Request extends NextApiRequest {
     ipAddress: string;
   };
 }
+
+export interface PostPreviewData {
+  title: string;
+  slug: string;
+  summary: string;
+  publishedAt: string;
+}

@@ -15,7 +15,7 @@ interface BlogAppProps {
   pageProps: AppProps;
 }
 
-const Heading = ({ children }) => (
+const Heading: React.FC = ({ children }) => (
   <h1 style={{ fontWeight: 800 }}>{children}</h1>
 );
 

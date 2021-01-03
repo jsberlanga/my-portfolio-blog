@@ -9,19 +9,10 @@ declare global {
   }
 }
 
-const { MONGODB_URI, MONGODB_DB } = process.env;
-
-if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local',
-  );
-}
-
-if (!MONGODB_DB) {
-  throw new Error(
-    'Please define the MONGODB_DB environment variable inside .env.local',
-  );
-}
+const {
+  MONGODB_URI = 'Invalid MONGODB_URI environment variable',
+  MONGODB_DB = 'Invalid MONGODB_DB environment variable',
+} = process.env;
 
 /**
  * Global is used here to maintain a cached connection across hot reloads

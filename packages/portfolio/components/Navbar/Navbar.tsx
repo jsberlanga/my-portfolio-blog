@@ -5,7 +5,10 @@ import { useRouter } from 'next/router';
 const PortfolioNavbar = () => {
   const router = useRouter();
 
-  const handleClick = (e, selector) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    selector: string,
+  ) => {
     e.preventDefault();
 
     const element = document.querySelector(selector);

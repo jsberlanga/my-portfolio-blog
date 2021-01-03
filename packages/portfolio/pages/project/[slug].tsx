@@ -8,19 +8,21 @@ import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';
 import { ProjectInfo } from '../../components';
+import { ProjectType } from '@juliosoto/lib/types';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params;
+  const { slug = '' } = params ?? {};
 
-  const project = (await getProjectBySlug({ slug })) ?? [];
+  const project = await getProjectBySlug({ slug: slug?.toString() });
 
-  if (!project || project.length === 0) {
-    return { props: { project: [] } };
+  const slugs = await getAllSlugs();
+  if (!project || !slugs) {
+    return { props: { project: null } };
   }
 
-  const slugs = (await getAllSlugs()) ?? [];
-
-  const currentIdx = slugs.findIndex(({ slug }) => project.slug === slug);
+  const currentIdx = slugs.findIndex(
+    ({ slug }: { slug: string }) => project.slug === slug,
+  );
 
   const adjacentProjects = {
     previous: currentIdx > 0 ? slugs[currentIdx - 1] : null,
@@ -33,9 +35,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const projects = (await getAllSlugs()) ?? [];
+  const projects = await getAllSlugs();
 
-  const preRenderedPaths = projects.map(({ slug }) => ({
+  const preRenderedPaths = projects?.map(({ slug }) => ({
     params: { slug },
   }));
 
@@ -68,10 +70,16 @@ const styles = {
   `,
 };
 
-export default function Project({ project, adjacentProjects }) {
-  if (!project || project.length === 0) {
-    return <NotFound />;
-  }
+interface ProjectProps {
+  project?: ProjectType;
+  adjacentProjects: {
+    previous: ProjectType | null;
+    next: ProjectType | null;
+  };
+}
+
+export default function Project({ project, adjacentProjects }: ProjectProps) {
+  if (!project) return <NotFound />;
 
   const projectInfoData = {
     projectInfo: project.projectInfo,
@@ -79,8 +87,6 @@ export default function Project({ project, adjacentProjects }) {
     technologyDescription: project.technologyDescription,
     technologyUsed: project.technologyUsed,
   };
-
-  console.log(project.projectCompleted);
 
   return (
     <React.Fragment>

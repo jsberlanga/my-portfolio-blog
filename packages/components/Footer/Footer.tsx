@@ -132,7 +132,10 @@ const DefaultLeftColumn = () => (
 );
 
 const Footer = ({
-  columns: { LeftColumn = <DefaultLeftColumn />, MiddleColumn = null } = {},
+  columns: {
+    LeftColumn = <DefaultLeftColumn />,
+    MiddleColumn = undefined,
+  } = {},
 }: FooterProps): JSX.Element => (
   <footer css={styles.root}>
     <div className="col col-1">{LeftColumn}</div>

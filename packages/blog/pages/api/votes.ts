@@ -18,7 +18,7 @@ handler.put(async (req, res) => {
 
   const { _id, votes } = await db.collection('posts').findOne({ slug });
 
-  const votesFromUser = votes.filter((vote) => vote === userId);
+  const votesFromUser = votes.filter((vote: string[]) => vote === userId);
 
   if (votesFromUser.length >= MAX_VOTES) {
     return res.json({ result: 'Maximum votes per user reached' });

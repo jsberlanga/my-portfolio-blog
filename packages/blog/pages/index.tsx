@@ -4,6 +4,7 @@ import { PostsPreview } from '../components';
 import Head from 'next/head';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
+import { PostPreviewData } from '../types';
 
 const styles = {
   postsPreview: css`
@@ -12,7 +13,11 @@ const styles = {
   `,
 };
 
-export default function Index({ recentPosts }) {
+interface IndexProps {
+  recentPosts: PostPreviewData[];
+}
+
+export default function Index({ recentPosts }: IndexProps) {
   return (
     <React.Fragment>
       <Head>
@@ -25,7 +30,7 @@ export default function Index({ recentPosts }) {
       />
       <br />
       <div css={styles.postsPreview}>
-        <PostsPreview postsData={recentPosts} />
+        <PostsPreview postsPreviewData={recentPosts} />
       </div>
       <br />
       <Newsletter />

@@ -11,7 +11,7 @@ function setInitialColorMode() {
     function readQueryParams() {
       const url: URL = new URL(window.location.href);
       const params: URLSearchParams = url.searchParams;
-      const themeValue: string = params && params.get('theme');
+      const themeValue = params && params.get('theme');
 
       return themeValue;
     }

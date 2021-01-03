@@ -31,7 +31,16 @@ const styles = css`
   }
 `;
 
-const CodeBlock = ({
+interface CodeBlockProps {
+  children: {
+    props: {
+      children: React.ReactNode;
+      className: string;
+    };
+  };
+}
+
+const CodeBlock: React.FC<CodeBlockProps> = ({
   children: {
     props: { children, className },
   },

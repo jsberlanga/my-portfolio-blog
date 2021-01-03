@@ -41,11 +41,11 @@ const styles = css`
 `;
 
 interface MenuProps {
-  handleClick?: () => void;
+  handleClick: () => void;
 }
 
 const Menu: React.FC<MenuProps> = ({ children, handleClick }) => {
-  const menuRef = React.useRef();
+  const menuRef = React.useRef<HTMLDivElement>(null);
   useOutsideRef(menuRef, handleClick);
 
   return (
