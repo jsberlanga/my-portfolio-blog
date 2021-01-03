@@ -79,7 +79,10 @@ interface ProjectInfoProps {
     projectInfo: string;
     technologyDescription: string;
     technologyUsed: string[];
-    links: any;
+    links: {
+      github?: string;
+      website?: string;
+    };
   };
 }
 
@@ -104,7 +107,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
               </a>
             ) : null}
             {links?.github ? (
-              <a href="https://github.com">
+              <a href={links.github}>
                 <Github />
               </a>
             ) : null}
