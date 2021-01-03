@@ -15,18 +15,7 @@ const styles = {
     top: 33%;
 
     ${getMQ('mobile')} {
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 2rem;
-      background: var(--c-text);
-
-      svg {
-        position: absolute;
-        right: calc(var(--gap) * 2);
-        padding: 0.2rem;
-        height: 100%;
-      }
+      display: none;
     }
   `,
   count: css`
@@ -36,10 +25,7 @@ const styles = {
     right: -25px;
 
     ${getMQ('mobile')} {
-      position: absolute;
-      top: 0;
-      right: var(--gap);
-      color: var(--c-background);
+      display: none;
     }
   `,
 };
@@ -78,7 +64,7 @@ const Vote = ({ slug }) => {
         votesFromUser = userVotes.length;
       }
 
-      if (postState.votesFromUser !== 0) {
+      if (postState.votesFromUser === 0) {
         setPostState({ ...post, totalVotes, votesFromUser });
       }
     };
