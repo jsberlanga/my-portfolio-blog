@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { PageHeader } from '@juliosoto/components';
 import { PostsPreview } from '../components';
 
-import { getBlogPostsData } from '@juliosoto/utils/mdx';
+import { getBlogPostsData } from '@juliosoto/lib/mdx';
 
 export default function Index({ postsData }) {
   return (

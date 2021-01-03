@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Sun, Moon } from '../Icons';
-import { useThemeDispatch, useThemeState } from '@juliosoto/utils/context';
+import { useThemeDispatch, useThemeState } from '@juliosoto/lib/context';
 
 interface ThemeSwitchProps {
   fill?: string;

@@ -2,7 +2,7 @@ const remarkSlug = require('remark-slug');
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules')([
   '@juliosoto/components',
-  '@juliosoto/utils',
+  '@juliosoto/lib',
 ]);
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,

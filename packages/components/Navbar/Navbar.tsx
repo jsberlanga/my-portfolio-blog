@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import { getMQ } from '@juliosoto/utils/styles';
+import { getMQ } from '@juliosoto/lib/styles';
 import { Github, Hamburger, CloseMenu } from '../Icons';
 import ThemeSwitch from '../ThemeSwitch';
 import Menu from '../Menu';

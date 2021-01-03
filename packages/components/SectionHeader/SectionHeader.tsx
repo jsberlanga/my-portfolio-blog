@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { getMQ } from '@juliosoto/utils/styles';
+import { getMQ } from '@juliosoto/lib/styles';
 
 const styles = {
   root: css`

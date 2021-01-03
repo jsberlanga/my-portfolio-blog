@@ -4,8 +4,8 @@ import darkTheme from 'prism-react-renderer/themes/nightOwl';
 import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
 import { css } from '@emotion/react';
 import Head from 'next/head';
-import { useThemeState } from '@juliosoto/utils/context';
-import { getMQ } from '@juliosoto/utils/styles';
+import { useThemeState } from '@juliosoto/lib/context';
+import { getMQ } from '@juliosoto/lib/styles';
 
 const styles = css`
   padding: 15px;

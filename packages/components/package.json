@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.2",
-    "@juliosoto/utils": "1.0.0",
+    "@juliosoto/lib": "1.0.0",
     "framer-motion": "^3.1.1",
     "next": "^10.0.4",
     "react": "17.0.1"

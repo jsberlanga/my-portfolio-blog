@@ -2,7 +2,7 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import { RobotMe } from '@juliosoto/components/Icons';
 import { SectionHeader } from '@juliosoto/components';
-import { getMQ } from '@juliosoto/utils/styles';
+import { getMQ } from '@juliosoto/lib/styles';
 import HoverLinkImage from '../HoverLinkImage';
 
 const styles = {

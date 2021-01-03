@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
-import { getBlogPostsData } from '@juliosoto/utils/mdx';
+import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
 import { NotFound, PageHeader, ScrollProgress } from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
-import { getPostBySlug } from '@juliosoto/utils/mongodb';
+import { getPostBySlug } from '@juliosoto/lib/mongodb';
 
 const DynamicVote = dynamic(() => import('../components/Vote'));
 

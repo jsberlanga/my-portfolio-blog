@@ -1,5 +1,5 @@
 import nc from 'next-connect';
-import middleware from '@juliosoto/utils/middleware';
+import middleware from '@juliosoto/lib/middleware';
 import { NextApiResponse } from 'next';
 import { Request } from '../../../types';
 

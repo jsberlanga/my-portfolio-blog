@@ -2,7 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { getAllSlugs, getProjectBySlug } from '@juliosoto/utils/contentful';
+import { getAllSlugs, getProjectBySlug } from '@juliosoto/lib/contentful';
 import { css } from '@emotion/react';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';

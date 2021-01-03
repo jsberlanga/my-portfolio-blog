@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { getMQ } from '@juliosoto/utils/styles';
+import { getMQ } from '@juliosoto/lib/styles';
 import { ComponentType } from 'react';
 import DefaultFooter, { FooterProps } from '../Footer';
 import DefaultNavbar, { NavbarProps } from '../Navbar';

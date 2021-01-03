@@ -5,7 +5,7 @@ import About from './About';
 jest.mock('@juliosoto/components/Icons', () => ({
   RobotMe: () => 'RobotMe',
 }));
-jest.mock('@juliosoto/utils/styles', () => ({
+jest.mock('@juliosoto/lib/styles', () => ({
   getMQ: () => '500',
 }));
 

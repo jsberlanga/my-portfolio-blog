@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import * as React from 'react';
 import { Github } from '../Icons';
 import ThemeSwitch from '../ThemeSwitch';
-import { useOutsideRef } from '@juliosoto/utils/hooks';
+import { useOutsideRef } from '@juliosoto/lib/hooks';
 
 const styles = css`
   background: var(--c-background-02);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Newsletter, PageHeader } from '@juliosoto/components';
 import { PostsPreview } from '../components';
 import Head from 'next/head';
-import { getBlogPostsData } from '@juliosoto/utils/mdx';
+import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
 
 const styles = {

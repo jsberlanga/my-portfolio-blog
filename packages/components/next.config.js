@@ -1,3 +1,3 @@
-const withTM = require('next-transpile-modules')(['@juliosoto/utils']);
+const withTM = require('next-transpile-modules')(['@juliosoto/lib']);
 
 module.exports = withTM();

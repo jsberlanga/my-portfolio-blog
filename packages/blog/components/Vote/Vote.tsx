@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { useUserScroll } from '@juliosoto/utils/hooks';
+import { useUserScroll } from '@juliosoto/lib/hooks';
 import { Star } from '@juliosoto/components/Icons';
 import { useUserDispatch, useUserState } from '../../context';
-import { getMQ } from '@juliosoto/utils/styles';
+import { getMQ } from '@juliosoto/lib/styles';
 import { motion } from 'framer-motion';
 
 const styles = {

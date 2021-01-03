@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { getAllProjects } from '@juliosoto/utils/contentful';
+import { getAllProjects } from '@juliosoto/lib/contentful';
 import { Hero, ProjectsPreview, About } from '../components';
 
 export async function getStaticProps() {
