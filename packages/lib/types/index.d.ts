@@ -83,3 +83,11 @@ export interface Request extends NextApiRequest {
     ipAddress: string;
   };
 }
+
+// GTAG
+export interface TGTagEvent {
+  action: string;
+  category: string;
+  label: string;
+  value: number;
+}
