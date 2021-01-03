@@ -4,7 +4,7 @@ import { PostsPreview } from '../components';
 import Head from 'next/head';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
-import { PostPreviewData } from '../types';
+import { TPostPreview } from '@juliosoto/lib/types';
 
 const styles = {
   postsPreview: css`
@@ -14,7 +14,7 @@ const styles = {
 };
 
 interface IndexProps {
-  recentPosts: PostPreviewData[];
+  recentPosts: TPostPreview[];
 }
 
 export default function Index({ recentPosts }: IndexProps) {

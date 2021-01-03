@@ -70,7 +70,7 @@ const Vote = ({ slug }: { slug: string }) => {
     };
 
     getPostData();
-  }, [user]);
+  }, [user, slug, postState.votesFromUser]);
 
   const handleVote = async () => {
     let userId = user?._id;

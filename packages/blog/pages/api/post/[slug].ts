@@ -1,9 +1,9 @@
 import nc from 'next-connect';
 import middleware from '@juliosoto/lib/middleware';
 import { NextApiResponse } from 'next';
-import { Request } from '../../../types';
+import { TRequest } from '../../../types';
 
-const handler = nc<Request, NextApiResponse>({});
+const handler = nc<TRequest, NextApiResponse>({});
 
 handler.use(middleware);
 

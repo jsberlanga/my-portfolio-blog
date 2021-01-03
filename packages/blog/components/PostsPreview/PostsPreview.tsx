@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 import { GoNext } from '@juliosoto/components/Icons';
-import { PostPreviewData } from '../../types';
+import { TPostPreview } from '@juliosoto/lib/types';
 
 const styles = css`
   max-width: var(--content-width);
@@ -20,7 +20,7 @@ const styles = css`
 `;
 
 interface PostPreviewProps {
-  postsPreviewData: PostPreviewData[];
+  postsPreviewData: TPostPreview[];
 }
 
 const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {

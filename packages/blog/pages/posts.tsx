@@ -3,10 +3,10 @@ import Head from 'next/head';
 import { PageHeader } from '@juliosoto/components';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { PostsPreview } from '../components';
-import { PostPreviewData } from '../types';
+import { TPostPreview } from '@juliosoto/lib/types';
 
 interface PostsProps {
-  postsPreviewData: PostPreviewData[];
+  postsPreviewData: TPostPreview[];
 }
 
 export default function Posts({ postsPreviewData }: PostsProps) {

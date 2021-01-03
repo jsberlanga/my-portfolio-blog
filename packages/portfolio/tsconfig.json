@@ -4,9 +4,7 @@
     "types": ["@emotion/react/types/css-prop"],
     "baseUrl": ".",
     "paths": {
-      "#components/*": [
-        "components"
-      ]
+      "#components/*": ["components"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

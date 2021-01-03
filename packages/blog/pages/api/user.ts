@@ -1,15 +1,15 @@
 import nc from 'next-connect';
 import middleware from '@juliosoto/lib/middleware';
 import { NextApiResponse } from 'next';
-import { Request } from '../../types';
+import { TRequest } from '../../types';
 import { nanoid } from 'nanoid';
 
-const handler = nc<Request, NextApiResponse>({});
+const handler = nc<TRequest, NextApiResponse>({});
 
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-  const getUserByIpAddress = async (req: Request) => {
+  const getUserByIpAddress = async (req: TRequest) => {
     const db = req.db;
     const user = req.user;
 

@@ -1,3 +1,4 @@
+// PROJECTS
 export interface FullProjectType {
   title: string;
   slug: string;
@@ -45,6 +46,20 @@ export type ProjectPreviewType = Pick<
   'title' | 'slug' | 'isPreviewDark' | 'imagePreview' | 'tags'
 >;
 
+// POSTS
+
+export interface TFullPost {
+  title: string;
+  slug: string;
+  summary: string;
+  publishedAt: string;
+}
+
+export type TPostPreview = Pick<
+  TFullPost,
+  'title' | 'slug' | 'summary' | 'publishedAt'
+>;
+
 // CONTENTFUL
 export interface ContentfulProjects<T> {
   data?: {
@@ -54,6 +69,17 @@ export interface ContentfulProjects<T> {
   };
 }
 
+// THEME
+
 export interface ThemeContext {
   theme?: 'light' | 'dark';
+}
+
+// API
+
+export interface Request extends NextApiRequest {
+  db: Db;
+  user?: {
+    ipAddress: string;
+  };
 }
