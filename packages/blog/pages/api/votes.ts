@@ -1,8 +1,8 @@
+import { NextApiResponse } from 'next';
 import nc from 'next-connect';
 import middleware from '@juliosoto/lib/middleware';
-import { NextApiResponse } from 'next';
+import { MAX_VOTES_ALLOWED } from '@juliosoto/lib/constants';
 import { TRequest } from '../../types';
-import { MAX_VOTES } from '../../components/Vote/Vote';
 
 const handler = nc<TRequest, NextApiResponse>({});
 
@@ -20,7 +20,7 @@ handler.put(async (req, res) => {
 
   const votesFromUser = votes.filter((vote: string[]) => vote === userId);
 
-  if (votesFromUser.length >= MAX_VOTES) {
+  if (votesFromUser.length >= MAX_VOTES_ALLOWED) {
     return res.json({ result: 'Maximum votes per user reached' });
   }
 

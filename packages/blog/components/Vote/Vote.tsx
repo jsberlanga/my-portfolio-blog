@@ -2,9 +2,10 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import { useUserScroll } from '@juliosoto/lib/hooks';
 import { Star } from '@juliosoto/components/Icons';
-import { useUserDispatch, useUserState } from '../../context';
 import { getMQ } from '@juliosoto/lib/styles';
 import { motion } from 'framer-motion';
+import { MAX_VOTES_ALLOWED } from '@juliosoto/lib/constants';
+import { useUserDispatch, useUserState } from '../../context';
 
 const styles = {
   root: css`
@@ -29,8 +30,6 @@ const styles = {
     }
   `,
 };
-
-export const MAX_VOTES = 10;
 
 const variants = {
   initial: { opacity: 0 },
@@ -89,7 +88,7 @@ const Vote = ({ slug }: { slug: string }) => {
       }
     }
 
-    if (postState.votesFromUser >= MAX_VOTES - 1) {
+    if (postState.votesFromUser >= MAX_VOTES_ALLOWED - 1) {
       setConfetti(true);
 
       setTimeout(() => {
@@ -97,7 +96,7 @@ const Vote = ({ slug }: { slug: string }) => {
       }, 3000);
     }
 
-    if (postState.votesFromUser >= MAX_VOTES) {
+    if (postState.votesFromUser >= MAX_VOTES_ALLOWED) {
       return;
     }
 
@@ -134,7 +133,7 @@ const Vote = ({ slug }: { slug: string }) => {
       <div css={styles.count}>
         <span className="small">{postState.totalVotes}</span>
         <span style={{ fontSize: '0.5rem' }}>
-          {postState.votesFromUser >= MAX_VOTES && ' MAX'}
+          {postState.votesFromUser >= MAX_VOTES_ALLOWED && ' MAX'}
         </span>
       </div>
       {confetti ? (
