@@ -102,12 +102,12 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
         {links ? (
           <div className="externalLinks">
             {links?.website ? (
-              <a href={links.website}>
+              <a href={links.website} target="_blank" rel="noreferrer">
                 <ExternalLink />
               </a>
             ) : null}
             {links?.github ? (
-              <a href={links.github}>
+              <a href={links.github} target="_blank" rel="noreferrer">
                 <Github />
               </a>
             ) : null}
