@@ -30,9 +30,10 @@ const styles = {
     }
   `,
   count: css`
+    user-select: none;
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -25px;
+    right: -25px;
 
     ${getMQ('mobile')} {
       position: absolute;
@@ -77,30 +78,15 @@ const Vote = ({ slug }) => {
         votesFromUser = userVotes.length;
       }
 
-      setPostState({ ...post, totalVotes, votesFromUser });
+      if (postState.votesFromUser !== 0) {
+        setPostState({ ...post, totalVotes, votesFromUser });
+      }
     };
 
     getPostData();
   }, [user]);
 
   const handleVote = async () => {
-    if (postState.votesFromUser >= MAX_VOTES - 1) {
-      setConfetti(true);
-
-      setTimeout(() => {
-        setConfetti(false);
-      }, 3000);
-    }
-    if (postState.votesFromUser >= MAX_VOTES) {
-      return;
-    }
-
-    setPostState({
-      ...postState,
-      votesFromUser: postState.votesFromUser + 1,
-      totalVotes: postState.totalVotes + 1,
-    });
-
     let userId = user?._id;
 
     if (!user) {
@@ -117,6 +103,24 @@ const Vote = ({ slug }) => {
       }
     }
 
+    if (postState.votesFromUser >= MAX_VOTES - 1) {
+      setConfetti(true);
+
+      setTimeout(() => {
+        setConfetti(false);
+      }, 3000);
+    }
+
+    if (postState.votesFromUser >= MAX_VOTES) {
+      return;
+    }
+
+    setPostState({
+      ...postState,
+      votesFromUser: postState.votesFromUser + 1,
+      totalVotes: postState.totalVotes + 1,
+    });
+
     const body = { slug, userId };
 
     const res = await fetch('/api/votes', {
@@ -127,9 +131,7 @@ const Vote = ({ slug }) => {
       body: JSON.stringify(body),
     });
 
-    const data = await res.json();
-
-    return data;
+    return await res.json();
   };
 
   if (!scrolled || !postState) return null;
