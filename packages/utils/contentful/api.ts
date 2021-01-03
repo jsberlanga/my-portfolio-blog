@@ -39,8 +39,11 @@ export async function getProjectBySlug({ slug }) {
             height
           }
           tags
+          dateCompleted
           projectInfo
           technologyUsed
+          technologyDescription
+          links
         }
       }
     }`,

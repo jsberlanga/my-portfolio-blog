@@ -73,6 +73,15 @@ export default function Project({ project, adjacentProjects }) {
     return <NotFound />;
   }
 
+  const projectInfoData = {
+    projectInfo: project.projectInfo,
+    links: project.links,
+    technologyDescription: project.technologyDescription,
+    technologyUsed: project.technologyUsed,
+  };
+
+  console.log(project.projectCompleted);
+
   return (
     <React.Fragment>
       <Head>
@@ -83,7 +92,7 @@ export default function Project({ project, adjacentProjects }) {
         <PageHeader
           title={<h2>/{project.title}</h2>}
           description={project.description}
-          tags={project.tags}
+          tags={[...project.tags, project.dateCompleted]}
         />
         <div className="imageWrapper">
           <Image
@@ -93,10 +102,7 @@ export default function Project({ project, adjacentProjects }) {
             height={project.mainImage.height}
           />
         </div>
-        <ProjectInfo
-          projectInfo={project.projectInfo}
-          technologyUsed={project.technologyUsed}
-        />
+        <ProjectInfo projectInfoData={projectInfoData} />
         <div className="adjacentProjects">
           {adjacentProjects.previous ? (
             <Link href={`/project/${adjacentProjects.previous.slug}`}>

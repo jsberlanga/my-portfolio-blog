@@ -49,6 +49,12 @@ const styles = {
           }
         }
       }
+      .externalLinks-info {
+        display: block;
+        ${getMQ('desktop')} {
+          max-width: 20rem;
+        }
+      }
     }
 
     .technologyUsed {
@@ -69,44 +75,54 @@ const styles = {
 };
 
 interface ProjectInfoProps {
-  projectInfo: string;
-  technologyUsed: string[];
+  projectInfoData: {
+    projectInfo: string;
+    technologyDescription: string;
+    technologyUsed: string[];
+    links: any;
+  };
 }
 
 const ProjectInfo: React.FC<ProjectInfoProps> = ({
-  projectInfo,
-  technologyUsed = [],
-}) => (
-  <div css={styles.root}>
-    <div className="projectInfo">
-      <h3>the project</h3>
-      <p>
-        {projectInfo} Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Laudantium a fugit veritatis officia explicabo esse iure, tempore ipsa
-        nam quo!
-      </p>
-      <div className="externalLinks">
-        <a href="https://google.com">
-          <ExternalLink />
-        </a>
-        <a href="https://github.com">
-          <Github />
-        </a>
+  projectInfoData: {
+    projectInfo,
+    technologyDescription,
+    technologyUsed,
+    links,
+  } = {},
+}) => {
+  return (
+    <div css={styles.root}>
+      <div className="projectInfo">
+        <h3>the project</h3>
+        <p dangerouslySetInnerHTML={{ __html: projectInfo }}></p>
+        {links ? (
+          <div className="externalLinks">
+            {links?.website ? (
+              <a href={links.website}>
+                <ExternalLink />
+              </a>
+            ) : null}
+            {links?.github ? (
+              <a href="https://github.com">
+                <Github />
+              </a>
+            ) : null}
+            <div className="xsmall externalLinks-info">
+              If you are interested, please do click on the icon
+              {links?.github && links?.website ? 's' : ''} to check the website
+              {links?.github ? 'and the code in github' : ''}
+            </div>
+          </div>
+        ) : null}
       </div>
-      <div className="xsmall">
-        you are welcome to check the website and the code
+      <div className="technologyUsed">
+        <h3>technology used</h3>
+        <p dangerouslySetInnerHTML={{ __html: technologyDescription }}></p>
+        <Tags tags={technologyUsed} isDark={false} />
       </div>
     </div>
-    <div className="technologyUsed">
-      <h3>technology used</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nobis
-        cum delectus pariatur quisquam libero nam magnam sit reprehenderit
-        neque.
-      </p>
-      <Tags tags={technologyUsed} isDark={false} />
-    </div>
-  </div>
-);
+  );
+};
 
 export default ProjectInfo;

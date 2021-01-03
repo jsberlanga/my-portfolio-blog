@@ -27,6 +27,10 @@ export const typeScale = `
     font-family: var(--ff-body);
   }
 
+  strong {
+    font-weight: 600;
+  }
+
 
   ul, li {
     list-style-type: none;
