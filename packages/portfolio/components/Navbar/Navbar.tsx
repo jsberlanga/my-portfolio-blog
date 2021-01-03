@@ -38,7 +38,7 @@ const PortfolioNavbar = () => {
             </a>
           </li>
           <li>
-            <a href="https://blog.juliosoto.dev/?theme=dark">/blog</a>
+            <a href="https://blog.juliosoto.dev">/blog</a>
           </li>
         </React.Fragment>
       }
