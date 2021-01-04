@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { getAllProjects } from '@juliosoto/lib/contentful';
-import { Hero, ProjectsPreview, About } from '../components';
+import { getPreviewProjects } from '@juliosoto/lib/contentful';
 import { ProjectPreviewType } from '@juliosoto/lib/types';
+import { Hero, ProjectsPreview, About } from '../components';
 
 export async function getStaticProps() {
-  const projects = await getAllProjects();
+  const projects = await getPreviewProjects();
 
   if (!projects)
     return {

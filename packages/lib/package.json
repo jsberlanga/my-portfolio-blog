@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.4.0",
     "next-connect": "^0.9.1",
     "react": "^17.0.1"
   },

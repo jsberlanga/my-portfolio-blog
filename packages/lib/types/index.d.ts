@@ -62,10 +62,8 @@ export type TPostPreview = Pick<
 
 // CONTENTFUL
 export interface ContentfulProjects<T> {
-  data?: {
-    projectCollection?: {
-      items?: T[];
-    };
+  projectCollection?: {
+    items?: T[];
   };
 }
 

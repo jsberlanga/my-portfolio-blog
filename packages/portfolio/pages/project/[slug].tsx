@@ -2,7 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { getAllSlugs, getProjectBySlug } from '@juliosoto/lib/contentful';
+import { getAllSlugs, getProject } from '@juliosoto/lib/contentful';
 import { css } from '@emotion/react';
 import { GoBack, GoNext } from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';
@@ -13,7 +13,7 @@ import { ProjectType } from '@juliosoto/lib/types';
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = '' } = params ?? {};
 
-  const project = await getProjectBySlug({ slug: slug?.toString() });
+  const project = await getProject({ slug: slug?.toString() });
 
   const slugs = await getAllSlugs();
   if (!project || !slugs) {

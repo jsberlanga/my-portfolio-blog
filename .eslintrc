@@ -21,7 +21,7 @@
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended",
-    "eslint-plugin-mdx"
+    "plugin:mdx/recommended"
   ],
   "plugins": ["react", "jest"],
   "rules": {
