@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/lib/styles';
+import { IconProps } from './types';
 
 const styles = css`
   position: absolute;
@@ -13,9 +14,7 @@ const styles = css`
   }
 `;
 
-interface LineProps {
-  fill?: string;
-}
+type LineProps = Pick<IconProps, 'fill'>;
 
 const Line: React.FC<LineProps> = ({ fill = 'var(--c-special)' }) => (
   <svg

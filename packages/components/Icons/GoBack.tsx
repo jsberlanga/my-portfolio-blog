@@ -19,7 +19,7 @@ const GoBack: React.FC = () => (
       <g
         id="Artboard-Copy-4"
         transform="translate(-1132.000000, -2428.000000)"
-        fill="var(--c-light-02)"
+        fill="var(--c-text)"
         fillRule="nonzero"
       >
         <g id="Group-23" transform="translate(956.000000, 2421.000000)">

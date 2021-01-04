@@ -1,11 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { IconProps } from './types';
 
 const styles = css`
   margin-right: 10px;
 `;
 
-const GoNext: React.FC = () => (
+type GoNextProps = Pick<IconProps, 'fill'>;
+
+const GoNext: React.FC<GoNextProps> = ({ fill = 'var(--c-light-02' }) => (
   <svg
     css={styles}
     width="20px"
@@ -18,7 +21,7 @@ const GoNext: React.FC = () => (
       <g
         id="Artboard-Copy-4"
         transform="translate(-1132.000000, -2428.000000)"
-        fill="var(--c-light-02)"
+        fill={fill}
         fillRule="nonzero"
       >
         <g id="Group-23" transform="translate(956.000000, 2421.000000)">

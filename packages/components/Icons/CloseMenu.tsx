@@ -1,8 +1,7 @@
 import * as React from 'react';
+import type { IconProps } from './types';
 
-interface CloseMenuProps {
-  handleClick: () => void;
-}
+type CloseMenuProps = Pick<IconProps, 'handleClick'>;
 
 const CloseMenu: React.FC<CloseMenuProps> = ({ handleClick }) => (
   <svg

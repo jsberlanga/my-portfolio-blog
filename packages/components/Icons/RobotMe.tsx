@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { getMQ } from '@juliosoto/lib/styles';
+import { IconProps } from './types';
 
 const styles = css`
   ${getMQ('mobile')} {
@@ -8,10 +9,7 @@ const styles = css`
   }
 `;
 
-interface RobotMeProps {
-  fill?: string;
-  size?: string;
-}
+type RobotMeProps = Pick<IconProps, 'fill' | 'size'>;
 
 const RobotMe: React.FC<RobotMeProps> = ({
   fill = 'var(--c-text)',

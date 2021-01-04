@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface LogoProps {
-  fill?: string;
-}
+type LogoProps = Pick<IconProps, 'fill'>;
 
 const Logo: React.FC<LogoProps> = ({ fill = 'var(--c-special)' }) => (
   <svg

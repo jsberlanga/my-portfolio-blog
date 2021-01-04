@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface SunProps {
-  fill?: string;
-}
+type SunProps = Pick<IconProps, 'fill'>;
 
 const Sun: React.FC<SunProps> = ({ fill = 'var(--c-text)' }) => (
   <svg

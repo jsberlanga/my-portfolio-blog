@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface StarProps {
-  fill?: string;
+interface StarProps extends Pick<IconProps, 'fill'> {
   votes?: number;
 }
 

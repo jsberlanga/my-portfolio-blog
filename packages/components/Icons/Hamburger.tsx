@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface HamburgerProps {
-  handleClick: () => void;
-}
+type HamburgerProps = Pick<IconProps, 'handleClick'>;
 
 const Hamburger: React.FC<HamburgerProps> = ({ handleClick }) => (
   <svg

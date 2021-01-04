@@ -1,9 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface RobotHiProps {
-  fill?: string;
-  size?: string;
-}
+type RobotHiProps = Pick<IconProps, 'fill' | 'size'>;
 
 const RobotHi: React.FC<RobotHiProps> = ({
   fill = 'var(--c-text)',

@@ -1,9 +1,7 @@
 import * as React from 'react';
+import { IconProps } from './types';
 
-interface GithubProps {
-  fill?: string;
-  size?: string;
-}
+type GithubProps = Pick<IconProps, 'fill' | 'size'>;
 
 const Github: React.FC<GithubProps> = ({
   fill = 'var(--c-text)',
