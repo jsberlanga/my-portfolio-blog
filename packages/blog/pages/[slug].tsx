@@ -31,7 +31,7 @@ interface PostProps {
 }
 
 export default function Post({ postMeta, dbPost }: PostProps) {
-  if (!dbPost || !postMeta) return <NotFound />;
+  if (!postMeta) return <NotFound />;
 
   const MDXPost = dynamic(
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
@@ -57,7 +57,7 @@ export default function Post({ postMeta, dbPost }: PostProps) {
         <div css={styles.post}>
           <MDXPost />
         </div>
-        <DynamicVote slug={postMeta.slug} />
+        {dbPost ? <DynamicVote slug={postMeta.slug} /> : null}
       </div>
     </React.Fragment>
   );
@@ -68,7 +68,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const postsData = getBlogPostsData();
 
-  const postMeta = postsData?.find((postData) => postData.slug === params.slug);
+  const postMeta =
+    postsData?.find((postData) => postData.slug === params.slug) ?? null;
 
   const [dbPostData] = await getPostBySlug({ slug: params.slug?.toString() });
 
@@ -76,7 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { props: { postMeta, dbPost: true } };
   }
 
-  return { props: { postMeta: null, dbPost: false } };
+  return { props: { postMeta, dbPost: false } };
 };
 
 export async function getStaticPaths() {
