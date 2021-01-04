@@ -6,11 +6,10 @@
   "tabWidth": 2,
   "overrides": [
     {
-      "files":["*.mdx"],
+      "files": ["*.mdx"],
       "options": {
-        "proseWrap": "always",
-        "printWidth": 80
-      } 
+        "proseWrap": "always"
+      }
     }
   ]
 }
