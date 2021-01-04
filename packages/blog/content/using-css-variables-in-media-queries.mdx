@@ -1,0 +1,104 @@
+export const meta = {
+  published: true,
+  publishedAt: '2020-12-28',
+  title: 'Using CSS Variables in Media Queries',
+  summary: 'Using CSS Variables in Media Queries makes a great responsive UX',
+  tags: ['HTML', 'CSS'],
+};
+
+Any time I start a project one of the first things I tend to do is to define my
+`cssVariables` file in my packages `lib` folder.
+
+In this post I wanna emphasize how beneficial it is to define CSS Variables for
+your application `gap units` in Media Queries.
+
+My file normally contain some information like this :point_down:
+
+```ts
+// packages/lib/styles/global.ts
+
+export const cssVariables = `
+  :root {
+    // GAP UNITS
+    --gap-unit-xs: 0.5rem;
+    --gap-unit-sm: 1rem;
+    --gap-unit-md: 2rem;
+    --gap-unit-lg: 4rem;
+    --gap-unit-xl: 6rem;
+    --grid-gap-unit: 10px;
+
+    // GAP VARIABLES
+    --gap: var(--gap-unit-xs);
+    --gap-bottom-element: var(--gap-unit-sm);
+    --gap-bottom-container: var(--gap-unit-lg);
+    ...
+
+    ${getMQ('small-up')} {
+      --gap: var(--gap-unit-sm);
+      ...
+    }
+
+    ${getMQ('tablet')} {
+      --gap: var(--gap-unit-md);
+      --gap-bottom-element: var(--gap-unit-md);
+      ...
+    }
+
+    ${getMQ('desktop')} {
+      --grid-gap-unit: 20px;
+      --gap: var(--gap-unit-lg);
+
+      ...
+    }
+
+    ${getMQ('panorama')} {
+      --grid-gap-unit: 40px;
+      --gap-bottom-container: var(--gap-unit-xl);
+      ...
+    }
+  }
+`;
+```
+
+After that setup, it becomes very easy to apply a standard responsive spacing
+unit on every device.
+
+For example if you have a `SectionHeader` component, this is how I go about
+having the text well spaced and structured.
+
+```jsx
+import * as React from 'react';
+import { css } from '@emotion/react';
+import { getMQ } from '@lib/styles';
+
+const styles = {
+  root: css`
+    margin-bottom: var(--gap-bottom-container);
+
+    .label {
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--gap-bottom-element);
+    }
+
+    .subtitle {
+      color: var(--c-neutral);
+      margin-bottom: var(--gap-bottom-element);
+    }
+  `,
+};
+
+interface SectionHeaderProps {
+  label: JSX.Element;
+  subtitle: JSX.Element;
+}
+
+const SectionHeader: React.FC<SectionHeaderProps> = ({ label, subtitle }) => (
+  <div css={styles.root}>
+    <h2 className="label">{label}</h2>
+    <p className="subtitle small">{subtitle}</p>
+  </div>
+);
+
+export default SectionHeader;
+```
