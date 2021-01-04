@@ -10,7 +10,8 @@ module.exports = withTM({
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
   },
   images: {
-    deviceSizes: [360, 768, 1200],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     domains: ['images.ctfassets.net'],
+    loader: 'default',
   },
 });
