@@ -69,8 +69,9 @@ class PortfolioDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
+            rel="preload"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-            rel="stylesheet"
+            as="font"
           />
           <meta
             name="Description"
