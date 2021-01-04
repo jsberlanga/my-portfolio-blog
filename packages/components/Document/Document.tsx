@@ -72,6 +72,7 @@ class PortfolioDocument extends Document {
             rel="preload"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
             as="font"
+            crossOrigin="anonymous"
           />
           <meta
             name="Description"

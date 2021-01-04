@@ -102,9 +102,13 @@ const styles = {
         padding: var(--gap);
 
         ${getMQ('desktop')} {
-          min-height: 80vh;
-          height: 42rem;
+          height: 38rem;
           padding: 0;
+        }
+
+        ${getMQ('panorama')} {
+          min-height: 75vh;
+          height: 42rem;
         }
 
         &--type {
@@ -146,7 +150,7 @@ const styles = {
 
           ${getMQ('desktop')} {
             width: 80%;
-            margin: var(--gap-unit-l) var(--gap-unit);
+            margin: var(--gap-unit-l) auto;
           }
 
           &::after {
