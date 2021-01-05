@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { ProjectInfo } from '../../components';
 import { ProjectType } from '@juliosoto/lib/types';
 import { motion } from 'framer-motion';
+import { variants } from '@juliosoto/lib/styles';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = '' } = params ?? {};
@@ -97,16 +98,10 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
       </Head>
       <motion.div
         css={styles.root}
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          visibility: 'visible',
-          transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.9] },
-        }}
-        exit={{
-          visibility: 'hidden',
-          transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.9] },
-        }}
+        variants={variants.fadeIn}
+        initial="initial"
+        animate="animate"
+        exit="exit"
       >
         <PageHeader
           title={<h2>/{project.title}</h2>}

@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { getPreviewProjects } from '@juliosoto/lib/contentful';
 import { ProjectPreviewType } from '@juliosoto/lib/types';
 import { Hero, ProjectsPreview, About } from '../components';
+import { motion } from 'framer-motion';
+import { variants } from '@juliosoto/lib/styles';
 
 export async function getStaticProps() {
   const projects = await getPreviewProjects();
@@ -28,9 +30,16 @@ export default function Home({ projects }: HomeProps) {
         <title>Julio Soto - Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
-      <ProjectsPreview projects={projects} />
-      <About />
+      <motion.div
+        variants={variants.fadeIn}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <Hero />
+        <ProjectsPreview projects={projects} />
+        <About />
+      </motion.div>
     </React.Fragment>
   );
 }
