@@ -14,12 +14,18 @@ const PortfolioNavbar = () => {
     const element = document.querySelector(selector);
 
     if (!element) {
-      return router.push(`/${selector}`);
+      router.push('/');
     }
 
-    element.scrollIntoView({
-      behavior: 'smooth',
-    });
+    return setTimeout(() => {
+      const element = document.querySelector(selector);
+      if (!element) {
+        return;
+      }
+      element.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }, 500);
   };
   return (
     <Navbar
