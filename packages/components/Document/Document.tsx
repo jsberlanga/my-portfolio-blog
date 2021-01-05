@@ -66,7 +66,6 @@ class PortfolioDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link href="/fonts/fonts.css" rel="stylesheet" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
