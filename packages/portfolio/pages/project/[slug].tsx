@@ -113,14 +113,14 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
           {adjacentProjects.previous ? (
             <Link href={`/project/${adjacentProjects.previous.slug}`}>
               <a className="adjacentProject">
-                <GoBack /> Previous Project
+                <GoBack fill="var(--c-light-02)" /> Previous Project
               </a>
             </Link>
           ) : null}
           {adjacentProjects.next ? (
             <Link href={`/project/${adjacentProjects.next.slug}`}>
               <a className="adjacentProject">
-                Next Project <GoNext />
+                Next Project <GoNext fill="var(--c-light-02)" />
               </a>
             </Link>
           ) : null}

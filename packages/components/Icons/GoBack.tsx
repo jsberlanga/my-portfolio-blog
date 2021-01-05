@@ -1,12 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { IconProps } from './types';
 
 const styles = css`
   transform: rotate(180deg);
   margin-right: 10px;
 `;
 
-const GoBack: React.FC = () => (
+type GoBackProps = Pick<IconProps, 'fill'>;
+
+const GoBack: React.FC<GoBackProps> = ({ fill = 'var(--c-text)' }) => (
   <svg
     css={styles}
     width="20px"
@@ -19,7 +22,7 @@ const GoBack: React.FC = () => (
       <g
         id="Artboard-Copy-4"
         transform="translate(-1132.000000, -2428.000000)"
-        fill="var(--c-text)"
+        fill={fill}
         fillRule="nonzero"
       >
         <g id="Group-23" transform="translate(956.000000, 2421.000000)">
