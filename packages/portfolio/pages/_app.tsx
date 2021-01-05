@@ -8,6 +8,7 @@ import { PortfolioFooter, PortfolioNavbar } from '../components';
 import { ThemeContextProvider } from '@juliosoto/lib/context';
 import * as gtag from '@juliosoto/lib/gtag';
 import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
@@ -40,7 +41,9 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
         <Layout
           components={{ Footer: PortfolioFooter, Navbar: PortfolioNavbar }}
         >
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
         </Layout>
       </ThemeContextProvider>
     </React.Fragment>

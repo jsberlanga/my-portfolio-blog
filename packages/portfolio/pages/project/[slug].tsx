@@ -9,6 +9,7 @@ import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';
 import { ProjectInfo } from '../../components';
 import { ProjectType } from '@juliosoto/lib/types';
+import { motion } from 'framer-motion';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = '' } = params ?? {};
@@ -56,7 +57,7 @@ const styles = {
       text-align: center;
 
       .adjacentProject {
-        margin: 0 12px;
+        margin: 12px;
         background: var(--c-background-02);
         color: var(--c-text-02);
         border-radius: 32px;
@@ -94,7 +95,19 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
         <title>Julio Soto - Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div css={styles.root}>
+      <motion.div
+        css={styles.root}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          visibility: 'visible',
+          transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.9] },
+        }}
+        exit={{
+          visibility: 'hidden',
+          transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.9] },
+        }}
+      >
         <PageHeader
           title={<h2>/{project.title}</h2>}
           description={project.description}
@@ -125,7 +138,7 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
             </Link>
           ) : null}
         </div>
-      </div>
+      </motion.div>
     </React.Fragment>
   );
 }
