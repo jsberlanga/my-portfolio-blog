@@ -8,7 +8,7 @@ const styles = css`
 
 type GoNextProps = Pick<IconProps, 'fill'>;
 
-const GoNext: React.FC<GoNextProps> = ({ fill = 'var(--c-light-02' }) => (
+const GoNext: React.FC<GoNextProps> = ({ fill = 'var(--c-text)' }) => (
   <svg
     css={styles}
     width="20px"
