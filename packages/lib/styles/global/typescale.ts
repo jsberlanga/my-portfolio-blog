@@ -64,11 +64,7 @@ export const typeScale = `
     margin-bottom: 2rem;
   }
 
-  h4 {
-    font-size: 1.65rem;
-  }
-
-  h5 {
+  h4, h5 {
     font-size: 1.25rem;
   }
 
@@ -108,11 +104,7 @@ export const typeScale = `
       font-size: 3rem;
     }
 
-    h4 {
-      font-size: 2.5rem;
-    }
-
-    h5 {
+    h4, h5{
       font-size: 2rem;
     }
   }
@@ -130,11 +122,7 @@ export const typeScale = `
       font-size: 2.5rem;
     }
 
-    h4 {
-      font-size: 2.25rem;
-    }
-
-    h5 {
+    h4, h5 {
       font-size: 2rem;
     }
   }
@@ -144,7 +132,7 @@ export const typeScale = `
       font-size: 3rem;
     }
 
-    h4 {
+    h4, h5 {
       font-size: 2.5rem;
     }
   }

@@ -14,10 +14,10 @@ const BlogFooter = () => (
               target="_blank"
               rel="noreferrer"
             >
-              <h5>
+              <h4>
                 github
                 <Github fill="var(--c-light)" size="2.5rem" />
-              </h5>
+              </h4>
               <span className="small">
                 feel free to checkout the source code in github and if you want
                 to improve something just go ahead and make a pull request.

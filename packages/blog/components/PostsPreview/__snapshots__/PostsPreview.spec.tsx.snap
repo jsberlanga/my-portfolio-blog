@@ -23,9 +23,9 @@ exports[`PostsPreview renders correctly 1`] = `
     <a
       href="/test"
     >
-      <h5>
+      <h4>
         test
-      </h5>
+      </h4>
       <time
         class="xsmall"
       >

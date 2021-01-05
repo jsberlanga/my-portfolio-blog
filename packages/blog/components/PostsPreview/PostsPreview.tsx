@@ -29,7 +29,7 @@ const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
       {postsPreviewData.map((post, idx) => (
         <Link href={`/${post.slug}`} key={idx}>
           <a>
-            <h5>{post.title}</h5>
+            <h4>{post.title}</h4>
             <time className="xsmall">{post.publishedAt}</time>
             <p className="small">{post.summary}</p>
             <button>

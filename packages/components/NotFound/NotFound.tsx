@@ -9,7 +9,7 @@ const styles = css`
   width: 100%;
   text-align: center;
 
-  h5 {
+  h4 {
     margin-bottom: var(--gap-unit);
 
     svg {
@@ -35,9 +35,9 @@ const NotFound = () => {
   const router = useRouter();
   return (
     <div css={styles}>
-      <h5>
+      <h4>
         <RobotLost /> not sure how you ended up here...
-      </h5>
+      </h4>
       <button onClick={() => router.back()}>
         <GoBack />
         go back

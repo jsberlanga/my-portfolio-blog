@@ -47,7 +47,7 @@ const styles = {
         margin: 0 1rem 0 0;
       }
 
-      h5 {
+      h4 {
         display: flex;
         align-items: flex-end;
         margin-bottom: 0.4rem;
@@ -100,9 +100,9 @@ const DefaultLeftColumn = () => (
   <React.Fragment>
     <div className="resume">
       <a href="/assets/resume.pdf" target="_blank">
-        <h5>
+        <h4>
           my resume <Download />
-        </h5>
+        </h4>
         <span className="small">
           checkout my resume if you wanna take a closer look at my experience
           over the years
@@ -111,10 +111,10 @@ const DefaultLeftColumn = () => (
     </div>
     <div className="github">
       <a href="https://github.com/jsberlanga" target="_blank" rel="noreferrer">
-        <h5>
+        <h4>
           my github
           <Github fill="var(--c-light)" size="2.5rem" />
-        </h5>
+        </h4>
         <span className="small">
           checkout my github account where I commit the code for my personal
           projects
