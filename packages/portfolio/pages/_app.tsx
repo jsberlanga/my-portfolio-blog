@@ -38,13 +38,13 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       </Head>
       <Global styles={globalStyles} />
       <ThemeContextProvider>
-        <Layout
-          components={{ Footer: PortfolioFooter, Navbar: PortfolioNavbar }}
-        >
-          <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter>
+          <Layout
+            components={{ Footer: PortfolioFooter, Navbar: PortfolioNavbar }}
+          >
             <Component {...pageProps} key={router.asPath} />
-          </AnimatePresence>
-        </Layout>
+          </Layout>
+        </AnimatePresence>
       </ThemeContextProvider>
     </React.Fragment>
   );
