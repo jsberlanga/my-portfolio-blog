@@ -102,13 +102,13 @@ const styles = {
         padding: var(--gap);
 
         ${getMQ('desktop')} {
-          height: 38rem;
+          height: 39rem;
           padding: 0;
         }
 
         ${getMQ('panorama')} {
           min-height: 75vh;
-          height: 42rem;
+          height: 45rem;
         }
 
         &--type {

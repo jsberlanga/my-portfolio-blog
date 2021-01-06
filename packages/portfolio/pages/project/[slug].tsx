@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { ProjectInfo } from '../../components';
 import { ProjectType } from '@juliosoto/lib/types';
 import { motion } from 'framer-motion';
-import { variants } from '@juliosoto/lib/styles';
+import { transition, variants } from '@juliosoto/lib/styles';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = '' } = params ?? {};
@@ -90,6 +90,8 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
     technologyUsed: project.technologyUsed,
   };
 
+  const splitTitle = project.title.split('');
+
   return (
     <React.Fragment>
       <Head>
@@ -104,18 +106,35 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
         exit="exit"
       >
         <PageHeader
-          title={<h2>/{project.title}</h2>}
-          description={project.description}
+          title={
+            <React.Fragment>
+              <motion.span variants={variants.children.scale}>/</motion.span>
+              {splitTitle.map((letter, idx) => (
+                <motion.span variants={variants.children.scale} key={idx}>
+                  {letter}
+                </motion.span>
+              ))}
+            </React.Fragment>
+          }
+          description={
+            <motion.p variants={variants.children.moveUp}>
+              {project.description}
+            </motion.p>
+          }
           tags={[...project.tags, project.dateCompleted]}
         />
-        <div className="imageWrapper">
+        <motion.div
+          className="imageWrapper"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { ...transition, delay: 1.25 } }}
+        >
           <Image
             src={project.mainImage.url}
             layout="responsive"
             width={project.mainImage.width}
             height={project.mainImage.height}
           />
-        </div>
+        </motion.div>
         <ProjectInfo projectInfoData={projectInfoData} />
         <div className="adjacentProjects">
           {adjacentProjects.previous ? (

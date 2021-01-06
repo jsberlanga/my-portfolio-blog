@@ -15,4 +15,38 @@ export const variants = {
       transition,
     },
   },
+  container: {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        ...transition,
+        delayChildren: 0.25,
+        staggerChildren: 0.035,
+      },
+    },
+  },
+  children: {
+    scale: {
+      initial: { opacity: 0, scale: 1.5 },
+      animate: {
+        opacity: 1,
+        scale: 1,
+        display: 'inline-block',
+        transition: {
+          ease,
+          duration: 0.6,
+        },
+      },
+    },
+    moveUp: {
+      initial: { opacity: 0, y: 50 },
+      animate: {
+        opacity: 1,
+        y: 0,
+        display: 'inline-block',
+        transition: { ...transition, delay: 1 },
+      },
+    },
+  },
 };

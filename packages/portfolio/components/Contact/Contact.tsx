@@ -38,12 +38,11 @@ const styles = {
           content: '+48 885 812 083';
           color: var(--c-light);
           width: max-content;
-
-          ${getMQ('desktop')} {
-            opacity: 0;
-          }
+          opacity: 0;
         }
-        &:hover::after {
+        &:hover::after,
+        &:active::after,
+        &:focus::after {
           opacity: 1;
         }
       }
