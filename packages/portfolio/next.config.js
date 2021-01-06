@@ -14,4 +14,16 @@ module.exports = withTM({
     domains: ['images.ctfassets.net'],
     loader: 'default',
   },
+  async rewrites() {
+    return [
+      {
+        source: '/linkedin',
+        destination: 'https://www.linkedin.com/in/jsberlanga/',
+      },
+      {
+        source: '/github',
+        destination: 'https://github.com/jsberlanga',
+      },
+    ];
+  },
 });
