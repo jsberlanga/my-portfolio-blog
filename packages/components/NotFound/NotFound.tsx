@@ -39,7 +39,7 @@ const NotFound = () => {
         <RobotLost /> not sure how you ended up here...
       </h4>
       <button onClick={() => router.back()}>
-        <GoBack />
+        <GoBack fill="var(--c-light)" />
         go back
       </button>
     </div>
