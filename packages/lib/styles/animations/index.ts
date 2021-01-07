@@ -22,7 +22,7 @@ export const variants = {
       transition: {
         ...transition,
         delayChildren: 0.25,
-        staggerChildren: 0.035,
+        staggerChildren: 0.025,
       },
     },
   },
@@ -45,7 +45,7 @@ export const variants = {
         opacity: 1,
         y: 0,
         display: 'inline-block',
-        transition: { ...transition, delay: 1 },
+        transition: { ...transition, delay: 0.8 },
       },
     },
   },

@@ -19,10 +19,12 @@ module.exports = withTM({
       {
         source: '/linkedin',
         destination: 'https://www.linkedin.com/in/jsberlanga/',
+        permanet: true,
       },
       {
         source: '/github',
         destination: 'https://github.com/jsberlanga',
+        permanet: true,
       },
     ];
   },
