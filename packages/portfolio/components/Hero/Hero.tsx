@@ -15,8 +15,7 @@ const styles = {
 
   intro: css`
     position: relative;
-    width: calc(100vw - var(--gap) * 2);
-    max-width: var(--content-width);
+    width: min(100vw - var(--gap) * 2, var(--content-width));
     margin: auto;
     line-height: 1.35;
     letter-spacing: -2px;

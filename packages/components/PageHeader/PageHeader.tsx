@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { Tags } from '@juliosoto/components';
-import { variants, transition, getMQ } from '@juliosoto/lib/styles';
+import { variants, transition } from '@juliosoto/lib/styles';
 import { motion } from 'framer-motion';
 
 const styles = {
@@ -15,10 +15,7 @@ const styles = {
       margin-bottom: var(--gap-unit-s);
 
       span {
-        min-width: 4px;
-
-        ${getMQ('tablet-up')} {
-          min-width: 12px;
+        min-width: min(12px, 2vw);
         }
       }
     }
