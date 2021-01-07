@@ -14,7 +14,7 @@ module.exports = withTM({
     domains: ['images.ctfassets.net'],
     loader: 'default',
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/linkedin',
