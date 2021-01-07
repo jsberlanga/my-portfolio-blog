@@ -1,5 +1,3 @@
-import { getMQ } from '../utils';
-
 export const typeScale = `
   html {
     font-size: 100%;
@@ -51,34 +49,34 @@ export const typeScale = `
 
   h1 {
     margin-top: 0;
-    font-size: 5rem;
     font-weight: 800;
+    font-size: clamp(5rem, 10vw, 7rem);
   }
-
+  
   h2 {
-    font-size: 2.4rem;
+    font-size: clamp(3rem, 5vw, 5rem);
   }
-
+  
   h3 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 2rem;
   }
-
+  
   h4, h5 {
-    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 5vw, 2.5rem);
   }
-
+  
   .highlighted-text {
     position: relative;
     color: var(--c-special);
     font-weight: 600;
   }
-
+  
   .small,
   .text_small {
     font-size: 0.9rem !important;
   }
-
+  
   .xsmall,
   .text_xsmall {
     font-size: 0.8rem !important;
@@ -89,51 +87,5 @@ export const typeScale = `
     color: var(--c-special);
     font-weight: 600;
     border-bottom: 2px solid;
-  }
-
-  ${getMQ('tablet-up')} {        
-    h1 {
-      font-size: 6rem;
-    }
-
-    h2 {
-      font-size: 3.5rem;
-    }
-
-    h3 {
-      font-size: 3rem;
-    }
-
-    h4, h5{
-      font-size: 2rem;
-    }
-  }
-
-  ${getMQ('desktop')} {        
-    h1 {
-      font-size: 7rem;
-    }
-
-    h2 {
-      font-size: 4rem;
-    }
-
-    h3 {
-      font-size: 2.5rem;
-    }
-
-    h4, h5 {
-      font-size: 2rem;
-    }
-  }
-
-  ${getMQ('panorama')} {        
-    h3 {
-      font-size: 3rem;
-    }
-
-    h4, h5 {
-      font-size: 2.5rem;
-    }
   }
 `;

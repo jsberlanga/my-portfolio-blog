@@ -9,6 +9,7 @@ jest.mock('@juliosoto/components/Icons', () => ({
 const mockPostsData = [
   {
     title: 'test',
+    summary: 'summary_test',
     slug: 'test',
     publishedAt: '2020-01-01',
   },
@@ -16,7 +17,9 @@ const mockPostsData = [
 
 describe('PostsPreview', () => {
   test('renders correctly', () => {
-    const { container } = render(<PostsPreview postsData={mockPostsData} />);
+    const { container } = render(
+      <PostsPreview postsPreviewData={mockPostsData} />,
+    );
 
     expect(container).toMatchSnapshot();
   });
