@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const styles = {
   root: css`
     text-align: center;
-    max-width: var(--content-width);
+    max-width: 45rem;
     margin: var(--gap-unit) auto var(--gap-bottom);
 
     .title {

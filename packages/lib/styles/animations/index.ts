@@ -22,16 +22,17 @@ export const variants = {
       transition: {
         ...transition,
         delayChildren: 0.25,
-        staggerChildren: 0.025,
+        staggerChildren: 0.02,
       },
     },
   },
   children: {
     scale: {
-      initial: { opacity: 0, scale: 1.5 },
+      initial: { opacity: 0, scale: 1.5, y: 20 },
       animate: {
         opacity: 1,
         scale: 1,
+        y: 0,
         display: 'inline-block',
         transition: {
           ease,
@@ -40,12 +41,12 @@ export const variants = {
       },
     },
     moveUp: {
-      initial: { opacity: 0, y: 50 },
+      initial: { opacity: 0, y: 20 },
       animate: {
         opacity: 1,
         y: 0,
         display: 'inline-block',
-        transition: { ...transition, delay: 0.8 },
+        transition: { ...transition, delay: 0.5 },
       },
     },
   },
