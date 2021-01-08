@@ -1,6 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { getMQ } from '@juliosoto/lib/styles';
 import { IconProps } from './types';
 
 type LaptopProps = Pick<IconProps, 'fill'>;

@@ -2,7 +2,12 @@ import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
-import { NotFound, PageHeader, ScrollProgress } from '@juliosoto/components';
+import {
+  Newsletter,
+  NotFound,
+  PageHeader,
+  ScrollProgress,
+} from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
 import { getPostBySlug } from '@juliosoto/lib/mongodb';
@@ -56,6 +61,8 @@ export default function Post({ postMeta, dbPost }: PostProps) {
         />
         <div css={styles.post}>
           <MDXPost />
+          <br />
+          <Newsletter />
         </div>
         {dbPost ? <DynamicVote slug={postMeta.slug} /> : null}
       </div>
