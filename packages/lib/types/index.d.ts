@@ -14,6 +14,13 @@ export interface FullProjectType {
     height: number;
     url: string;
   };
+  mainVideoCollection: {
+    items: {
+      title: string;
+      contentype: string;
+      url: string;
+    }[];
+  };
   projectInfo: string;
   tags: string[];
   links: {
@@ -31,6 +38,7 @@ export type ProjectType = Pick<
   | 'description'
   | 'slug'
   | 'mainImage'
+  | 'mainVideoCollection'
   | 'tags'
   | 'dateCompleted'
   | 'projectInfo'

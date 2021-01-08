@@ -5,6 +5,7 @@ export { default as Github } from './Github';
 export { default as GoBack } from './GoBack';
 export { default as GoNext } from './GoNext';
 export { default as Hamburger } from './Hamburger';
+export { default as Laptop } from './Laptop';
 export { default as Line } from './Line';
 export { default as Logo } from './Logo';
 export { default as Moon } from './Moon';

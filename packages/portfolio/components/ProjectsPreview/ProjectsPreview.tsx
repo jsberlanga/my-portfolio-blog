@@ -155,10 +155,10 @@ const styles = {
 
           &::after {
             position: absolute;
-            width: calc(100% - 19.25%);
-            height: calc(100% - 25%);
-            top: 6.25%;
-            left: 9.55%;
+            width: calc(100% - 19.5%);
+            height: calc(100% - 24.5%);
+            top: 6%;
+            left: 9.45%;
             border-radius: 8px;
             content: '';
             background-image: url(images/common/noise.gif);

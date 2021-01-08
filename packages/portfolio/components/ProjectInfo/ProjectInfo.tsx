@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import { ExternalLink, Github } from '@juliosoto/components/Icons';
 import { Tags } from '@juliosoto/components';
 import { getMQ } from '@juliosoto/lib/styles';
 
@@ -32,8 +31,8 @@ const styles = {
       position: relative;
       margin-bottom: var(--gap-bottom);
       ${getMQ('desktop')} {
-        width: 60%;
-        margin-right: 1rem;
+        width: 55%;
+        margin-right: 8rem;
         margin-bottom: 0;
       }
 
@@ -65,8 +64,8 @@ const styles = {
       padding-right: 1rem;
 
       ${getMQ('desktop')} {
-        width: 40%;
-        margin-left: 1rem;
+        width: 45%;
+        margin-left: 2rem;
         padding-left: 2rem;
         padding-right: 2rem;
       }
@@ -79,45 +78,17 @@ interface ProjectInfoProps {
     projectInfo: string;
     technologyDescription: string;
     technologyUsed: string[];
-    links: {
-      github?: string;
-      website?: string;
-    };
   };
 }
 
 const ProjectInfo: React.FC<ProjectInfoProps> = ({
-  projectInfoData: {
-    projectInfo,
-    technologyDescription,
-    technologyUsed,
-    links,
-  },
+  projectInfoData: { projectInfo, technologyDescription, technologyUsed },
 }) => {
   return (
     <div css={styles.root}>
       <div className="projectInfo">
         <h3>the project</h3>
         <p dangerouslySetInnerHTML={{ __html: projectInfo }}></p>
-        {links ? (
-          <div className="externalLinks">
-            {links?.website ? (
-              <a href={links.website} target="_blank" rel="noreferrer">
-                <ExternalLink />
-              </a>
-            ) : null}
-            {links?.github ? (
-              <a href={links.github} target="_blank" rel="noreferrer">
-                <Github />
-              </a>
-            ) : null}
-            <div className="xsmall externalLinks-info">
-              If you are interested, please do click on the icon
-              {links?.github && links?.website ? 's' : ''} to check the website
-              {links?.github ? 'and the code in github' : ''}
-            </div>
-          </div>
-        ) : null}
       </div>
       <div className="technologyUsed">
         <h3>technology used</h3>

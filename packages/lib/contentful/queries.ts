@@ -42,6 +42,12 @@ export const getProjectQuery = gql`
           width
           height
         }
+        mainVideoCollection {
+          items {
+            contentType
+            url
+          }
+        }
         tags
         dateCompleted
         projectInfo

@@ -4,13 +4,19 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { getAllSlugs, getProject } from '@juliosoto/lib/contentful';
 import { css } from '@emotion/react';
-import { GoBack, GoNext } from '@juliosoto/components/Icons';
+import {
+  ExternalLink,
+  Github,
+  GoBack,
+  GoNext,
+  Laptop,
+} from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';
 import { ProjectInfo } from '../../components';
 import { ProjectType } from '@juliosoto/lib/types';
 import { motion } from 'framer-motion';
-import { transition, variants } from '@juliosoto/lib/styles';
+import { getMQ, transition, variants } from '@juliosoto/lib/styles';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = '' } = params ?? {};
@@ -50,10 +56,6 @@ const styles = {
   root: css`
     margin-bottom: var(--gap-bottom);
 
-    .imageWrapper {
-      margin-bottom: var(--gap-bottom);
-    }
-
     .adjacentProjects {
       text-align: center;
 
@@ -70,6 +72,60 @@ const styles = {
       }
     }
   `,
+  wrapper: css`
+    text-align: center;
+    width: min(60rem, 100%);
+    height: max(50rem, 80%);
+    position: relative;
+
+    margin: 0 auto 10rem;
+
+    ${getMQ('desktop')} {
+      margin: 0 auto 16.5rem;
+    }
+
+    svg {
+      width: 100%;
+    }
+
+    video {
+      position: absolute;
+      top: 5.75%;
+      width: 81%;
+      z-index: -1;
+    }
+    .external-links {
+      width: min(19rem, 100%);
+      position: absolute;
+      height: 10rem;
+      bottom: -12rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      svg {
+        margin: 0 1rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        ${getMQ('desktop')} {
+          margin: 0 1rem;
+          height: 3.5rem;
+          width: 3.5rem;
+        }
+      }
+    }
+  `,
+
+  imageWrapper: css`
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  `,
+  videoWrapper: css`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  `,
 };
 
 interface ProjectProps {
@@ -81,11 +137,20 @@ interface ProjectProps {
 }
 
 export default function Project({ project, adjacentProjects }: ProjectProps) {
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const videoElement = document.getElementById(
+        'project-video',
+      ) as HTMLVideoElement;
+
+      setTimeout(() => videoElement?.play(), 2000);
+    }
+    return;
+  }, []);
   if (!project) return <NotFound />;
 
   const projectInfoData = {
     projectInfo: project.projectInfo,
-    links: project.links,
     technologyDescription: project.technologyDescription,
     technologyUsed: project.technologyUsed,
   };
@@ -124,16 +189,50 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
           tags={[...project.tags, project.dateCompleted]}
         />
         <motion.div
-          className="imageWrapper"
+          css={[
+            styles.wrapper,
+            project.mainImage && styles.imageWrapper,
+            project.mainVideoCollection.items.length && styles.videoWrapper,
+          ]}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { ...transition, delay: 1.25 } }}
         >
-          <Image
-            src={project.mainImage.url}
-            layout="responsive"
-            width={project.mainImage.width}
-            height={project.mainImage.height}
-          />
+          {project.mainImage ? (
+            <Image
+              src={project.mainImage.url}
+              layout="responsive"
+              width={project.mainImage.width}
+              height={project.mainImage.height}
+            />
+          ) : null}
+          {project.mainVideoCollection?.items.length ? (
+            <React.Fragment>
+              <Laptop />
+              <video id="project-video" loop muted playsInline>
+                {project.mainVideoCollection?.items.map((video, idx) => (
+                  <source src={video.url} type={video.contentype} key={idx} />
+                ))}
+              </video>
+            </React.Fragment>
+          ) : null}
+          <div className="external-links">
+            {project.links?.website ? (
+              <a href={project.links.website} target="_blank" rel="noreferrer">
+                <ExternalLink />
+              </a>
+            ) : null}
+            {project.links?.github ? (
+              <a href={project.links.github} target="_blank" rel="noreferrer">
+                <Github />
+              </a>
+            ) : null}
+            <div className="xsmall externalLinks-info">
+              If you are interested, feel welcome to click on the icon
+              {project.links?.github && project.links?.website ? 's' : ''} to
+              check the website
+              {project.links?.github ? 'and the code in github' : ''}
+            </div>
+          </div>
         </motion.div>
         <ProjectInfo projectInfoData={projectInfoData} />
         <div className="adjacentProjects">
