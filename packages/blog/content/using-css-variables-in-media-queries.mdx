@@ -1,18 +1,19 @@
 export const meta = {
   published: true,
-  publishedAt: '2020-12-28',
-  title: 'Using CSS Variables in Media Queries',
-  summary: 'Using CSS Variables in Media Queries makes a great responsive UX',
+  publishedAt: '2021-01-07',
+  title: 'Use clamp() instead of CSS Variables in Media Queries',
+  summary:
+    'Using clamp() instead of CSS Variables in Media Queries still makes a great responsive UX with a lot less code',
   tags: ['HTML', 'CSS'],
 };
 
-Any time I start a project one of the first things I tend to do is to define my
-`cssVariables` file in my packages `lib` folder.
+In the past any time I started a project one of the first things I tent to do
+was to define my `cssVariables` file in my packages `lib` folder.
 
-In this post I wanna emphasize how beneficial it is to define CSS Variables for
-your application `gap units` in Media Queries.
+In this post I wanna emphasize how beneficial this is for your application. As
+an example, we will defined `gap units` in Media Queries.
 
-My file normally contain some information like this :point_down:
+My file would normally have contained some information like this 👇🏻
 
 ```ts
 // packages/lib/styles/global.ts
@@ -102,3 +103,36 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ label, subtitle }) => (
 
 export default SectionHeader;
 ```
+
+### 👋🏻 clamp(min, val, max)
+
+It is time to welcome the new clamp() function.
+
+Instead of the media queries mess, we can now achieve the same responsivenes
+with the clamp function.
+
+It takes three parameters: a minimum value, a preferred value, and a maximum
+allowed value.
+
+```ts
+// packages/lib/styles/global.ts
+
+export const cssVariables = `
+  :root {
+    // GAP UNITS
+    --gap-unit-xs: 0.5rem;
+    --gap-unit-sm: 1rem;
+    --gap-unit-md: 2rem;
+    --gap-unit-lg: 4rem;
+    --gap-unit-xl: 6rem;
+    --grid-gap-unit: min(10px, 20px);
+
+    // GAP VARIABLES
+    --gap: clamp(var(--gap-unit-xs), 6vw, var(--gap-unit-xl));
+    --gap-bottom-element: clamp(var(--gap-unit-sm), 8vw, var(--gap-unit-md));
+    --gap-bottom-container: clamp(var(--gap-unit-lg), 12vw, var(--gap-unit-xl));
+    ...
+`;
+```
+
+And that is it 🎉 Now the code looks so much clean and easy to read.
