@@ -1,9 +1,9 @@
 export const meta = {
   published: true,
   publishedAt: '2021-01-07',
-  title: 'Use clamp() instead of CSS Variables in Media Queries',
+  title: 'Dont use CSS Variables in Media Queries',
   summary:
-    'Using clamp() instead of CSS Variables in Media Queries still makes a great responsive UX with a lot less code',
+    'Using clamp(), min() or max() instead of CSS Variables in Media Queries still makes a great responsive UX with a lot less code',
   tags: ['HTML', 'CSS'],
 };
 
@@ -104,15 +104,16 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ label, subtitle }) => (
 export default SectionHeader;
 ```
 
-### 👋🏻 clamp(min, val, max)
+### 👋🏻 clamp(), min() and max() functions
 
-It is time to welcome the new clamp() function.
+It is time to welcome the new utility functions.
 
 Instead of the media queries mess, we can now achieve the same responsivenes
-with the clamp function.
+with the min() function.
 
-It takes three parameters: a minimum value, a preferred value, and a maximum
-allowed value.
+The min() function takes two parameters or more: a minimum value and a maximum
+allowed value, but you can put more arguments into these functions. Except for
+the clamp() function which always takes three arguments.
 
 ```ts
 // packages/lib/styles/global.ts
@@ -128,9 +129,9 @@ export const cssVariables = `
     --grid-gap-unit: min(10px, 20px);
 
     // GAP VARIABLES
-    --gap: clamp(var(--gap-unit-xs), 6vw, var(--gap-unit-xl));
-    --gap-bottom-element: clamp(var(--gap-unit-sm), 8vw, var(--gap-unit-md));
-    --gap-bottom-container: clamp(var(--gap-unit-lg), 12vw, var(--gap-unit-xl));
+    --gap: min(var(--gap-unit-xs), 6vw, var(--gap-unit-xl));
+    --gap-bottom-element: min(var(--gap-unit-sm), 8vw, var(--gap-unit-md));
+    --gap-bottom-container: min(var(--gap-unit-lg), 12vw, var(--gap-unit-xl));
     ...
 `;
 ```

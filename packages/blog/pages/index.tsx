@@ -5,6 +5,8 @@ import Head from 'next/head';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
 import { TPostPreview } from '@juliosoto/lib/types';
+import { motion } from 'framer-motion';
+import { variants } from '@juliosoto/lib/styles';
 
 const styles = {
   postsPreview: css`
@@ -24,8 +26,30 @@ export default function Index({ recentPosts }: IndexProps) {
         <title>Julio Soto - Blog</title>
       </Head>
       <PageHeader
-        title={<h1>/blog</h1>}
-        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias corrupti cum velit obcaecati dolor impedit consectetur quas itaque saepe illo tempore totam id rem maiores nostrum assumenda"
+        title={
+          <motion.h1
+            variants={variants.fadeIn}
+            initial="initial"
+            animate="animate"
+          >
+            /blog
+          </motion.h1>
+        }
+        description={
+          <motion.div
+            variants={variants.fadeIn}
+            initial="initial"
+            animate="animate"
+          >
+            <span role="img" aria-label="hi">
+              👋🏻
+            </span>{' '}
+            Hi there, welcome to my blog. If you see this it&apos;s because this
+            project is very much in an early stage, thus there isn&apos; tons of
+            content in here yet. Eventually, there will be posts about my
+            experiences and learnings working as a Software Developer.
+          </motion.div>
+        }
         tags={['React', 'TypeScript', 'GraphQL', '...and so much more']}
       />
       <br />
