@@ -8,7 +8,7 @@ export const variants = {
     },
     animate: {
       opacity: 1,
-      transition,
+      transition: { ...transition, delay: 0.5 },
     },
     exit: {
       visibility: 'hidden' as const,
@@ -41,9 +41,9 @@ export const variants = {
       },
     },
     moveUp: {
-      initial: { opacity: 0, y: 20 },
+      initial: { opacity: [0, 0], y: 25 },
       animate: {
-        opacity: 1,
+        opacity: [0, 1],
         y: 0,
         display: 'inline-block',
         transition: { ...transition, delay: 0.5 },

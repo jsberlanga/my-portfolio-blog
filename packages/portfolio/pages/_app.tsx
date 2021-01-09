@@ -3,12 +3,11 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/lib/styles';
-import { Layout } from '@juliosoto/components';
-import { PortfolioFooter, PortfolioNavbar } from '../components';
 import { ThemeContextProvider } from '@juliosoto/lib/context';
 import * as gtag from '@juliosoto/lib/gtag';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
+import PortfolioLayout from '../components/Layout';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
@@ -39,11 +38,9 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       <Global styles={globalStyles} />
       <ThemeContextProvider>
         <AnimatePresence exitBeforeEnter>
-          <Layout
-            components={{ Footer: PortfolioFooter, Navbar: PortfolioNavbar }}
-          >
+          <PortfolioLayout>
             <Component {...pageProps} key={router.asPath} />
-          </Layout>
+          </PortfolioLayout>
         </AnimatePresence>
       </ThemeContextProvider>
     </React.Fragment>

@@ -3,6 +3,8 @@ export { default as Contact } from './Contact';
 export { default as PortfolioFooter } from './Footer';
 export { default as Hero } from './Hero';
 export { default as HoverLinkImage } from './HoverLinkImage';
+export { default as Loading } from './Loading';
+export { default as PortfolioLayout } from './Layout';
 export { default as PortfolioNavbar } from './Navbar';
 export { default as ProjectInfo } from './ProjectInfo';
 export { default as ProjectsPreview } from './ProjectsPreview';

@@ -31,7 +31,7 @@ export default function Home({ projects }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
-        variants={variants.fadeIn}
+        variants={variants.children.moveUp}
         initial="initial"
         animate="animate"
         exit="exit"
