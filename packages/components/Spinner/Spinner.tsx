@@ -22,7 +22,7 @@ const styles = {
       position: absolute;
       width: 30px;
       height: 30px;
-      border: 2px solid var(--c-special);
+      border: 2px solid #bcacf2;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: var(--c-special) transparent transparent transparent;
@@ -30,7 +30,7 @@ const styles = {
       ${getMQ('desktop')} {
         width: 40px;
         height: 40px;
-        border: 3px solid var(--c-special);
+        border: 3px solid #bcacf2;
         border-color: var(--c-special) transparent transparent transparent;
       }
 

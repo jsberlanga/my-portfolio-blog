@@ -15,25 +15,25 @@ const styles = {
     width: 100%;
     height: calc(100% + 1rem);
     overflow: hidden;
-    background-color: var(--c-dark);
-    color: var(--c-light);
+    background-color: #1b2833;
+    color: #e7e9ec;
     display: grid;
     place-items: center;
     z-index: 999;
     .wrapper {
       text-align: right;
       > div {
-        padding: 2px 10px;
-        font-size: 1.05rem;
+        padding: 0px 10px;
+        font-size: clamp(0.9rem, 5vw, 1rem);
         text-align: right;
         letter-spacing: -0.5px;
       }
       .name {
-        background: var(--c-special);
-        color: var(--c-dark);
-        font-weight: 800;
-        font-size: clamp(4rem, 20vw, 5rem);
-        line-height: 6rem;
+        background: #bcacf2;
+        color: #1b2833;
+        font-weight: 700;
+        font-size: clamp(3.5rem, 4vw, 4.5rem);
+        line-height: clamp(4rem, 15vh, 5rem);
         text-transform: lowercase;
         letter-spacing: -2px;
       }
@@ -44,7 +44,7 @@ const styles = {
   `,
 };
 
-const sentences = ['Web developer enthusiast', 'In ♥ with TypeScript + React'];
+const sentences = ['Full Stack developer', 'Open Source contributor'];
 
 const variant = {
   container: {

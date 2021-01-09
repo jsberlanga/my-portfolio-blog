@@ -70,7 +70,7 @@ class PortfolioDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             rel="stylesheet preload prefetch"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
             as="style"
             type="text/css"
             crossOrigin="anonymous"
