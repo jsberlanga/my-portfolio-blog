@@ -55,41 +55,53 @@ const styles = {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .project-duda-transport {
-        background: #425e7e;
-      }
-
       .project-zaprojektujemy-studio {
-        background: #c5a3a5;
-      }
-
-      .project-byas-no {
-        background: #776f99;
-      }
-
-      .project-my-portfolio {
-        background: #577679;
-      }
-
-      .project-dark {
+        background: #c5a880;
         .project {
           &--type {
-            color: var(--c-light);
+            color: #473c2b;
             &__label {
-              background-color: rgba(255, 255, 255, 0.1);
-              color: var(--c-light);
+              background-color: rgba(0, 0, 0, 0.1);
+              color: #473c2b;
             }
           }
         }
       }
 
-      .project-light {
+      .project-byas-no {
+        background: #556052;
         .project {
           &--type {
-            color: var(--c-dark);
+            color: #e1e6e0;
             &__label {
-              background-color: rgba(0, 0, 0, 0.1);
-              color: var(--c-dark);
+              background-color: rgba(255, 255, 255, 0.1);
+              color: #e1e6e0;
+            }
+          }
+        }
+      }
+
+      .project-my-portfolio {
+        background: #965d62;
+        .project {
+          &--type {
+            color: #f5efef;
+            &__label {
+              background-color: rgba(255, 255, 255, 0.1);
+              color: #f5efef;
+            }
+          }
+        }
+      }
+
+      .project-duda-transport {
+        background: #534e52;
+        .project {
+          &--type {
+            color: #f0ecec;
+            &__label {
+              background-color: rgba(255, 255, 255, 0.1);
+              color: #f0ecec;
             }
           }
         }
@@ -198,36 +210,30 @@ const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
           </div>
         </div>
         <div className="projects">
-          {projects.map(
-            ({ title, slug, isPreviewDark, imagePreview, tags }) => (
-              <Link href={`/project/${slug}`} key={title}>
-                <div
-                  className={`project project-${slug} ${
-                    isPreviewDark ? 'project-dark' : 'project-light'
-                  } `}
-                >
-                  <div className="project--image">
-                    <Image
-                      src={imagePreview.url}
-                      alt="project"
-                      layout="responsive"
-                      width={600}
-                      height={400}
-                      quality={100}
-                    />
-                  </div>
-                  <div className="project--type">
-                    {tags.map((tag) => (
-                      <span className="project--type__label" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                    <h3 className="project--type__title">{title}</h3>
-                  </div>
+          {projects.map(({ title, slug, imagePreview, tags }) => (
+            <Link href={`/project/${slug}`} key={title}>
+              <div className={`project project-${slug}`}>
+                <div className="project--image">
+                  <Image
+                    src={imagePreview.url}
+                    alt="project"
+                    layout="responsive"
+                    width={600}
+                    height={400}
+                    quality={100}
+                  />
                 </div>
-              </Link>
-            ),
-          )}
+                <div className="project--type">
+                  {tags.map((tag) => (
+                    <span className="project--type__label" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                  <h3 className="project--type__title">{title}</h3>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
