@@ -8,14 +8,12 @@ const styles = {
     width: 30px;
     height: 30px;
     position: absolute;
-    bottom: 2rem;
-    right: 1rem;
+    bottom: 3rem;
+    right: 2rem;
 
     ${getMQ('desktop')} {
       width: 40px;
       height: 40px;
-      bottom: 2rem;
-      right: 2rem;
     }
 
     div {

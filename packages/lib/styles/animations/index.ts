@@ -45,7 +45,6 @@ export const variants = {
       animate: {
         opacity: [0, 1],
         y: 0,
-        display: 'inline-block',
         transition: { ...transition, delay: 0.5 },
       },
     },
