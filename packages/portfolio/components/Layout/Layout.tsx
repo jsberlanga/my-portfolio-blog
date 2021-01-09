@@ -12,7 +12,7 @@ const PortfolioLayout: React.FC = ({ children }) => {
     setTimeout(() => setInitialLoading(false), 3000);
   }, []);
 
-  if (!initialLoading) {
+  if (initialLoading) {
     return (
       <AnimatePresence>
         <Loading key="loading" />;
