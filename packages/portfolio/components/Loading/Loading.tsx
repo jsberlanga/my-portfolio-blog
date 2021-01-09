@@ -12,9 +12,9 @@ const styles = {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100vw;
+    width: 100%;
+    height: calc(100% + 1rem);
     overflow: hidden;
-    height: calc(100vh + 1rem);
     background-color: var(--c-dark);
     color: var(--c-light);
     display: grid;
