@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
           className="link"
           rel="noreferrer"
           target="_blank"
-          href="https://www.linkedin.com"
+          href="http://linkedin.com/in/jsberlanga"
         >
           Linkedin
         </a>
