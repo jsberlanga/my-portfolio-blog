@@ -44,7 +44,7 @@ const styles = {
   `,
 };
 
-const sentences = ['Web developer enthusiast', 'In 💜 with TypeScript + React'];
+const sentences = ['Web developer enthusiast', 'In ♥ with TypeScript + React'];
 
 const variant = {
   container: {
