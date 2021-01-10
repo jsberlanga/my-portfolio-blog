@@ -9,7 +9,7 @@ const PortfolioLayout: React.FC = ({ children }) => {
   const [initialLoading, setInitialLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setTimeout(() => setInitialLoading(false), 3000);
+    setTimeout(() => setInitialLoading(false), 2000);
   }, []);
 
   if (initialLoading) {

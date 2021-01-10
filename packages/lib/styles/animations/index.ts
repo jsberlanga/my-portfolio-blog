@@ -41,9 +41,9 @@ export const variants = {
       },
     },
     moveUp: {
-      initial: { opacity: [0, 0], y: 25 },
+      initial: { opacity: 0, y: 40 },
       animate: {
-        opacity: [0, 1],
+        opacity: 1,
         y: 0,
         transition: { ...transition, delay: 0.5 },
       },

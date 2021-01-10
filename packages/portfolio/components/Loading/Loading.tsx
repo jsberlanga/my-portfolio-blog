@@ -44,7 +44,7 @@ const styles = {
   `,
 };
 
-const sentences = ['Full Stack developer', 'Open Source contributor'];
+const sentences = ['Full Stack Web Developer'];
 
 const variant = {
   container: {
@@ -91,12 +91,17 @@ const Loading: React.FC = () => {
       css={styles.root}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ y: windowHeight }}
-      transition={{ ...transition }}
+      exit={{ y: windowHeight, opacity: 0.8 }}
+      transition={{ ...transition, duration: 1.2 }}
     >
       <motion.div
         className="wrapper"
-        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+        exit={{
+          opacity: 0,
+          y: 20,
+          scale: 0.9,
+          transition: { ...transition, duration: 0.4 },
+        }}
       >
         <div className="name">Julio Soto</div>
         <motion.div
