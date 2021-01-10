@@ -95,8 +95,7 @@ const Loading: React.FC = () => {
       animate={{ opacity: 1, transition }}
       exit={{
         y: windowHeight,
-        opacity: 0.7,
-        scale: 0.7,
+        scale: 0.95,
         background: '#bcacf2',
         transition: {
           ...transition,

@@ -4,6 +4,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getMQ } from '@juliosoto/lib/styles';
 import { ProjectPreviewType } from '@juliosoto/lib/types';
+import { useThemeState } from '@juliosoto/lib/context';
+import { PROJECTS } from '@juliosoto/lib/constants';
+
+const getProjectPreviewStyles = () =>
+  PROJECTS.map(
+    (project) => `.${project} {
+        background: var(--${project}-bg);
+        .project--type {
+          color: var(--${project}-color);
+          &__label {
+            background-color: var(--label-bg);
+            color: var(--${project}-color);
+          }
+        }
+      }
+  `,
+  );
 
 const styles = {
   root: css`
@@ -55,57 +72,33 @@ const styles = {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .project-zaprojektujemy-studio {
-        background: #c5a880;
-        .project {
-          &--type {
-            color: #473c2b;
-            &__label {
-              background-color: rgba(0, 0, 0, 0.1);
-              color: #473c2b;
-            }
-          }
-        }
+      &.light-theme {
+        --landing: #2e3b38;
+
+        --zaprojektujemy-studio-bg: #caa2a5;
+        --zaprojektujemy-studio-color: #573f41;
+        --byas-no-bg: #a7bdb7;
+        --byas-no-color: #43534f;
+        --my-portfolio-bg: #ccb7a3;
+        --my-portfolio-color: #463b31;
+        --duda-transport-bg: #a9b8c7;
+        --duda-transport-color: #373e46;
+        --label-bg: rgba(0, 0, 0, 0.1);
       }
 
-      .project-byas-no {
-        background: #556052;
-        .project {
-          &--type {
-            color: #e1e6e0;
-            &__label {
-              background-color: rgba(255, 255, 255, 0.1);
-              color: #e1e6e0;
-            }
-          }
-        }
+      &.dark-theme {
+        --zaprojektujemy-studio-color: #e7d4d6;
+        --zaprojektujemy-studio-bg: #755457;
+        --byas-no-color: #cddbd8;
+        --byas-no-bg: #5a6e69;
+        --my-portfolio-color: #d6cdc4;
+        --my-portfolio-bg: #796654;
+        --duda-transport-color: #cdd8e4;
+        --duda-transport-bg: #404b57;
+        --label-bg: rgba(255, 255, 255, 0.1);
       }
 
-      .project-my-portfolio {
-        background: #965d62;
-        .project {
-          &--type {
-            color: #f5efef;
-            &__label {
-              background-color: rgba(255, 255, 255, 0.1);
-              color: #f5efef;
-            }
-          }
-        }
-      }
-
-      .project-duda-transport {
-        background: #534e52;
-        .project {
-          &--type {
-            color: #f0ecec;
-            &__label {
-              background-color: rgba(255, 255, 255, 0.1);
-              color: #f0ecec;
-            }
-          }
-        }
-      }
+      ${getProjectPreviewStyles()}
 
       .project {
         cursor: pointer;
@@ -199,6 +192,7 @@ interface ProjectsPreviewProps {
 }
 
 const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
+  const theme = useThemeState();
   return (
     <div css={styles.root} id="work">
       <div css={styles.projectsWrapper}>
@@ -209,10 +203,10 @@ const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
             <br />I have had the chance to work on!
           </div>
         </div>
-        <div className="projects">
+        <div className={`projects ${theme}-theme`}>
           {projects.map(({ title, slug, imagePreview, tags }) => (
             <Link href={`/project/${slug}`} key={title}>
-              <div className={`project project-${slug}`}>
+              <div className={`project ${slug}`}>
                 <div className="project--image">
                   <Image
                     src={imagePreview.url}
