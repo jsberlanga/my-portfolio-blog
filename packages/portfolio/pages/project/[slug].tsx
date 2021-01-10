@@ -175,7 +175,10 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
             <React.Fragment>
               <motion.span variants={variants.children.scale}>/</motion.span>
               {splitTitle.map((letter, idx) => (
-                <motion.span variants={variants.children.scale} key={idx}>
+                <motion.span
+                  variants={variants.children.scale}
+                  key={`${letter}-${idx}`}
+                >
                   {letter}
                 </motion.span>
               ))}

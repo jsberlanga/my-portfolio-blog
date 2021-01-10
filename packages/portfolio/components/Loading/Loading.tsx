@@ -25,7 +25,6 @@ const styles = {
       > div {
         font-size: clamp(1rem, 5vw, 1.2rem);
         text-align: center;
-        letter-spacing: -0.5px;
         font-weight: 800;
       }
       .name {
@@ -39,9 +38,9 @@ const styles = {
       }
       .sentence {
         color: #bcacf2;
-        font-size: clamp(1.2rem, 4vw, 1.4rem);
+        font-size: clamp(1.4rem, 4vw, 1.5rem);
         text-transform: uppercase;
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
       }
     }
   `,
@@ -96,8 +95,13 @@ const Loading: React.FC = () => {
       animate={{ opacity: 1, transition }}
       exit={{
         y: windowHeight,
-        opacity: 0.8,
-        transition: { ...transition, duration: 1.2 },
+        opacity: 0.7,
+        scale: 0.7,
+        background: '#bcacf2',
+        transition: {
+          ...transition,
+          duration: 1.25,
+        },
       }}
     >
       <motion.div

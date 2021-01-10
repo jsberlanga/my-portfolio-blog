@@ -21,30 +21,27 @@ export const variants = {
       opacity: 1,
       transition: {
         ...transition,
-        delayChildren: 0.25,
-        staggerChildren: 0.02,
+        delayChildren: 0.75,
+        staggerChildren: 0.045,
       },
     },
   },
   children: {
     scale: {
-      initial: { opacity: 0, scale: 1.5, y: 20 },
+      initial: { opacity: 0, scale: 1.5 },
       animate: {
         opacity: 1,
         scale: 1,
-        y: 0,
         display: 'inline-block',
-        transition: {
-          ease,
-          duration: 0.6,
-        },
+        transition,
       },
     },
     moveUp: {
-      initial: { opacity: 0, y: 40 },
+      initial: { opacity: 0, y: 20, scale: 0.97 },
       animate: {
         opacity: 1,
         y: 0,
+        scale: 1,
         transition: { ...transition, delay: 0.5 },
       },
     },

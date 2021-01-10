@@ -13,10 +13,10 @@ const styles = {
     .title {
       overflow: hidden;
       margin-bottom: var(--gap-unit-s);
+      letter-spacing: -2px;
 
       span {
         min-width: min(12px, 2vw);
-        }
       }
     }
 
