@@ -23,28 +23,31 @@ const styles = {
     .wrapper {
       text-align: right;
       > div {
-        padding: 0px 10px;
-        font-size: clamp(0.9rem, 5vw, 1rem);
-        text-align: right;
+        font-size: clamp(1rem, 5vw, 1.2rem);
+        text-align: center;
         letter-spacing: -0.5px;
+        font-weight: 800;
       }
       .name {
         background: #bcacf2;
+        padding: 0 20px;
         color: #1b2833;
-        font-weight: 700;
         font-size: clamp(3.5rem, 4vw, 4.5rem);
         line-height: clamp(4rem, 15vh, 5rem);
         text-transform: lowercase;
         letter-spacing: -2px;
       }
       .sentence {
-        display: inline-block;
+        color: #bcacf2;
+        font-size: clamp(1.2rem, 4vw, 1.4rem);
+        text-transform: uppercase;
+        letter-spacing: -1px;
       }
     }
   `,
 };
 
-const sentences = ['Full Stack Web Developer'];
+const sentences = ['FullStack Developer'];
 
 const variant = {
   container: {
@@ -53,8 +56,8 @@ const variant = {
       opacity: 1,
       transition: {
         ...transition,
-        delayChildren: 0.15,
-        staggerChildren: 0.02,
+        delayChildren: 0.4,
+        staggerChildren: 0.025,
       },
     },
   },
@@ -90,9 +93,12 @@ const Loading: React.FC = () => {
     <motion.div
       css={styles.root}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ y: windowHeight, opacity: 0.8 }}
-      transition={{ ...transition, duration: 1.2 }}
+      animate={{ opacity: 1, transition }}
+      exit={{
+        y: windowHeight,
+        opacity: 0.8,
+        transition: { ...transition, duration: 1.2 },
+      }}
     >
       <motion.div
         className="wrapper"
