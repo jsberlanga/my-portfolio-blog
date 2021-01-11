@@ -130,8 +130,8 @@ const Loading: React.FC = () => {
             </motion.span>
           ))}
         </motion.div>
-        <Spinner />
       </motion.div>
+      <Spinner />
     </motion.div>
   );
 };
