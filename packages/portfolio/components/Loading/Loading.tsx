@@ -32,7 +32,7 @@ const styles = {
         padding: 0 20px;
         color: #1b2833;
         font-size: clamp(3.5rem, 4vw, 4.5rem);
-        line-height: clamp(4rem, 15vh, 5rem);
+        /* line-height: clamp(5rem, 20vh, 6rem); */
         text-transform: lowercase;
         letter-spacing: -2px;
       }
