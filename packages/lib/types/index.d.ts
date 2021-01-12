@@ -3,7 +3,6 @@ export interface FullProjectType {
   title: string;
   slug: string;
   description: string;
-  isPreviewDark: boolean;
   imagePreview: {
     width: number;
     height: number;
@@ -51,7 +50,7 @@ export type ProjectSlugType = Pick<FullProjectType, 'slug'>;
 
 export type ProjectPreviewType = Pick<
   FullProjectType,
-  'title' | 'slug' | 'isPreviewDark' | 'imagePreview' | 'tags'
+  'title' | 'slug' | 'imagePreview' | 'tags'
 >;
 
 // POSTS

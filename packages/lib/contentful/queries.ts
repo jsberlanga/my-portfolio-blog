@@ -6,7 +6,6 @@ export const getPreviewProjectsQuery = gql`
       items {
         title
         slug
-        isPreviewDark
         imagePreview {
           url
           title
