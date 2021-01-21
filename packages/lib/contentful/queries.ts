@@ -28,6 +28,22 @@ export const getAllSlugsQuery = gql`
   }
 `;
 
+export const getAdjacentsProjectsQuery = gql`
+  {
+    projectCollection {
+      items {
+        slug
+        thumbnailImage {
+          url
+          title
+          width
+          height
+        }
+      }
+    }
+  }
+`;
+
 export const getProjectQuery = gql`
   query getProjectQuery($slug: String!) {
     projectCollection(where: { slug: $slug }) {

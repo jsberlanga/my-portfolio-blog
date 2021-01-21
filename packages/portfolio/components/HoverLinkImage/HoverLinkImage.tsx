@@ -2,7 +2,6 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 
 interface HoverLinkImageProps {
-  to: string;
   reference: string;
   imageSrc: string;
   size?: number;
@@ -10,7 +9,6 @@ interface HoverLinkImageProps {
 
 const HoverLinkImage: React.FC<HoverLinkImageProps> = ({
   children,
-  to,
   reference,
   imageSrc,
   size = 500,
@@ -22,11 +20,7 @@ const HoverLinkImage: React.FC<HoverLinkImageProps> = ({
   }>({ mx: 0, my: 0, isActive: null });
 
   return (
-    <motion.a
-      href={to}
-      target="_blank"
-      rel="noreferrer"
-      className="link"
+    <motion.div
       onMouseMove={(e) => {
         const { offsetTop, offsetLeft } = e.currentTarget;
         setMouse({
@@ -37,7 +31,7 @@ const HoverLinkImage: React.FC<HoverLinkImageProps> = ({
       }}
       onMouseEnter={() => setMouse({ ...mouse, isActive: reference })}
       onMouseLeave={() => setMouse({ ...mouse, isActive: null })}
-      style={{ position: 'relative' }}
+      style={{ position: 'relative', display: 'inline' }}
     >
       {children}
       {mouse?.isActive === reference && (
@@ -56,7 +50,7 @@ const HoverLinkImage: React.FC<HoverLinkImageProps> = ({
           }}
         />
       )}
-    </motion.a>
+    </motion.div>
   );
 };
 

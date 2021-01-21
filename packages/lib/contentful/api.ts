@@ -1,6 +1,12 @@
 import { GraphQLClient } from 'graphql-request';
-import { ContentfulProjects, ProjectPreviewType, ProjectType } from '../types';
 import {
+  ContentfulProjects,
+  ProjectPreviewType,
+  ProjectType,
+  TAdjacentProject,
+} from '../types';
+import {
+  getAdjacentsProjectsQuery,
   getAllSlugsQuery,
   getPreviewProjectsQuery,
   getProjectQuery,
@@ -34,6 +40,12 @@ export async function getAllSlugs() {
   const entries = await graphQLClient.request(getAllSlugsQuery);
 
   return extractProjectEntries<ProjectPreviewType>(entries);
+}
+
+export async function getAdjacentProjects() {
+  const entries = await graphQLClient.request(getAdjacentsProjectsQuery);
+
+  return extractProjectEntries<TAdjacentProject>(entries);
 }
 
 export async function getProject(variables: { slug: string }) {

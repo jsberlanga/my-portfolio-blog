@@ -2,7 +2,11 @@ import * as React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { getAllSlugs, getProject } from '@juliosoto/lib/contentful';
+import {
+  getAllSlugs,
+  getProject,
+  getAdjacentProjects,
+} from '@juliosoto/lib/contentful';
 import { css } from '@emotion/react';
 import {
   ExternalLink,
@@ -13,8 +17,8 @@ import {
 } from '@juliosoto/components/Icons';
 import { PageHeader, NotFound } from '@juliosoto/components';
 import Link from 'next/link';
-import { ProjectInfo } from '../../components';
-import { ProjectType } from '@juliosoto/lib/types';
+import { HoverLinkImage, ProjectInfo } from '../../components';
+import { ProjectType, TAdjacentProject } from '@juliosoto/lib/types';
 import { motion } from 'framer-motion';
 import { getMQ, transition, variants } from '@juliosoto/lib/styles';
 
@@ -24,17 +28,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const project = await getProject({ slug: slug?.toString() });
 
   const slugs = await getAllSlugs();
-  if (!project || !slugs) {
+  const projects = await getAdjacentProjects();
+  if (!project || !slugs || !projects) {
     return { props: { project: null } };
   }
 
-  const currentIdx = slugs.findIndex(
+  const currentIdx = projects.findIndex(
     ({ slug }: { slug: string }) => project.slug === slug,
   );
 
   const adjacentProjects = {
-    previous: currentIdx > 0 ? slugs[currentIdx - 1] : null,
-    next: currentIdx < slugs.length - 1 ? slugs[currentIdx + 1] : null,
+    previous: currentIdx > 0 ? projects[currentIdx - 1] : null,
+    next: currentIdx < projects.length - 1 ? projects[currentIdx + 1] : null,
   };
 
   return {
@@ -131,8 +136,8 @@ const styles = {
 interface ProjectProps {
   project?: ProjectType;
   adjacentProjects: {
-    previous: ProjectType | null;
-    next: ProjectType | null;
+    previous: TAdjacentProject | null;
+    next: TAdjacentProject | null;
   };
 }
 
@@ -200,14 +205,6 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { ...transition, delay: 1.25 } }}
         >
-          {project.mainImage ? (
-            <Image
-              src={project.mainImage.url}
-              layout="responsive"
-              width={project.mainImage.width}
-              height={project.mainImage.height}
-            />
-          ) : null}
           {project.mainVideoCollection?.items.length ? (
             <React.Fragment>
               <Laptop />
@@ -217,6 +214,14 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
                 ))}
               </video>
             </React.Fragment>
+          ) : null}
+          {project.mainImage && !project.mainVideoCollection?.items.length ? (
+            <Image
+              src={project.mainImage.url}
+              layout="responsive"
+              width={project.mainImage.width}
+              height={project.mainImage.height}
+            />
           ) : null}
           <div className="external-links">
             {project.links?.website ? (
@@ -242,14 +247,24 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
           {adjacentProjects.previous ? (
             <Link href={`/project/${adjacentProjects.previous.slug}`}>
               <a className="adjacentProject">
-                <GoBack fill="var(--c-light-02)" /> Previous Project
+                <HoverLinkImage
+                  imageSrc={adjacentProjects.previous.thumbnailImage.url}
+                  reference={adjacentProjects.previous.slug}
+                >
+                  <GoBack fill="var(--c-light-02)" /> Previous Project
+                </HoverLinkImage>
               </a>
             </Link>
           ) : null}
           {adjacentProjects.next ? (
             <Link href={`/project/${adjacentProjects.next.slug}`}>
               <a className="adjacentProject">
-                Next Project <GoNext fill="var(--c-light-02)" />
+                <HoverLinkImage
+                  imageSrc={adjacentProjects.next.thumbnailImage.url}
+                  reference={adjacentProjects.next.slug}
+                >
+                  Next Project <GoNext fill="var(--c-light-02)" />
+                </HoverLinkImage>{' '}
               </a>
             </Link>
           ) : null}

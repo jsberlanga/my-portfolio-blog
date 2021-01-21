@@ -13,6 +13,11 @@ export interface FullProjectType {
     height: number;
     url: string;
   };
+  thumbnailImage: {
+    width: number;
+    height: number;
+    url: string;
+  };
   mainVideoCollection: {
     items: {
       title: string;
@@ -37,6 +42,7 @@ export type ProjectType = Pick<
   | 'description'
   | 'slug'
   | 'mainImage'
+  | 'thumbnailImage'
   | 'mainVideoCollection'
   | 'tags'
   | 'dateCompleted'
@@ -52,6 +58,8 @@ export type ProjectPreviewType = Pick<
   FullProjectType,
   'title' | 'slug' | 'imagePreview' | 'tags'
 >;
+
+export type TAdjacentProject = Pick<FullProjectType, 'slug' | 'thumbnailImage'>;
 
 // POSTS
 
