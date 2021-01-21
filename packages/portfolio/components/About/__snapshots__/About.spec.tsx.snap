@@ -118,7 +118,7 @@ exports[`About renders correctly 1`] = `
         and how I ended up being a Software Engineer
       </p>
     </div>
-    <p
+    <div
       class="section-content"
     >
       Hi there! First of all, thank you for being here! My name is Julio and originally I am from Granada, Spain. I came to Kraków some years ago, where I have lived and worked happily since.
@@ -126,38 +126,47 @@ exports[`About renders correctly 1`] = `
       <br />
       A couple of words about my professional life: I started my way into IT as an IT Operations Analyst working for
        
-      <a
-        class="link"
-        href="https://www.hcltech.com/geo-presence/poland"
-        rel="noreferrer"
-        style="position: relative;"
-        target="_blank"
+      <div
+        style="position: relative; display: inline;"
       >
-        HCL Poland
-      </a>
+        <a
+          class="link"
+          href="https://www.hcltech.com/geo-presence/poland"
+          rel="noreferrer"
+          target="_blank"
+        >
+          HCL Poland
+        </a>
+      </div>
        
       and
        
-      <a
-        class="link"
-        href="http://kariera.sbdinc.pl/"
-        rel="noreferrer"
-        style="position: relative;"
-        target="_blank"
+      <div
+        style="position: relative; display: inline;"
       >
-        Stanley Black and Decker Polska
-      </a>
+        <a
+          class="link"
+          href="http://kariera.sbdinc.pl/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Stanley Black and Decker Polska
+        </a>
+      </div>
       . For personal reasons I moved back to Kraków where I got a job as a Cloud Engineer for
        
-      <a
-        class="link"
-        href="https://capgemini.com"
-        rel="noreferrer"
-        style="position: relative;"
-        target="_blank"
+      <div
+        style="position: relative; display: inline;"
       >
-        Capgemini Polska
-      </a>
+        <a
+          class="link"
+          href="https://capgemini.com"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Capgemini Polska
+        </a>
+      </div>
        
       on the Microsoft Team.
       <br />
@@ -167,15 +176,18 @@ exports[`About renders correctly 1`] = `
       <br />
       In September 2019,
        
-      <a
-        class="link"
-        href="https://www.schibsted.pl/"
-        rel="noreferrer"
-        style="position: relative;"
-        target="_blank"
+      <div
+        style="position: relative; display: inline;"
       >
-        Schibsted Tech Polska
-      </a>
+        <a
+          class="link"
+          href="https://www.schibsted.pl/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Schibsted Tech Polska
+        </a>
+      </div>
        
       gave me the opportunity to work a full time job as a FullStack Javascript Developer
        
@@ -187,7 +199,7 @@ exports[`About renders correctly 1`] = `
       </span>
        
       It really has been a dream come true. And now I am lucky enough to everyday being able to work around TypeScript, React and Nodejs among other things.
-    </p>
+    </div>
     <div
       class="emotion-2"
     >
