@@ -8,5 +8,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.spec.tsx"]
+  "exclude": ["node_modules", "**/*.spec.tsx", "generated"]
 }
