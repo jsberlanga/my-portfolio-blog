@@ -5,6 +5,26 @@ import { ProjectPreviewType } from '@juliosoto/lib/types';
 import { Hero, ProjectsPreview, About } from '../components';
 import { motion } from 'framer-motion';
 import { variants } from '@juliosoto/lib/styles';
+import { useQuery, gql } from '@apollo/client';
+import { GetProjects } from '../generated/getProjects';
+
+const PREVIEW_PROJECTS_QUERY = gql`
+  query GetProjects {
+    projectCollection {
+      items {
+        title
+        slug
+        imagePreview {
+          url
+          title
+          width
+          height
+        }
+        tags
+      }
+    }
+  }
+`;
 
 export async function getStaticProps() {
   const projects = await getPreviewProjects();
@@ -24,6 +44,10 @@ interface HomeProps {
 }
 
 export default function Home({ projects }: HomeProps) {
+  const { data, loading } = useQuery<GetProjects>(PREVIEW_PROJECTS_QUERY);
+
+  console.log({ data });
+
   return (
     <React.Fragment>
       <Head>

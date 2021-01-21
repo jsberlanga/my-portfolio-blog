@@ -3,13 +3,17 @@ export interface FullProjectType {
   title: string;
   slug: string;
   description: string;
-  isPreviewDark: boolean;
   imagePreview: {
     width: number;
     height: number;
     url: string;
   };
   mainImage: {
+    width: number;
+    height: number;
+    url: string;
+  };
+  thumbnailImage: {
     width: number;
     height: number;
     url: string;
@@ -38,6 +42,7 @@ export type ProjectType = Pick<
   | 'description'
   | 'slug'
   | 'mainImage'
+  | 'thumbnailImage'
   | 'mainVideoCollection'
   | 'tags'
   | 'dateCompleted'
@@ -51,8 +56,10 @@ export type ProjectSlugType = Pick<FullProjectType, 'slug'>;
 
 export type ProjectPreviewType = Pick<
   FullProjectType,
-  'title' | 'slug' | 'isPreviewDark' | 'imagePreview' | 'tags'
+  'title' | 'slug' | 'imagePreview' | 'tags'
 >;
+
+export type TAdjacentProject = Pick<FullProjectType, 'slug' | 'thumbnailImage'>;
 
 // POSTS
 

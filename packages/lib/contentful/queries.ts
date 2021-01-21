@@ -6,7 +6,6 @@ export const getPreviewProjectsQuery = gql`
       items {
         title
         slug
-        isPreviewDark
         imagePreview {
           url
           title
@@ -24,6 +23,22 @@ export const getAllSlugsQuery = gql`
     projectCollection {
       items {
         slug
+      }
+    }
+  }
+`;
+
+export const getAdjacentsProjectsQuery = gql`
+  {
+    projectCollection {
+      items {
+        slug
+        thumbnailImage {
+          url
+          title
+          width
+          height
+        }
       }
     }
   }

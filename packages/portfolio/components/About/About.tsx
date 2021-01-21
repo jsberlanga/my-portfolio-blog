@@ -77,36 +77,48 @@ const About: React.FC = () => {
         }
         subtitle="and how I ended up being a Software Engineer"
       />
-      <p className="section-content">
+      <div className="section-content">
         Hi there! First of all, thank you for being here! My name is Julio and
         originally I am from Granada, Spain. I came to Kraków some years ago,
         where I have lived and worked happily since.
         <br />
         <br />A couple of words about my professional life: I started my way
         into IT as an IT Operations Analyst working for{' '}
-        <HoverLinkImage
-          to="https://www.hcltech.com/geo-presence/poland"
-          imageSrc="/images/about/hcl.png"
-          reference="hcl"
-        >
-          HCL Poland
+        <HoverLinkImage imageSrc="/images/about/hcl.png" reference="hcl">
+          <a
+            href="https://www.hcltech.com/geo-presence/poland"
+            className="link"
+            rel="noreferrer"
+            target="_blank"
+          >
+            HCL Poland
+          </a>
         </HoverLinkImage>{' '}
         and{' '}
-        <HoverLinkImage
-          to="http://kariera.sbdinc.pl/"
-          imageSrc="/images/about/sbd.png"
-          reference="sbd"
-        >
-          Stanley Black and Decker Polska
+        <HoverLinkImage imageSrc="/images/about/sbd.png" reference="sbd">
+          <a
+            href="http://kariera.sbdinc.pl/"
+            className="link"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Stanley Black and Decker Polska
+          </a>
         </HoverLinkImage>
         . For personal reasons I moved back to Kraków where I got a job as a
         Cloud Engineer for{' '}
         <HoverLinkImage
-          to="https://capgemini.com"
           imageSrc="/images/about/capgemini.png"
           reference="capgemini"
         >
-          Capgemini Polska
+          <a
+            href="https://capgemini.com"
+            className="link"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Capgemini Polska
+          </a>
         </HoverLinkImage>{' '}
         on the Microsoft Team.
         <br />
@@ -119,11 +131,17 @@ const About: React.FC = () => {
         <br />
         In September 2019,{' '}
         <HoverLinkImage
-          to="https://www.schibsted.pl/"
           imageSrc="/images/about/schibsted.png"
           reference="schibsted"
         >
-          Schibsted Tech Polska
+          <a
+            href="https://www.schibsted.pl/"
+            className="link"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Schibsted Tech Polska
+          </a>
         </HoverLinkImage>{' '}
         gave me the opportunity to work a full time job as a FullStack
         Javascript Developer{' '}
@@ -133,7 +151,7 @@ const About: React.FC = () => {
         It really has been a dream come true. And now I am lucky enough to
         everyday being able to work around TypeScript, React and Nodejs among
         other things.
-      </p>
+      </div>
       <div css={styles.info}>
         <div className="info-skills">
           <h3>skills</h3>
