@@ -273,5 +273,3 @@ export default function Project({ project, adjacentProjects }: ProjectProps) {
     </React.Fragment>
   );
 }
-
-React.createElement;
