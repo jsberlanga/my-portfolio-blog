@@ -23,18 +23,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const project = await getProject({ slug: slug?.toString() });
 
-  const slugs = await getAllSlugs();
-  if (!project || !slugs) {
+  const slugsCollection = await getAllSlugs();
+  if (!project || !slugsCollection) {
     return { props: { project: null } };
   }
 
-  const currentIdx = slugs.findIndex(
-    ({ slug }: { slug: string }) => project.slug === slug,
+  const currentIdx = slugsCollection.findIndex(
+    (slugs) => project.slug === slugs?.slug,
   );
 
   const adjacentProjects = {
-    previous: currentIdx > 0 ? slugs[currentIdx - 1] : null,
-    next: currentIdx < slugs.length - 1 ? slugs[currentIdx + 1] : null,
+    previous: currentIdx > 0 ? slugsCollection[currentIdx - 1] : null,
+    next:
+      currentIdx < slugsCollection.length - 1
+        ? slugsCollection[currentIdx + 1]
+        : null,
   };
 
   return {
@@ -45,9 +48,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths = async () => {
   const projects = await getAllSlugs();
 
-  const preRenderedPaths = projects?.map(({ slug }) => ({
-    params: { slug },
-  }));
+  const preRenderedPaths = projects?.map((project) => {
+    const slug = project?.slug;
+    return { params: { slug } };
+  });
 
   return { paths: preRenderedPaths, fallback: true };
 };

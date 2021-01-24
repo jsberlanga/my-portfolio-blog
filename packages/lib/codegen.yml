@@ -1,0 +1,11 @@
+schema:
+  - ${CONTENTFUL_GRAPHQL_API_ENDPOINT}:
+        headers:
+          Authorization: "Bearer ${CONTENTFUL_GRAPHQL_API_TOKEN}"
+documents:
+  - './contentful/queries.ts'
+generates:
+  ./contentful/generated/types.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
