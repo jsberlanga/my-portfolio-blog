@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request';
 
 export const getPreviewProjectsQuery = gql`
-  {
+  query getPreviewProjects {
     projectCollection {
       items {
         title
@@ -19,7 +19,7 @@ export const getPreviewProjectsQuery = gql`
 `;
 
 export const getAllSlugsQuery = gql`
-  {
+  query getAllSlugs {
     projectCollection {
       items {
         slug
@@ -29,7 +29,7 @@ export const getAllSlugsQuery = gql`
 `;
 
 export const getProjectQuery = gql`
-  query getProjectQuery($slug: String!) {
+  query getProject($slug: String!) {
     projectCollection(where: { slug: $slug }) {
       items {
         title

@@ -1,20 +1,14 @@
 import { GraphQLClient } from 'graphql-request';
-import { ContentfulProjects, ProjectPreviewType, ProjectType } from '../types';
+import {
+  GetPreviewProjectsQuery,
+  GetProjectQuery,
+  GetProjectQueryVariables,
+} from './generated/types';
 import {
   getAllSlugsQuery,
   getPreviewProjectsQuery,
   getProjectQuery,
 } from './queries';
-
-function extractProject<T>(data: ContentfulProjects<T>): T | undefined {
-  return data?.projectCollection?.items?.[0];
-}
-
-function extractProjectEntries<T>(
-  data: ContentfulProjects<T>,
-): T[] | undefined {
-  return data?.projectCollection?.items;
-}
 
 const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`;
 
@@ -25,19 +19,28 @@ const graphQLClient = new GraphQLClient(endpoint, {
 });
 
 export async function getPreviewProjects() {
-  const entries = await graphQLClient.request(getPreviewProjectsQuery);
+  const {
+    projectCollection,
+  } = await graphQLClient.request<GetPreviewProjectsQuery>(
+    getPreviewProjectsQuery,
+  );
 
-  return extractProjectEntries<ProjectPreviewType>(entries);
+  return projectCollection?.items;
 }
 
 export async function getAllSlugs() {
-  const entries = await graphQLClient.request(getAllSlugsQuery);
+  const {
+    projectCollection,
+  } = await graphQLClient.request<GetPreviewProjectsQuery>(getAllSlugsQuery);
 
-  return extractProjectEntries<ProjectPreviewType>(entries);
+  return projectCollection?.items;
 }
 
 export async function getProject(variables: { slug: string }) {
-  const entries = await graphQLClient.request(getProjectQuery, variables);
+  const { projectCollection } = await graphQLClient.request<
+    GetProjectQuery,
+    GetProjectQueryVariables
+  >(getProjectQuery, variables);
 
-  return extractProject<ProjectType>(entries);
+  return projectCollection?.items?.[0];
 }
