@@ -1,11 +1,5 @@
+import { TDbPost } from '../types';
 import { connectToDatabase } from './connect';
-
-export const getUsers = async () => {
-  const { db } = await connectToDatabase();
-  const users = await db.collection('users').find({}).limit(20).toArray();
-
-  return users;
-};
 
 interface GetPostBySlugParams {
   slug: string;
@@ -14,7 +8,10 @@ interface GetPostBySlugParams {
 export const getPostBySlug = async ({ slug }: GetPostBySlugParams) => {
   const { db } = await connectToDatabase();
 
-  const post = await db.collection('posts').find({ slug }).toArray();
+  const [post] = await db
+    .collection('posts')
+    .find<TDbPost>({ slug })
+    .toArray();
 
   return post;
 };

@@ -9,4 +9,5 @@ export { default as SectionHeader } from './SectionHeader';
 export { default as ScrollProgress } from './ScrollProgress';
 export { default as Spinner } from './Spinner';
 export { default as Tags } from './Tags';
+export { default as Timestamp } from './Timestamp';
 export { default as ThemeSwitch } from './ThemeSwitch';

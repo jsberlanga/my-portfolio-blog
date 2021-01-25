@@ -74,6 +74,12 @@ export interface ContentfulProjects<T> {
   };
 }
 
+// MONGODB
+export interface TDbPost {
+  slug: string;
+  visits: number;
+}
+
 // THEME
 
 export interface ThemeContext {

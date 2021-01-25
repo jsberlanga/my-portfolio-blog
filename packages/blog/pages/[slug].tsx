@@ -7,10 +7,14 @@ import {
   NotFound,
   PageHeader,
   ScrollProgress,
+  Timestamp,
 } from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
 import { getPostBySlug } from '@juliosoto/lib/mongodb';
+import { TDbPost } from '@juliosoto/lib/types';
+
+const DynamicVisits = dynamic(() => import('../components/Visits'));
 
 const styles = {
   root: css`
@@ -26,11 +30,12 @@ const styles = {
 interface PostProps {
   postMeta: {
     title: string;
+    publishedAt: string;
     slug: string;
     summary: string;
     tags: string[];
   } | null;
-  dbPost: boolean;
+  dbPost: TDbPost;
 }
 
 export default function Post({ postMeta, dbPost }: PostProps) {
@@ -53,12 +58,16 @@ export default function Post({ postMeta, dbPost }: PostProps) {
       <div css={styles}>
         <ScrollProgress />
         <PageHeader
-          title={<h2>{postMeta.title}</h2>}
+          title={<React.Fragment>{postMeta.title}</React.Fragment>}
           description={postMeta.summary}
           tags={postMeta.tags}
         />
         <div css={styles.post}>
           <MDXPost />
+          <br />
+          <DynamicVisits visits={dbPost.visits} slug={postMeta.slug} />
+          <Timestamp>Published on {postMeta.publishedAt}</Timestamp>
+          <hr />
           <br />
           <Newsletter />
         </div>
@@ -75,13 +84,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postMeta =
     postsData?.find((postData) => postData.slug === params.slug) ?? null;
 
-  const [dbPostData] = await getPostBySlug({ slug: params.slug?.toString() });
+  const dbPostData = await getPostBySlug({ slug: params.slug?.toString() });
 
   if (postMeta && dbPostData && postMeta.slug === dbPostData.slug) {
-    return { props: { postMeta, dbPost: true } };
+    return {
+      props: {
+        postMeta,
+        dbPost: { slug: dbPostData.slug, visits: dbPostData.visits },
+      },
+    };
   }
 
-  return { props: { postMeta, dbPost: false } };
+  return { props: { postMeta, dbPost: null } };
 };
 
 export async function getStaticPaths() {
