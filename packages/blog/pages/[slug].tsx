@@ -12,8 +12,6 @@ import * as React from 'react';
 import Head from 'next/head';
 import { getPostBySlug } from '@juliosoto/lib/mongodb';
 
-const DynamicVote = dynamic(() => import('../components/Vote'));
-
 const styles = {
   root: css`
     margin: 0 auto;
@@ -64,7 +62,6 @@ export default function Post({ postMeta, dbPost }: PostProps) {
           <br />
           <Newsletter />
         </div>
-        {dbPost ? <DynamicVote slug={postMeta.slug} /> : null}
       </div>
     </React.Fragment>
   );
