@@ -68,8 +68,6 @@ export default function Post({ postMeta, dbPost }: PostProps) {
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
 
-  console.log(postMeta.slug, dbPost.visits);
-
   return (
     <React.Fragment>
       <Head>
@@ -90,7 +88,7 @@ export default function Post({ postMeta, dbPost }: PostProps) {
         <div css={styles.post}>
           <MDXPost />
           <br />
-          <DynamicVisits>{dbPost.visits} views</DynamicVisits>
+          <DynamicVisits slug={postMeta.slug} />
           <Timestamp>Published on {postMeta.publishedAt}</Timestamp>
           <hr />
           <br />

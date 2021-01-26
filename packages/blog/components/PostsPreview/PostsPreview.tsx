@@ -24,27 +24,6 @@ interface PostPreviewProps {
 }
 
 const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
-  const [visits, setVisits] = React.useState(0);
-
-  React.useEffect(() => {
-    const getVisits = () =>
-      postsPreviewData.map(async ({ slug }) => {
-        try {
-          const response = await fetch(`/api/visits/?slug=${slug}`, {
-            method: 'GET',
-          });
-          if (response.status === 200) {
-            const data = await response.json();
-
-            setVisits(data.post.visits);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      });
-    getVisits();
-  }, [postsPreviewData]);
-
   return (
     <motion.section
       variants={variants.fadeIn}
@@ -57,7 +36,7 @@ const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
           <a>
             <h4>{post.title}</h4>
             <Timestamp>Published on {post.publishedAt}</Timestamp>
-            <DynamicVisits>{visits} views</DynamicVisits>
+            <DynamicVisits slug={post.slug} />
             <br />
             <p className="small">{post.summary}</p>
             <button>
