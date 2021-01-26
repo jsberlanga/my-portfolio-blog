@@ -6,19 +6,19 @@ exports[`PostsPreview renders correctly 1`] = `
   margin: 0 auto var(--gap);
 }
 
-.emotion-0 time {
-  color: var(--c-special);
-  display: block;
-  margin-bottom: 1rem;
-}
-
 .emotion-0 button {
   font-weight: 600;
+}
+
+.emotion-1 {
+  color: var(--c-special);
+  display: block;
 }
 
 <div>
   <section
     class="emotion-0"
+    style="opacity: 0;"
   >
     <a
       href="/test"
@@ -27,10 +27,12 @@ exports[`PostsPreview renders correctly 1`] = `
         test
       </h4>
       <time
-        class="xsmall"
+        class="small emotion-1"
       >
+        Published on 
         2020-01-01
       </time>
+      <br />
       <p
         class="small"
       >

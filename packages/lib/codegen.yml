@@ -1,7 +1,7 @@
 schema:
   - ${CONTENTFUL_GRAPHQL_API_ENDPOINT}:
-        headers:
-          Authorization: "Bearer ${CONTENTFUL_GRAPHQL_API_TOKEN}"
+      headers:
+        Authorization: 'Bearer ${CONTENTFUL_GRAPHQL_API_TOKEN}'
 documents:
   - './contentful/queries.ts'
 generates:

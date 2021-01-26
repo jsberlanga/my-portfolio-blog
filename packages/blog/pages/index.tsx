@@ -27,13 +27,13 @@ export default function Index({ recentPosts }: IndexProps) {
       </Head>
       <PageHeader
         title={
-          <motion.h1
+          <motion.span
             variants={variants.fadeIn}
             initial="initial"
             animate="animate"
           >
             /blog
-          </motion.h1>
+          </motion.span>
         }
         description={
           <motion.div

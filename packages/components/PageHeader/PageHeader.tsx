@@ -51,14 +51,21 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         {title}
       </motion.h2>
       {description ? (
-        <motion.div className="description">{description}</motion.div>
+        <motion.div
+          variants={variants.container}
+          initial="initial"
+          animate="animate"
+          className="description"
+        >
+          {description}
+        </motion.div>
       ) : null}
       {tags.length ? (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { ...transition, delay: 1.15 },
+            transition: { ...transition, delay: 0.75 },
           }}
         >
           <Tags tags={tags} isCentered />

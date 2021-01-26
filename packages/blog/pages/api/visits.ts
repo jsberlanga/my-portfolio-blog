@@ -13,7 +13,7 @@ handler.get(async (req, res) => {
 
   const result = await db.collection('posts').findOne({ slug });
 
-  const { visits = 0 } = result || {};
+  const { visits } = result;
 
   return res.json({ post: { slug, visits } });
 });

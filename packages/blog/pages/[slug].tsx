@@ -13,6 +13,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { getPostBySlug } from '@juliosoto/lib/mongodb';
 import { TDbPost } from '@juliosoto/lib/types';
+// import DynamicVisits from '../components/Visits';
 
 const DynamicVisits = dynamic(() => import('../components/Visits'));
 
@@ -39,11 +40,35 @@ interface PostProps {
 }
 
 export default function Post({ postMeta, dbPost }: PostProps) {
+  React.useEffect(() => {
+    const handleVisit = async () => {
+      try {
+        const response = await fetch('api/visits', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ slug: postMeta?.slug }),
+        });
+        if (response.status === 200) {
+          const data = await response.json();
+
+          return data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleVisit();
+  }, [postMeta?.slug]);
+
   if (!postMeta) return <NotFound />;
 
   const MDXPost = dynamic(
     () => import(`@juliosoto/blog/content/${postMeta.slug}.mdx`),
   );
+
+  console.log(postMeta.slug, dbPost.visits);
 
   return (
     <React.Fragment>
@@ -65,7 +90,7 @@ export default function Post({ postMeta, dbPost }: PostProps) {
         <div css={styles.post}>
           <MDXPost />
           <br />
-          <DynamicVisits visits={dbPost.visits} slug={postMeta.slug} />
+          <DynamicVisits>{dbPost.visits} views</DynamicVisits>
           <Timestamp>Published on {postMeta.publishedAt}</Timestamp>
           <hr />
           <br />
