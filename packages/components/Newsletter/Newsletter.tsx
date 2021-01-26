@@ -71,7 +71,7 @@ const styles = {
       color: var(--c-background);
       cursor: pointer;
       font-size: 16px;
-      padding: 0px;
+      padding: 4px;
       grid-column: 1 / auto;
       align-self: baseline;
 
