@@ -8,6 +8,7 @@ import * as gtag from '@juliosoto/lib/gtag';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import PortfolioLayout from '../components/Layout';
+import { useWebVitals } from '@juliosoto/lib/hooks';
 
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
@@ -19,6 +20,7 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
   pageProps,
 }) => {
   const router = useRouter();
+  useWebVitals();
 
   React.useEffect(() => {
     const handleRouteChange = (url: URL) => {
