@@ -37,12 +37,12 @@ export const variants = {
       },
     },
     moveUp: {
-      initial: { opacity: 0, y: 20, scale: 0.97 },
+      initial: { opacity: 0, y: 20, scale: 0.99 },
       animate: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { ...transition, delay: 0.5 },
+        transition,
       },
     },
   },
