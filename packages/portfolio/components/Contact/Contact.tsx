@@ -12,6 +12,7 @@ const styles = {
         font-weight: 600;
         color: var(--c-dark);
         border-radius: 30px;
+        border: none;
         padding: 7px 20px;
         margin-left: 10px;
         font-size: 15px;
