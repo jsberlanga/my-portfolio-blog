@@ -2,10 +2,11 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getMQ } from '@juliosoto/lib/styles';
+import { getMQ, transition } from '@juliosoto/lib/styles';
 import { ProjectPreviewType } from '@juliosoto/lib/types';
 import { useThemeState } from '@juliosoto/lib/context';
 import { PROJECTS } from '@juliosoto/lib/constants';
+import { motion } from 'framer-motion';
 
 const getProjectPreviewStyles = () =>
   PROJECTS.map(
@@ -72,7 +73,8 @@ const styles = {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      &.light-theme {
+      &.light-theme,
+      &.dark-theme {
         --landing: #2e3b38;
 
         --zaprojektujemy-studio-bg: #caa2a5;
@@ -86,17 +88,17 @@ const styles = {
         --label-bg: rgba(0, 0, 0, 0.1);
       }
 
-      &.dark-theme {
+      /*  &.dark-theme {
         --zaprojektujemy-studio-color: #e7d4d6;
         --zaprojektujemy-studio-bg: #755457;
         --byas-no-color: #cddbd8;
         --byas-no-bg: #5a6e69;
         --my-portfolio-color: #d6cdc4;
-        --my-portfolio-bg: #796654;
+        --my-portfolio-bg: #556052;
         --duda-transport-color: #cdd8e4;
         --duda-transport-bg: #404b57;
         --label-bg: rgba(255, 255, 255, 0.1);
-      }
+      } */
 
       ${getProjectPreviewStyles()}
 
@@ -204,9 +206,16 @@ const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
           </div>
         </div>
         <div className={`projects ${theme}-theme`}>
-          {projects.map(({ title, slug, imagePreview, tags }) => (
+          {projects.map(({ title, slug, imagePreview, tags }, idx) => (
             <Link href={`/project/${slug}`} key={title}>
-              <div className={`project ${slug}`}>
+              <motion.div
+                className={`project ${slug}`}
+                initial={
+                  idx % 2 === 0 ? { x: -50, opacity: 0 } : { x: 50, opacity: 0 }
+                }
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ ...transition, delay: 0.15 }}
+              >
                 <div className="project--image">
                   <Image
                     src={imagePreview.url}
@@ -225,7 +234,7 @@ const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
                   ))}
                   <h3 className="project--type__title">{title}</h3>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           ))}
         </div>
