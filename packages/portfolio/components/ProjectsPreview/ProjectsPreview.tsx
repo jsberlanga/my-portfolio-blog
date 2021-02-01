@@ -168,7 +168,7 @@ const styles = {
             left: 9.45%;
             border-radius: 8px;
             content: '';
-            background-image: url(images/common/noise.gif);
+            background-image: url(images/common/noise.webp);
             opacity: 0.2;
             z-index: 8;
             pointer-events: none;
@@ -178,7 +178,7 @@ const styles = {
         &:hover {
           .project--image {
             &::after {
-              background-image: url(images/common/noise-2.gif);
+              background-image: url(images/common/noise-hover.webp);
               filter: grayscale(0.5);
               opacity: 0.5;
             }

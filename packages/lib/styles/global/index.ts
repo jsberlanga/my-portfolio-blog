@@ -19,7 +19,7 @@ export const globalStyles = `
       width: 100%;
       height: 100%;
       content: "";
-      background-image: url(/images/common/noise.gif);
+      background-image: url(/images/common/noise.webp);
       opacity: 0.04;
       z-index: 999;
       pointer-events: none;
