@@ -68,21 +68,7 @@ class PortfolioDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Inter-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/Inter-SemiBold.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/Inter-ExtraBold.woff2"
+            href="/fonts/Inter.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
