@@ -14,6 +14,7 @@ const styles = {
       overflow: hidden;
       margin-bottom: var(--gap-unit-s);
       letter-spacing: -2px;
+      font-size: min(5rem, 15vw);
 
       span {
         min-width: min(12px, 2vw);

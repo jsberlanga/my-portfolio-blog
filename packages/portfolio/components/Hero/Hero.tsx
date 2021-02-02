@@ -24,6 +24,7 @@ const styles = {
       position: relative;
       width: fit-content;
       color: var(--c-text);
+      font-size: min(7rem, 20vw);
 
       &::after {
         content: '';

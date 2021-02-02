@@ -68,8 +68,8 @@ const styles = {
       --zaprojektujemy-studio-color: #573f41;
       --byas-no-bg: #a7bdb7;
       --byas-no-color: #43534f;
-      --my-portfolio-bg: #ccb7a3;
-      --my-portfolio-color: #463b31;
+      --my-portfolio-bg: #c4bcd0;
+      --my-portfolio-color: #3f3749;
       --duda-transport-bg: #a9b8c7;
       --duda-transport-color: #373e46;
       --label-bg: rgba(0, 0, 0, 0.1);
@@ -133,6 +133,7 @@ const styles = {
           &__title {
             font-weight: 600;
             margin: 0.5rem 0;
+            font-size: min(2.9rem, 5vw);
           }
         }
 
