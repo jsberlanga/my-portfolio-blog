@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getMQ, transition } from '@juliosoto/lib/styles';
 import { ProjectPreviewType } from '@juliosoto/lib/types';
-import { useThemeState } from '@juliosoto/lib/context';
 import { PROJECTS } from '@juliosoto/lib/constants';
 import { motion } from 'framer-motion';
 
@@ -64,41 +63,27 @@ const styles = {
     }
 
     .projects {
+      --landing: #2e3b38;
+      --zaprojektujemy-studio-bg: #caa2a5;
+      --zaprojektujemy-studio-color: #573f41;
+      --byas-no-bg: #a7bdb7;
+      --byas-no-color: #43534f;
+      --my-portfolio-bg: #ccb7a3;
+      --my-portfolio-color: #463b31;
+      --duda-transport-bg: #a9b8c7;
+      --duda-transport-color: #373e46;
+      --label-bg: rgba(0, 0, 0, 0.1);
+
       display: grid;
       grid-template-columns: 1fr;
       grid-column-gap: 1.5rem;
       grid-row-gap: 1.5rem;
+      overflow: hidden;
 
       ${getMQ('desktop')} {
+        overflow: initial;
         grid-template-columns: repeat(2, 1fr);
       }
-
-      &.light-theme,
-      &.dark-theme {
-        --landing: #2e3b38;
-
-        --zaprojektujemy-studio-bg: #caa2a5;
-        --zaprojektujemy-studio-color: #573f41;
-        --byas-no-bg: #a7bdb7;
-        --byas-no-color: #43534f;
-        --my-portfolio-bg: #ccb7a3;
-        --my-portfolio-color: #463b31;
-        --duda-transport-bg: #a9b8c7;
-        --duda-transport-color: #373e46;
-        --label-bg: rgba(0, 0, 0, 0.1);
-      }
-
-      /*  &.dark-theme {
-        --zaprojektujemy-studio-color: #e7d4d6;
-        --zaprojektujemy-studio-bg: #755457;
-        --byas-no-color: #cddbd8;
-        --byas-no-bg: #5a6e69;
-        --my-portfolio-color: #d6cdc4;
-        --my-portfolio-bg: #556052;
-        --duda-transport-color: #cdd8e4;
-        --duda-transport-bg: #404b57;
-        --label-bg: rgba(255, 255, 255, 0.1);
-      } */
 
       ${getProjectPreviewStyles()}
 
@@ -194,7 +179,6 @@ interface ProjectsPreviewProps {
 }
 
 const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
-  const theme = useThemeState();
   return (
     <div css={styles.root} id="work">
       <div css={styles.projectsWrapper}>
@@ -205,7 +189,7 @@ const ProjectsPreview: React.FC<ProjectsPreviewProps> = ({ projects }) => {
             <br />I have had the chance to work on!
           </div>
         </div>
-        <div className={`projects ${theme}-theme`}>
+        <div className="projects">
           {projects.map(({ title, slug, imagePreview, tags }, idx) => (
             <Link href={`/project/${slug}`} key={title}>
               <motion.div

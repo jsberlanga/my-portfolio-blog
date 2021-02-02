@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { getLCP, getFID, getCLS } from 'web-vitals';
 
+declare global {
+  interface Window {
+    gtag: any;
+  }
+}
+
 function sendToGoogleAnalytics({ name, delta, id }: any) {
   // Assumes the global `gtag()` function exists, see:
   // https://developers.google.com/analytics/devguides/collection/gtagjs
