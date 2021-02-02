@@ -6,11 +6,11 @@ export const globalStyles = `
   ${typeScale};
   ${cssVariables};
   ${resets};
+
   
   body {
     color: var(--c-text);
     background-color: var(--c-background);
-    font-family: Inter, 'sans-serif';
   
     &::after {
       position: fixed;

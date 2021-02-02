@@ -15,6 +15,9 @@ export const cssVariables = `
     --c-special-01: #8975C9;
     --c-special-02: #BCACF2;
 
+    // FONTS
+    --ff-body: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     // UNITS
     --gap-unit-xs: 1rem;
