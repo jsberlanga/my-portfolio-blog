@@ -21,7 +21,6 @@ const styles = {
     }
 
     .description {
-      font-weight: 200;
       color: var(--c-neutral);
       margin-bottom: var(--gap-unit-s);
       overflow: hidden;

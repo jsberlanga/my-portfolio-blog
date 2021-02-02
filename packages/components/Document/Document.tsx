@@ -66,15 +66,14 @@ class PortfolioDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            rel="stylesheet preload prefetch"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-            as="style"
-            type="text/css"
+            rel="preload"
+            href="/fonts/Inter.woff2"
+            as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link rel="icon" href="/favicon.ico" />
           <meta
             name="Description"
             content="Julio Soto - Portfolio and Personal Blog"
