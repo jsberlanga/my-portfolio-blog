@@ -148,10 +148,10 @@ const styles = {
 
           &::after {
             position: absolute;
-            width: calc(100% - 19.5%);
+            width: calc(100% - 19.35%);
             height: calc(100% - 24.5%);
-            top: 6%;
-            left: 9.45%;
+            top: 6.25%;
+            left: 9.65%;
             border-radius: 8px;
             content: '';
             background-image: url(images/common/noise.webp);
@@ -165,8 +165,6 @@ const styles = {
           .project--image {
             &::after {
               background-image: url(images/common/noise-hover.webp);
-              filter: grayscale(0.5);
-              opacity: 0.5;
             }
           }
         }

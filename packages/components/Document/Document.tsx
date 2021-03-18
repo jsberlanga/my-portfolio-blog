@@ -81,15 +81,17 @@ class PortfolioDocument extends Document {
         </Head>
         <body>
           <script
+            defer
             dangerouslySetInnerHTML={{
               __html: blockingSetInitialColorMode,
             }}
           />
           <script
-            async
+            defer
             src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
           />
           <script
+            defer
             dangerouslySetInnerHTML={{
               __html: `
               window.dataLayer = window.dataLayer || [];
