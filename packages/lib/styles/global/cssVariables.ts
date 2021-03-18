@@ -6,8 +6,8 @@ export const cssVariables = `
     --c-dark-01: #1b2833;
     --c-dark-02: #30495D;
 
-    --c-light-01: #e7e9ec;
-    --c-light-02: #f2f3f5;
+    --c-light-01: #f2f3f5;
+    --c-light-02: #fdfdfd;
     
     --c-neutral-01: #636c7a;
     --c-neutral-02: #a0a7b2;
