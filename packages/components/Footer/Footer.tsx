@@ -49,7 +49,7 @@ const styles = {
 
       h4 {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         margin-bottom: 0.4rem;
 
         svg {
