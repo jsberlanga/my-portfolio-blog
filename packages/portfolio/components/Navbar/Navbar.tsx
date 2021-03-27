@@ -46,9 +46,12 @@ const PortfolioNavbar = () => {
               /contact
             </a>
           </li>
+          {/*
+          TEMPORARILY DISABLED
           <li>
             <a href="https://blog.juliosoto.dev">/blog</a>
           </li>
+          */}
         </React.Fragment>
       }
     />
