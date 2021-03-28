@@ -2,14 +2,20 @@ import { MDXProvider } from '@mdx-js/react';
 import * as React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { Global } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { globalStyles } from '@juliosoto/lib/styles';
 import { ThemeContextProvider } from '@juliosoto/lib/context';
 import { Layout } from '@juliosoto/components';
-import { BlogNavbar, CodeBlock, BlogFooter } from '../components';
+import {
+  BlogNavbar,
+  CodeBlock,
+  BlogFooter,
+  UnorderedList,
+} from '../components';
 import { UserContextProvider } from '../context';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import * as gtag from '@juliosoto/lib/gtag';
 
 interface BlogAppProps {
@@ -17,12 +23,30 @@ interface BlogAppProps {
   pageProps: AppProps;
 }
 
-const Heading: React.FC = ({ children }) => (
-  <h1 style={{ fontWeight: 800 }}>{children}</h1>
-);
+const styles = {
+  heading: css`
+    margin: var(--gap-unit-s) 0;
+  `,
+};
+
+// eslint-disable-next-line react/display-name
+const Heading: (as: any) => React.FC = (as) => ({ children }) => {
+  const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+  const Heading = validHeadingLevels.includes(as) ? as : 'p';
+
+  return <Heading css={styles.heading}>{children}</Heading>;
+};
 
 const MDXComponents = {
-  h1: Heading,
+  h1: Heading('h1'),
+  h2: Heading('h2'),
+  h3: Heading('h3'),
+  h4: Heading('h4'),
+  h5: Heading('h5'),
+  h6: Heading('h6'),
+  img: Image,
+  ul: UnorderedList,
   pre: CodeBlock,
 };
 

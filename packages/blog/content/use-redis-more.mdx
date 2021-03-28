@@ -1,0 +1,56 @@
+export const meta = {
+  published: true,
+  publishedAt: '2021-03-27',
+  title: 'Use Redis more',
+  summary: 'Add Redis to your stack for blazingly fast writes and reads.',
+  tags: ['Redis', 'MongoDB', 'React'],
+};
+
+I love Redis but somehow it's never my first go to choice when storing data.
+Embracing Redis is a mindset change. We are used to think of storing data as a
+way of storing large amounts of data, but more times than often, you just need
+to store some plain json objects.
+
+In this post I'll show you how I halve the time of a query, changing from
+storing the data on a non-sql database, MongoDB to Redis.
+
+#### a quick unorthodox comparison
+
+Before jumping into the specifics and the whatnots behind it, let's do an old
+school comparison and just measure how long does it take for a bunch of requests
+to respond
+
+<ul>
+  <li>
+    <p>
+      10 requests to the mongoDB endpoint took some <b>7.3s</b> 👇🏻
+    </p>
+    <img
+      src="https://res.cloudinary.com/dkj0lviac/image/upload/v1616937850/ab-mongo.jpg"
+      layout="responsive"
+      width={923}
+      height={920}
+      alt="performance mongodb endpoint"
+    />
+  </li>
+  <li>
+    <p>
+      Whereas the same 10 requests to the redis endpoint took some <b>5.7s</b>{' '}
+      👇🏻
+    </p>
+    <img
+      src="https://res.cloudinary.com/dkj0lviac/image/upload/v1616937848/ab-redis.jpg"
+      layout="responsive"
+      width={856}
+      height={920}
+      alt="performance redis endpoint"
+    />
+  </li>
+</ul>
+
+That right there my friend, it's an average <b>difference of 160ms</b> per
+request.
+
+### wip
+
+...

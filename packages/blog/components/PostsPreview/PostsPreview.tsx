@@ -5,8 +5,7 @@ import { GoNext } from '@juliosoto/components/Icons';
 import { TPostPreview } from '@juliosoto/lib/types';
 import { Timestamp } from '@juliosoto/components';
 import { motion } from 'framer-motion';
-import { variants } from '@juliosoto/lib/styles';
-import Visits from '../Visits';
+import { getMQ, variants } from '@juliosoto/lib/styles';
 import dynamic from 'next/dynamic';
 
 const DynamicVisits = dynamic(() => import('../Visits'));
@@ -15,8 +14,41 @@ const styles = css`
   max-width: var(--content-width);
   margin: 0 auto var(--gap);
 
+  h4 {
+    font-weight: 800;
+    margin-bottom: var(--gap-unit-xs);
+  }
+
   button {
     font-weight: 600;
+  }
+
+  .teaser {
+    & > * {
+      margin-bottom: var(--gap-unit-xs);
+    }
+  }
+
+  ${getMQ('desktop')} {
+    .teaser {
+      display: flex;
+
+      justify-content: space-between;
+
+      &--text {
+        width: min(70ch, 100%);
+      }
+
+      &--details {
+        text-align: right;
+      }
+    }
+  }
+
+  article {
+    margin-bottom: var(--gap-unit);
+    padding-bottom: var(--gap-unit-s);
+    box-shadow: 0 8px 0 hsl(207deg 31% 85%);
   }
 `;
 
@@ -33,18 +65,23 @@ const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
       css={styles}
     >
       {postsPreviewData.map((post, idx) => (
-        <Link href={`/${post.slug}`} key={idx}>
-          <a>
-            <h4>{post.title}</h4>
-            <Timestamp>Published on {post.publishedAt}</Timestamp>
-            <DynamicVisits slug={post.slug} />
-            <br />
-            <p className="small">{post.summary}</p>
-            <button>
-              Read more <GoNext />
-            </button>
-          </a>
-        </Link>
+        <article key={`/${post.slug}-${idx}`}>
+          <Link href={`/${post.slug}`}>
+            <a>
+              <h4>{post.title}</h4>
+              <div className="teaser">
+                <p className="teaser--text small">{post.summary}</p>
+                <div className="teaser--details">
+                  <DynamicVisits slug={post.slug} />
+                  <Timestamp>{post.publishedAt}</Timestamp>
+                </div>
+              </div>
+              <button>
+                Read more <GoNext />
+              </button>
+            </a>
+          </Link>
+        </article>
       ))}
     </motion.section>
   );

@@ -19,4 +19,7 @@ module.exports = withPlugins([withMDX, withTM], {
     BUTTONDOWN_AUTH_TOKEN: process.env.BUTTONDOWN_AUTH_TOKEN,
     REDIS_URL: process.env.REDIS_URL,
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
 });
