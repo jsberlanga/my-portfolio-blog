@@ -29,8 +29,10 @@ const styles = {
   `,
 };
 
+type Headline = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 // eslint-disable-next-line react/display-name
-const Heading: (as: any) => React.FC = (as) => ({ children }) => {
+const Heading: (as: Headline) => React.FC = (as) => ({ children }) => {
   const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
   const Heading = validHeadingLevels.includes(as) ? as : 'p';
