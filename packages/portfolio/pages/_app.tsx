@@ -9,6 +9,45 @@ import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import PortfolioLayout from '../components/Layout';
 
+let queue = [] as any;
+setInterval(sendProfileQueue, 5000);
+function onRenderCallback(
+  id: string,
+  phase: any,
+  actualDuration: any,
+  baseDuration: any,
+  startTime: any,
+  commitTime: any,
+  interactions: any,
+) {
+  queue.push({
+    id,
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime,
+    interactions,
+  });
+}
+function sendProfileQueue() {
+  if (!queue.length) {
+    return Promise.resolve();
+  }
+  const queueToSend = [...queue];
+  queue = [];
+  // here's where we'd actually make the server call to send the queueToSend
+  // data to our backend...
+  console.info('sending profile queue', queueToSend);
+  return Promise.resolve();
+}
+
+const ProfiledPortfolioApp = (props: PortfolioAppProps) => (
+  <React.Profiler id="app" onRender={onRenderCallback}>
+    <PortfolioApp {...props} />
+  </React.Profiler>
+);
+
 interface PortfolioAppProps {
   Component: React.ComponentType<AppProps>;
   pageProps: AppProps;
@@ -64,4 +103,12 @@ export function reportWebVitals({
   });
 }
 
-export default PortfolioApp;
+let MyApp;
+
+if (process.env.NODE_ENV === 'development') {
+  MyApp = ProfiledPortfolioApp;
+} else {
+  MyApp = PortfolioApp;
+}
+
+export default MyApp;
