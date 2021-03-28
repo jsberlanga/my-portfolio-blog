@@ -5,8 +5,6 @@ import Head from 'next/head';
 import { getBlogPostsData } from '@juliosoto/lib/mdx';
 import { css } from '@emotion/react';
 import { TPostPreview } from '@juliosoto/lib/types';
-import { motion } from 'framer-motion';
-import { variants } from '@juliosoto/lib/styles';
 import { redisClient } from '@juliosoto/lib/redis';
 
 const styles = {
@@ -27,21 +25,9 @@ export default function Index({ recentPosts }: IndexProps) {
         <title>Julio Soto - Blog</title>
       </Head>
       <PageHeader
-        title={
-          <motion.span
-            variants={variants.fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            /blog
-          </motion.span>
-        }
+        title={<div>/blog</div>}
         description={
-          <motion.div
-            variants={variants.fadeIn}
-            initial="initial"
-            animate="animate"
-          >
+          <div>
             <span role="img" aria-label="hi">
               👋🏻
             </span>{' '}
@@ -49,9 +35,10 @@ export default function Index({ recentPosts }: IndexProps) {
             project is very much in an early stage, thus there isn&apos; tons of
             content in here yet. Eventually, there will be posts about my
             experiences and learnings working as a Software Developer.
-          </motion.div>
+          </div>
         }
         tags={['React', 'TypeScript', 'GraphQL', '...and so much more']}
+        withDelay={false}
       />
       <br />
       <div css={styles.postsPreview}>

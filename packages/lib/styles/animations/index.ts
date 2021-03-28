@@ -15,17 +15,17 @@ export const variants = {
       transition,
     },
   },
-  container: {
+  container: (withDelay = true) => ({
     initial: { opacity: 0 },
     animate: {
       opacity: 1,
       transition: {
         ...transition,
-        delayChildren: 0.75,
+        delayChildren: withDelay ? 0.75 : 0,
         staggerChildren: 0.045,
       },
     },
-  },
+  }),
   children: {
     scale: {
       initial: { opacity: 0, scale: 1.5 },

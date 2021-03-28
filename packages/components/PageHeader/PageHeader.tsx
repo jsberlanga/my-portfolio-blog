@@ -33,18 +33,20 @@ interface PageHeaderProps {
   title: JSX.Element;
   description?: JSX.Element | string;
   tags?: string[];
+  withDelay?: boolean;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   description,
   tags = [],
+  withDelay = true,
 }) => {
   return (
     <div css={styles.root}>
       <motion.h2
         className="title"
-        variants={variants.container}
+        variants={variants.container(withDelay)}
         initial="initial"
         animate="animate"
       >
@@ -52,7 +54,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       </motion.h2>
       {description ? (
         <motion.div
-          variants={variants.container}
+          variants={variants.container(withDelay)}
           initial="initial"
           animate="animate"
           className="description"
@@ -65,7 +67,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { ...transition, delay: 0.75 },
+            transition: { ...transition, delay: withDelay ? 0.75 : 0 },
           }}
         >
           <Tags tags={tags} isCentered />
