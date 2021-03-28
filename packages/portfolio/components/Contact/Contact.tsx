@@ -36,7 +36,7 @@ const styles = {
           transition: opacity 400ms;
           bottom: -40px;
           left: 0;
-          content: '+48 885 812 063';
+          content: '+48 517 020 870';
           color: var(--c-light);
           width: max-content;
           opacity: 0;
