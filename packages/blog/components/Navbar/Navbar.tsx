@@ -13,7 +13,7 @@ const BlogNavbar = () => {
             </Link>
           </li>
           <li>
-            <a href="https://portfolio.juliosoto.dev/">/portfolio</a>
+            <a href="https://juliosoto.dev/">/portfolio</a>
           </li>
         </React.Fragment>
       }
