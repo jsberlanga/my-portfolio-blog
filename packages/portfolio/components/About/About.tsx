@@ -86,7 +86,7 @@ const About: React.FC = () => {
         into IT as an IT Operations Analyst working for{' '}
         <HoverLinkImage
           to="https://www.hcltech.com/geo-presence/poland"
-          imageSrc="/images/about/hcl.png"
+          imageSrc="/images/about/hcl.jpg"
           reference="hcl"
         >
           HCL Poland
@@ -94,7 +94,7 @@ const About: React.FC = () => {
         and{' '}
         <HoverLinkImage
           to="http://kariera.sbdinc.pl/"
-          imageSrc="/images/about/sbd.png"
+          imageSrc="/images/about/sbd.jpg"
           reference="sbd"
         >
           Stanley Black and Decker Polska
@@ -103,7 +103,7 @@ const About: React.FC = () => {
         Cloud Engineer for{' '}
         <HoverLinkImage
           to="https://capgemini.com"
-          imageSrc="/images/about/capgemini.png"
+          imageSrc="/images/about/capgemini.jpg"
           reference="capgemini"
         >
           Capgemini Polska
@@ -120,7 +120,7 @@ const About: React.FC = () => {
         In September 2019,{' '}
         <HoverLinkImage
           to="https://www.schibsted.pl/"
-          imageSrc="/images/about/schibsted.png"
+          imageSrc="/images/about/schibsted.jpg"
           reference="schibsted"
         >
           Schibsted Tech Polska
