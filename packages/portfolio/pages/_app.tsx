@@ -2,7 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { AppProps, NextWebVitalsMetric } from 'next/app';
 import { Global } from '@emotion/react';
-import { globalStyles } from '@juliosoto/lib/styles';
+import { globalStyles, noisyBackground } from '@juliosoto/lib/styles';
 import { ThemeContextProvider } from '@juliosoto/lib/context';
 import * as gtag from '@juliosoto/lib/gtag';
 import { useRouter } from 'next/router';
@@ -35,7 +35,7 @@ const PortfolioApp: React.FC<PortfolioAppProps> = ({
       <Head>
         <title>Julio Soto - Portfolio</title>
       </Head>
-      <Global styles={globalStyles} />
+      <Global styles={[globalStyles, noisyBackground]} />
       <ThemeContextProvider>
         <AnimatePresence exitBeforeEnter>
           <PortfolioLayout>

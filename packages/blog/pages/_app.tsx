@@ -44,7 +44,7 @@ const BlogApp: React.FC<BlogAppProps> = ({ Component, pageProps }) => {
       <Head>
         <title>Julio Soto - Blog</title>
       </Head>
-      <Global styles={`${globalStyles} :root{ --post-width: 650px; }`} />
+      <Global styles={`${globalStyles} :root{ --post-width: 650px;  }`} />
       <ThemeContextProvider>
         <UserContextProvider>
           <MDXProvider components={MDXComponents}>

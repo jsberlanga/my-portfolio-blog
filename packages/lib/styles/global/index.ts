@@ -1,34 +1,18 @@
 import { cssVariables } from './cssVariables';
 import { resets } from './resets';
 import { typeScale } from './typescale';
+import { utilityClasses } from './utilityClasses';
 
 export const globalStyles = `
   ${typeScale};
   ${cssVariables};
   ${resets};
+  ${utilityClasses};
 
-  
   body {
     color: var(--c-text);
     background-color: var(--c-background);
-  
-    &::after {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: "";
-      background-image: url(/images/common/noise.webp);
-      opacity: 0.04;
-      z-index: 999;
-      pointer-events: none;
-    }
-  }
-
-  .imageWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
   }
 `;
+
+export { noisyBackground } from './noisyBackground';
