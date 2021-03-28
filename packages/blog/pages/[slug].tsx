@@ -35,6 +35,8 @@ interface PostProps {
   visits: number;
 }
 
+const DynamicVisits = dynamic(() => import('../components/Visits'));
+
 export default function Post({ postMeta, visits }: PostProps) {
   React.useEffect(() => {
     const handleVisit = async () => {
@@ -84,7 +86,7 @@ export default function Post({ postMeta, visits }: PostProps) {
         <div css={styles.post}>
           <MDXPost />
           <br />
-          <div className="small">{visits} views</div>
+          <DynamicVisits slug={postMeta.slug} />
           <Timestamp>Published on {postMeta.publishedAt}</Timestamp>
           <hr />
           <br />

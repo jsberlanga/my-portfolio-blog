@@ -6,6 +6,10 @@ import { TPostPreview } from '@juliosoto/lib/types';
 import { Timestamp } from '@juliosoto/components';
 import { motion } from 'framer-motion';
 import { variants } from '@juliosoto/lib/styles';
+import Visits from '../Visits';
+import dynamic from 'next/dynamic';
+
+const DynamicVisits = dynamic(() => import('../Visits'));
 
 const styles = css`
   max-width: var(--content-width);
@@ -33,7 +37,7 @@ const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
           <a>
             <h4>{post.title}</h4>
             <Timestamp>Published on {post.publishedAt}</Timestamp>
-            <div className="small">{post.visits} visits</div>
+            <DynamicVisits slug={post.slug} />
             <br />
             <p className="small">{post.summary}</p>
             <button>

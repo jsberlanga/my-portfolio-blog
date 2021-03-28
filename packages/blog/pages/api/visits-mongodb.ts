@@ -2,16 +2,18 @@ import { NextApiResponse } from 'next';
 import nc from 'next-connect';
 import middleware from '@juliosoto/lib/middleware';
 import { TRequest } from '../../types';
-import { redisClient } from '@juliosoto/lib/redis';
 
 const handler = nc<TRequest, NextApiResponse>({});
 
 handler.use(middleware);
 
 handler.get(async (req, res) => {
+  const db = req.db;
   const { slug } = req.query;
 
-  const visits = await redisClient.hget('visits', slug.toString());
+  const result = await db.collection('posts').findOne({ slug });
+
+  const { visits } = result;
 
   return res.json({ post: { slug, visits } });
 });
