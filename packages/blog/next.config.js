@@ -17,5 +17,6 @@ module.exports = withPlugins([withMDX, withTM], {
     MONGODB_DB: process.env.MONGODB_DB,
     MONGODB_URI: process.env.MONGODB_URI,
     BUTTONDOWN_AUTH_TOKEN: process.env.BUTTONDOWN_AUTH_TOKEN,
+    REDIS_URL: process.env.REDIS_URL,
   },
 });

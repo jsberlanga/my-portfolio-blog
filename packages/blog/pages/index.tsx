@@ -7,6 +7,7 @@ import { css } from '@emotion/react';
 import { TPostPreview } from '@juliosoto/lib/types';
 import { motion } from 'framer-motion';
 import { variants } from '@juliosoto/lib/styles';
+import { redisClient } from '@juliosoto/lib/redis';
 
 const styles = {
   postsPreview: css`
@@ -16,7 +17,7 @@ const styles = {
 };
 
 interface IndexProps {
-  recentPosts: TPostPreview[];
+  recentPosts: Array<TPostPreview & { visits: number }>;
 }
 
 export default function Index({ recentPosts }: IndexProps) {
@@ -62,12 +63,25 @@ export default function Index({ recentPosts }: IndexProps) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const postsData = getBlogPostsData();
 
   const recentPosts = postsData.slice(0, 2);
 
+  const visits = await redisClient.hgetall('visits');
+
+  const enhancedRecentPosts = recentPosts.map((post) => {
+    if (visits[post.slug]) {
+      return {
+        ...post,
+        visits: visits[post.slug],
+      };
+    }
+
+    return post;
+  });
+
   return {
-    props: { recentPosts },
+    props: { recentPosts: enhancedRecentPosts },
   };
 };

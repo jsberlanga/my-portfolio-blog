@@ -32,6 +32,12 @@ exports[`PostsPreview renders correctly 1`] = `
         Published on 
         2020-01-01
       </time>
+      <div
+        class="small"
+      >
+        10
+         visits
+      </div>
       <br />
       <p
         class="small"

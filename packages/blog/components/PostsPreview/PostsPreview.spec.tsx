@@ -12,6 +12,7 @@ const mockPostsData = [
     summary: 'summary_test',
     slug: 'test',
     publishedAt: '2020-01-01',
+    visits: 10,
   },
 ];
 

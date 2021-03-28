@@ -4,11 +4,8 @@ import { css } from '@emotion/react';
 import { GoNext } from '@juliosoto/components/Icons';
 import { TPostPreview } from '@juliosoto/lib/types';
 import { Timestamp } from '@juliosoto/components';
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { variants } from '@juliosoto/lib/styles';
-
-const DynamicVisits = dynamic(() => import('../Visits'));
 
 const styles = css`
   max-width: var(--content-width);
@@ -20,7 +17,7 @@ const styles = css`
 `;
 
 interface PostPreviewProps {
-  postsPreviewData: TPostPreview[];
+  postsPreviewData: Array<TPostPreview & { visits: number }>;
 }
 
 const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
@@ -36,7 +33,7 @@ const PostsPreview: React.FC<PostPreviewProps> = ({ postsPreviewData }) => {
           <a>
             <h4>{post.title}</h4>
             <Timestamp>Published on {post.publishedAt}</Timestamp>
-            <DynamicVisits slug={post.slug} />
+            <div className="small">{post.visits} visits</div>
             <br />
             <p className="small">{post.summary}</p>
             <button>

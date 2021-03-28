@@ -6,7 +6,7 @@ import { PostsPreview } from '../components';
 import { TPostPreview } from '@juliosoto/lib/types';
 
 interface PostsProps {
-  postsPreviewData: TPostPreview[];
+  postsPreviewData: Array<TPostPreview & { visits: number }>;
 }
 
 export default function Posts({ postsPreviewData }: PostsProps) {

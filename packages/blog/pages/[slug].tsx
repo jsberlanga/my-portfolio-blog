@@ -11,11 +11,7 @@ import {
 } from '@juliosoto/components';
 import * as React from 'react';
 import Head from 'next/head';
-import { getPostBySlug } from '@juliosoto/lib/mongodb';
-import { TDbPost } from '@juliosoto/lib/types';
-// import DynamicVisits from '../components/Visits';
-
-const DynamicVisits = dynamic(() => import('../components/Visits'));
+import { redisClient } from '@juliosoto/lib/redis';
 
 const styles = {
   root: css`
@@ -36,10 +32,10 @@ interface PostProps {
     summary: string;
     tags: string[];
   } | null;
-  dbPost: TDbPost;
+  visits: number;
 }
 
-export default function Post({ postMeta, dbPost }: PostProps) {
+export default function Post({ postMeta, visits }: PostProps) {
   React.useEffect(() => {
     const handleVisit = async () => {
       try {
@@ -88,7 +84,7 @@ export default function Post({ postMeta, dbPost }: PostProps) {
         <div css={styles.post}>
           <MDXPost />
           <br />
-          <DynamicVisits slug={postMeta.slug} />
+          <div className="small">{visits} views</div>
           <Timestamp>Published on {postMeta.publishedAt}</Timestamp>
           <hr />
           <br />
@@ -107,13 +103,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postMeta =
     postsData?.find((postData) => postData.slug === params.slug) ?? null;
 
-  const dbPostData = await getPostBySlug({ slug: params.slug?.toString() });
+  let visits = (await redisClient.hget('visits', params.slug?.toString())) || 0;
 
-  if (postMeta && dbPostData && postMeta.slug === dbPostData.slug) {
+  if (!visits) {
+    await redisClient.hset('visits', params.slug?.toString(), 1);
+    visits = 1;
+  } else {
+    await redisClient.hincrby('visits', params.slug?.toString(), 1);
+    visits = Number(visits) + 1;
+  }
+
+  if (postMeta && visits) {
     return {
       props: {
         postMeta,
-        dbPost: { slug: dbPostData.slug, visits: dbPostData.visits },
+        visits,
       },
     };
   }
