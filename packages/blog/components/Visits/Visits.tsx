@@ -5,7 +5,7 @@ interface VisitsProps {
 }
 
 const Visits: React.FC<VisitsProps> = ({ slug }) => {
-  const [visits, setVisits] = React.useState();
+  const [visits, setVisits] = React.useState(0);
 
   React.useEffect(() => {
     const getVisits = async () => {
@@ -25,7 +25,14 @@ const Visits: React.FC<VisitsProps> = ({ slug }) => {
     getVisits();
   }, [slug]);
 
-  return visits ? <div className="small">{visits} views</div> : <div />;
+  return (
+    <div
+      className="small"
+      style={{ visibility: !visits ? 'hidden' : 'visible' }}
+    >
+      {visits} views
+    </div>
+  );
 };
 
 export default Visits;
