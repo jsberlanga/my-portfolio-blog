@@ -60,7 +60,7 @@ const styles = {
       }
     }
 
-    input[type='submit'] {
+    button[type='submit'] {
       margin: 0px;
       width: auto;
       line-height: 35px;
@@ -179,11 +179,9 @@ const Newsletter = () => {
           value={formState.email}
         />
         <input type="hidden" value="1" name="embed" />
-        <input
-          type="submit"
-          value={`${formState.inprogress ? 'Submitting...' : 'Subscribe'}`}
-          disabled={formState.inprogress}
-        />
+        <button type="submit" disabled={formState.inprogress}>
+          {formState.inprogress ? 'Submitting...' : 'Subscribe'}
+        </button>
         <div css={styles.infoMessage} className="xsmall">
           {formState.error ? 'There was an error, please try again' : null}
           {formState.success ? 'Thanks for signing up!' : null}
