@@ -37,7 +37,7 @@ interface PostProps {
 
 const DynamicVisits = dynamic(() => import('../components/Visits'));
 
-export default function Post({ postMeta, visits }: PostProps) {
+export default function Post({ postMeta }: PostProps) {
   React.useEffect(() => {
     const handleVisit = async () => {
       try {
@@ -105,26 +105,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postMeta =
     postsData?.find((postData) => postData.slug === params.slug) ?? null;
 
-  let visits = (await redisClient.hget('visits', params.slug?.toString())) || 0;
+  const visits = await redisClient.hget('visits', params.slug?.toString());
 
   if (!visits) {
     await redisClient.hset('visits', params.slug?.toString(), 1);
-    visits = 1;
-  } else {
-    await redisClient.hincrby('visits', params.slug?.toString(), 1);
-    visits = Number(visits) + 1;
   }
 
-  if (postMeta && visits) {
-    return {
-      props: {
-        postMeta,
-        visits,
-      },
-    };
-  }
-
-  return { props: { postMeta, dbPost: null } };
+  return { props: { postMeta } };
 };
 
 export async function getStaticPaths() {

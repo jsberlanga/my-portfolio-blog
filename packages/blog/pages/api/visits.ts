@@ -17,19 +17,11 @@ handler.get(async (req, res) => {
 });
 
 handler.put(async (req, res) => {
-  const db = req.db;
   const { slug } = req.body;
 
-  const result = await db.collection('posts').findOneAndUpdate(
-    { slug },
-    {
-      $inc: {
-        visits: 1,
-      },
-    },
-  );
+  const result = await redisClient.hincrby('visits', slug?.toString(), 1);
 
-  return res.json({ result: { ok: !!result.ok } });
+  return res.json({ result: { ok: !!result } });
 });
 
 export default handler;

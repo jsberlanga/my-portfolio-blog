@@ -55,20 +55,7 @@ export const getServerSideProps = async () => {
 
   const recentPosts = postsData.slice(0, 2);
 
-  const visits = await redisClient.hgetall('visits');
-
-  const enhancedRecentPosts = recentPosts.map((post) => {
-    if (visits[post.slug]) {
-      return {
-        ...post,
-        visits: visits[post.slug],
-      };
-    }
-
-    return post;
-  });
-
   return {
-    props: { recentPosts: enhancedRecentPosts },
+    props: { recentPosts },
   };
 };
