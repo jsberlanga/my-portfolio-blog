@@ -33,6 +33,10 @@
     "lint": "eslint '**/*.{js,jsx,ts,tsx,mdx}'",
     "lint:mdx": "eslint '**/*.mdx'",
     "lint:fix": "eslint '**/*.{ts,tsx}' --fix",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "portfolio": "yarn workspace @juliosoto/portfolio",
+    "portfolio:dev": "yarn portfolio dev",
+    "blog": "yarn workspace @juliosoto/blog",
+    "portfolio:blog": "yarn blog dev"
   }
 }
